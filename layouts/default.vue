@@ -13,7 +13,7 @@
 
           <v-col class="d-flex justify-end">
             <div
-              class="flex justify-center capitalize font-medium text-lg items-center"
+              class="flex justify-end capitalize font-medium text-lg items-center hidden-sm-and-down"
             >
               <a
                 href="/"
@@ -23,8 +23,12 @@
                 v-text="menu"
               ></a>
             </div>
-            <v-btn icon @click.stop="openMenu = !openMenu">
-              <v-icon>mdi-menu</v-icon>
+            <v-btn
+              class="hidden-md-and-up"
+              icon
+              @click.stop="openMenu = !openMenu"
+            >
+              <v-icon v-text="'mdi-menu'"></v-icon>
             </v-btn>
           </v-col>
         </v-row>
