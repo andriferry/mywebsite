@@ -1,10 +1,28 @@
 <template>
-  <v-app dark>
+  <v-app>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-container class="flex">
         <v-row>
-          <v-col align-self="center"><v-toolbar-title v-text="title"/></v-col>
+          <v-col align-self="center">
+            <NuxtLink
+              to="/"
+              v-text="'andri ferry'"
+              class="capitalize text-2xl primaryColor--text font-bold"
+            ></NuxtLink>
+          </v-col>
+
           <v-col class="d-flex justify-end">
+            <div
+              class="flex justify-center capitalize font-medium text-lg items-center"
+            >
+              <a
+                href="/"
+                class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
+                v-for="(menu, index) of menuList"
+                :key="index"
+                v-text="menu"
+              ></a>
+            </div>
             <v-btn icon @click.stop="openMenu = !openMenu">
               <v-icon>mdi-menu</v-icon>
             </v-btn>
@@ -45,6 +63,7 @@
 export default {
   data() {
     return {
+      menuList: ["about me", "work", "features", "contact me"],
       clipped: false,
       drawer: false,
       fixed: false,
@@ -56,3 +75,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.v-application a {
+  color: #444;
+}
+</style>

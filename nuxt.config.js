@@ -30,6 +30,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/tailwindcss' 
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -54,7 +56,7 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,
@@ -64,7 +66,22 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3
-        }
+        },
+        light: {
+                primaryColor: "#444",
+                instagramColor: "#fd1d1d",
+                secondaryColor: "#00BFA5",
+                greenColor100: "#def7ec",
+                greenColor200: "#34D399",
+                greenColor250: "#A7F3D0",
+                grayColor100: "#f4f5f7",
+                grayColor200: "#E5E7EB",
+                grayColor300: "#e8e1df",
+                redColor100: "#FEE2E2",
+                blueColor100: "#BFDBFE",
+                yellowColor100: "#fcf3cf",
+                purpleColor100: "#e8daef"
+            },
       }
     }
   },
