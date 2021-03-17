@@ -38,9 +38,8 @@
     </v-app-bar>
     <v-main>
       <!-- Main area -->
-      <v-container>
-        <nuxt />
-      </v-container>
+
+      <nuxt />
 
       <!-- Main area -->
     </v-main>
