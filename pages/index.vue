@@ -3,6 +3,7 @@
     <Intro />
     <Aboutme />
     <Portfolio />
+    <Action />
   </div>
 </template>
 

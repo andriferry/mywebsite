@@ -1,9 +1,9 @@
 <template>
-  <div class="w-full min-h-screen p-4">
+  <div class="w-full h-auto p-4">
     <div class="sm:p-16 flex flex-col justify-center xl:p-20">
       <div class="container sm:flex-row flex flex-col xl:p-12">
         <div class="w-full p-2 flex items-center">
-          <h1
+          <h1 
             class="capitalize mb-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
           >
             latest my project <br />
@@ -16,7 +16,7 @@
         >
           <NuxtLink
             to="/"
-            class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out hover:bg-primaryColor text-primaryColor border-primaryColor font-bold border-2 hover:text-white w-auto flex items-center"
+            class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out hover:bg-primaryColor text-primaryColor hover:text-white border-primaryColor font-bold border-2 hover:white--text w-auto flex items-center"
           >
             All project
             <span class="flex justify-center" v-html="arrowIcon"></span>

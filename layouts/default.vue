@@ -43,6 +43,8 @@
 
       <!-- Main area -->
     </v-main>
+
+    <!-- Navigation drawer -->
     <v-navigation-drawer v-model="openMenu" :right="right" temporary fixed>
       <v-list>
         <v-list-item>
@@ -55,10 +57,9 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
+    <!-- Navigation drawer -->
 
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 
