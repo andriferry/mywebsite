@@ -27,7 +27,7 @@ module.exports = {
         "mdHeader" : "5rem"
       },
       spacing: {
-        bigVh: "85vh",
+        bigVh: "90vh",
         smVh: "95vh",
         lgVh: "50vh",
         mobileSize: "65vh",

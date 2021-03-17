@@ -1,7 +1,9 @@
 <template>
-  <div class="w-full h-auto md:h-auto flex justify-center">
+  <div
+    class="w-full sm:h-smVh md:h-bigVh xl:h-bigVh lg:h-bigVh flex justify-center"
+  >
     <div
-      class="container p-5 h-mobileSize bg-red-500 sm:h-smVh md:h-mobileSize xl:h-bigVh lg:h-lgVh w-full flex justify-center"
+      class="container p-5 h-mobileSize sm:h-smVh md:h-bigVh xl:h-bigVh lg:h-bigVh w-full flex justify-center"
     >
       <div class="flex flex-col my-auto items-center">
         <h1
