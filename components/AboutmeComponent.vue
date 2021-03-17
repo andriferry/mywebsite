@@ -19,7 +19,7 @@
           API Development (Laravel), As a web developer I want to make sure that
           every project I build has a amazing user experience, starting from
           determining responsive design...
-          <NuxtLink to="/" class="secondaryColor--text underline italic"
+          <NuxtLink to="/Aboutme" class="secondaryColor--text underline italic"
             >Read More</NuxtLink
           >
         </p>

@@ -1,8 +1,8 @@
 <template>
   <div class="w-full flex flex-col justify-center">
     <Intro />
-    <Aboutme />
-    <Portfolio />
+    <AboutmeComponent />
+    <PortfolioComponent />
     <Action />
   </div>
 </template>
