@@ -12,7 +12,7 @@
           i'm a freelance
         </h1>
         <h1
-          class="text-3xl sm:text-6xl md:text-mdHeader lg:text-header font-black text-secondaryColor uppercase"
+          class="text-3xl sm:text-6xl md:text-mdHeader lg:tracking-widest tracking-widest md:tracking-wide lg:text-header font-black text-secondaryColor uppercase"
         >
           web developer
         </h1>
