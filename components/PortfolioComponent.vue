@@ -15,7 +15,7 @@
           class="w-52 sm:w-96 lg:w-72 p-2 flex justify-start justify-sm-end sm:p-6 items-center"
         >
           <NuxtLink
-            to="/"
+            to="/portfolio"
             class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out hover:bg-primaryColor text-primaryColor hover:text-white border-primaryColor font-bold border-2 hover:white--text w-auto flex items-center"
           >
             All project

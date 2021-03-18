@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero>
-      <template v-slot:textComponent>
+      <template #textComponent>
         about me
       </template>
     </Hero>
