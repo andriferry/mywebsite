@@ -44,7 +44,8 @@
           every project I build has a amazing user experience, starting from
           determining responsive design (Mobile, Tablet, and large screens),
           Using design Modern UI I preferably work with Vuetifyjs (Vuejs
-          Component), sometime use Tailwindcss ,  and clean code . You can check it my prortfolio in this
+          Component), sometime use Tailwindcss , and clean code . You can check
+          it my prortfolio in this
           <NuxtLink to="/" class="secondaryColor--text hover:underline">
             here</NuxtLink
           >
@@ -78,7 +79,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: "description hid",
+          name: "description name",
+          content: "Home page description"
+        }
+      ]
+    };
+  },
+  data() {
+    return {
+      title: "About Me"
+    };
+  }
+};
 </script>
 
 <style></style>

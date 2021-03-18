@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero>
-      <template #textComponent>
+      <template class="text-center" #textComponent>
         awesome work
       </template>
     </Hero>
@@ -11,7 +11,7 @@
         <h1
           class="font-bold sm:text-4xl text-3xl text-primaryColor capitalize md:p-4 flex justify-center my-5 lg:my-10 lg:text-5xl"
         >
-          latest creative <span class="secondaryColor--text">work</span>
+          latest creative <span class="secondaryColor--text ml-1"> work</span>
         </h1>
 
         <div class="catalog">
@@ -43,7 +43,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        {
+          hid: "description hid",
+          name: "description name",
+          content: "Home page description"
+        }
+      ]
+    };
+  },
+  data() {
+    return {
+      title: "Portfolio"
+    };
+  }
+};
 </script>
 
 <style></style>
