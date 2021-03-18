@@ -39,12 +39,15 @@
         </p>
 
         <p class="text-base sm:text-justify font-normal text-gray-500">
-          I am a specialist in laravel developer, vuejs and API Development
-          (Laravel), As a web developer I want to make sure that every project I
-          build has a amazing user experience, starting from determining
-          responsive design (Mobile, Tablet, and large screens), And Using
-          design Modern UI I preferably work with Vuetifyjs (Vuejs Component)
-          and Tailwindcss (Css Framework) .
+          I am a specialist in vuejs developer and i prefer using nuxtjs, and
+          API Development (Laravel), As a web developer I want to make sure that
+          every project I build has a amazing user experience, starting from
+          determining responsive design (Mobile, Tablet, and large screens),
+          Using design Modern UI I preferably work with Vuetifyjs (Vuejs
+          Component), sometime use Tailwindcss ,  and clean code . You can check it my prortfolio in this
+          <NuxtLink to="/" class="secondaryColor--text hover:underline">
+            here</NuxtLink
+          >
         </p>
 
         <p class="text-base font-normal text-gray-500">

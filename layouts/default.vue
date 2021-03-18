@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" fixed app>
+    <v-app-bar :clipped-left="clipped" fixed color="white" flat app>
       <v-container class="flex">
         <v-row>
           <v-col align-self="center">
