@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero>
-      <template class="text-center" #textComponent>
+      <template #textComponent>
         awesome work
       </template>
     </Hero>

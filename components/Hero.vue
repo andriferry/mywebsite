@@ -1,13 +1,13 @@
 <template>
   <div
-    class="w-full sm:h-smVh md:h-bigVh xl:h-bigVh lg:h-bigVh flex justify-center"
+    class="w-full hero sm:h-smVh md:h-bigVh xl:h-bigVh lg:h-bigVh flex justify-center"
   >
     <div
       class="container p-5 h-mobileSize sm:h-smVh md:h-bigVh xl:h-bigVh lg:h-bigVh w-full flex justify-center"
     >
       <div class="flex flex-col my-auto items-center">
         <h1
-          class="text-5xl my-10 xl:text-9xl sm:text-7xl lg:text-8xl font-bold capitalize p-4 text-primaryColor"
+          class="text-5xl text-center my-10 xl:text-9xl sm:text-7xl lg:text-8xl font-bold capitalize p-4 text-primaryColor"
         >
           <slot name="textComponent" />
         </h1>
