@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar :clipped-left="clipped" fixed color="white" flat app>
+    <v-app-bar fixed color="white" flat app>
       <v-container class="flex">
         <v-row>
           <v-col align-self="center">
@@ -15,13 +15,14 @@
             <div
               class="flex justify-end capitalize font-medium text-lg items-center hidden-sm-and-down"
             >
-              <NuxtLink
+              <a
                 class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
                 v-for="(menu, index) of menuList"
                 :to="getIndexRoute ? '#' : menu.link"
                 :key="index"
+                @click="getIndexRoute ? addData() : pushRoute(menu.link)"
                 v-text="menu.text"
-              ></NuxtLink>
+              ></a>
             </div>
             <v-btn
               class="hidden-md-and-up"
@@ -78,10 +79,7 @@ export default {
         { text: "about me", link: "aboutme" },
         { text: "portfolio", link: "portfolio" }
       ],
-      clipped: false,
-      drawer: false,
       fixed: false,
-      miniVariant: false,
       right: true,
       openMenu: false,
       title: "Andri ferry"
@@ -90,6 +88,21 @@ export default {
   computed: {
     getIndexRoute() {
       return this.$route.name === "index";
+    },
+    changeEvent() {
+      return this.$route.name === "index" ? "addData()" : "pushRoute()";
+    }
+  },
+  methods: {
+    addData() {
+      //this.$router.push("/aboutme");
+
+      console.log("in click");
+    },
+
+    pushRoute(link) {
+      this.$router.push(link);
+      console.log("Push route");
     }
   }
 };
