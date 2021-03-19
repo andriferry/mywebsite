@@ -1,5 +1,6 @@
 <template>
   <div
+    id="aboutme"
     class="w-full my-3 p-5 sm:p-16 flex xl:p-32 bg-secondaryColor justify-center"
   >
     <div

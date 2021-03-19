@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto p-4 mb-10">
+  <div class="w-full h-auto p-4 mb-10" id="action">
     <div class="cardAction w-full sm:p-16">
       <div class="container p-4 flex flex-col sm:flex-row">
         <div class="action flex flex-col font-bold mb-2 mb-sm-0 text-2xl sm:text-3xl">

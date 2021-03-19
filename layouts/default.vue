@@ -18,9 +18,12 @@
               <a
                 class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
                 v-for="(menu, index) of menuList"
-                :to="getIndexRoute ? '#' : menu.link"
                 :key="index"
-                @click="getIndexRoute ? addData() : pushRoute(menu.link)"
+                @click="
+                  getIndexRoute
+                    ? clickScroll(menu.target)
+                    : pushRoute(menu.link)
+                "
                 v-text="menu.text"
               ></a>
             </div>
@@ -39,25 +42,31 @@
     </v-app-bar>
     <v-main>
       <!-- Main area -->
-
       <nuxt />
 
       <!-- Main area -->
     </v-main>
 
     <!-- Navigation drawer -->
-    <v-navigation-drawer v-model="openMenu" :right="right" temporary fixed>
+    <v-navigation-drawer
+      v-model="openMenu"
+      :right="right"
+      temporary
+      fixed
+    >
       <v-list dense>
-        <v-list-item-group color="primary">
+        <v-list-item-group color="primary" v-model="group">
           <v-list-item
-            v-for="(item, i) in menuList"
+            v-for="(menu, i) in menuList"
             :key="i"
-            :to="getIndexRoute ? '#' : item.link"
+            @click="
+              getIndexRoute ? clickScroll(menu.target) : pushRoute(menu.link)
+            "
           >
             <v-list-item-content>
               <v-list-item-title
                 class="capitalize"
-                v-text="item.text"
+                v-text="menu.text"
               ></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -74,10 +83,10 @@
 export default {
   data() {
     return {
-      itemsmenu: ["about me", "portfolio", "contact me"],
+      group: null,
       menuList: [
-        { text: "about me", link: "aboutme" },
-        { text: "portfolio", link: "portfolio" }
+        { text: "about me", link: "aboutme", target: "#aboutme" },
+        { text: "portfolio", link: "portfolio", target: "#portfolio" }
       ],
       fixed: false,
       right: true,
@@ -94,15 +103,13 @@ export default {
     }
   },
   methods: {
-    addData() {
-      //this.$router.push("/aboutme");
-
-      console.log("in click");
-    },
-
     pushRoute(link) {
       this.$router.push(link);
-      console.log("Push route");
+    }
+  },
+  watch: {
+    group() {
+      this.openMenu = false;
     }
   }
 };

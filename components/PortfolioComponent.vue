@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto p-4">
+  <div class="w-full h-auto p-4" id="portfolio">
     <div class="sm:p-16 flex flex-col justify-center xl:p-20">
       <div class="container sm:flex-row flex flex-col xl:p-12">
         <div class="w-full p-2 flex items-center">
