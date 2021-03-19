@@ -15,13 +15,13 @@
             <div
               class="flex justify-end capitalize font-medium text-lg items-center hidden-sm-and-down"
             >
-              <a
-                href="/"
+              <NuxtLink
                 class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
                 v-for="(menu, index) of menuList"
+                :to="getIndexRoute ? '#' : menu.link"
                 :key="index"
-                v-text="menu"
-              ></a>
+                v-text="menu.text"
+              ></NuxtLink>
             </div>
             <v-btn
               class="hidden-md-and-up"
@@ -32,6 +32,8 @@
             </v-btn>
           </v-col>
         </v-row>
+
+        <!-- :to="{ getIndexRoute ? '#' : menu.link }" -->
 
         <!-- <v-spacer /> -->
       </v-container>
@@ -69,11 +71,10 @@
 export default {
   data() {
     return {
-      menuList: ["about me", "portfolio", "contact me"],
-      items: [
-        { text: "Real-Time", icon: "mdi-clock" },
-        { text: "Audience", icon: "mdi-account" },
-        { text: "Conversions", icon: "mdi-flag" }
+      itemsmenu: ["about me", "portfolio", "contact me"],
+      menuList: [
+        { text: "about me", link: "aboutme" },
+        { text: "portfolio", link: "portfolio" }
       ],
       clipped: false,
       drawer: false,
@@ -83,6 +84,11 @@ export default {
       openMenu: false,
       title: "Andri ferry"
     };
+  },
+  computed: {
+    getIndexRoute() {
+      return this.$route.name === "index";
+    }
   }
 };
 </script>
