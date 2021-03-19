@@ -33,8 +33,6 @@
           </v-col>
         </v-row>
 
-        <!-- :to="{ getIndexRoute ? '#' : menu.link }" -->
-
         <!-- <v-spacer /> -->
       </v-container>
     </v-app-bar>
@@ -50,11 +48,15 @@
     <v-navigation-drawer v-model="openMenu" :right="right" temporary fixed>
       <v-list dense>
         <v-list-item-group color="primary">
-          <v-list-item v-for="(item, i) in menuList" :key="i" href="/portfolio">
+          <v-list-item
+            v-for="(item, i) in menuList"
+            :key="i"
+            :to="getIndexRoute ? '#' : item.link"
+          >
             <v-list-item-content>
               <v-list-item-title
                 class="capitalize"
-                v-text="item"
+                v-text="item.text"
               ></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
