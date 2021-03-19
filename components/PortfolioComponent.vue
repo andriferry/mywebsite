@@ -3,7 +3,7 @@
     <div class="sm:p-16 flex flex-col justify-center xl:p-20">
       <div class="container sm:flex-row flex flex-col xl:p-12">
         <div class="w-full p-2 flex items-center">
-          <h1 
+          <h1
             class="capitalize mb-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
           >
             latest my project <br />
@@ -26,7 +26,7 @@
 
       <div class="container py-4 my-4 sm:flex-row flex flex-col xl:p-12">
         <NuxtLink
-          to="/"
+          to="/portfolio/Moviebooking"
           class="mx-2 md:mx-1"
           v-for="(data, index) in dataImage"
           :key="index"

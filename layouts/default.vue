@@ -46,15 +46,17 @@
 
     <!-- Navigation drawer -->
     <v-navigation-drawer v-model="openMenu" :right="right" temporary fixed>
-      <v-list>
-        <v-list-item>
-          <v-list-item-action>
-            <v-icon light>
-              mdi-repeat
-            </v-icon>
-          </v-list-item-action>
-          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
-        </v-list-item>
+      <v-list dense>
+        <v-list-item-group color="primary">
+          <v-list-item v-for="(item, i) in menuList" :key="i" href="/portfolio">
+            <v-list-item-content>
+              <v-list-item-title
+                class="capitalize"
+                v-text="item"
+              ></v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
     <!-- Navigation drawer -->
@@ -67,7 +69,12 @@
 export default {
   data() {
     return {
-      menuList: ["about me", "work", "features", "contact me"],
+      menuList: ["about me", "portfolio", "contact me"],
+      items: [
+        { text: "Real-Time", icon: "mdi-clock" },
+        { text: "Audience", icon: "mdi-account" },
+        { text: "Conversions", icon: "mdi-flag" }
+      ],
       clipped: false,
       drawer: false,
       fixed: false,
