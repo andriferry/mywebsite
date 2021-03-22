@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <v-app>
+    <!-- navbar -->
     <ClothingcomponentNavbar />
-
-    <ClothingcomponentFooter />
-  </div>
+    <!-- navbar -->
+  </v-app>
 </template>
 
 <script>
@@ -11,12 +11,42 @@ export default {
   layout(context) {
     return "secondLayout";
   },
-  head() {
+  data() {
     return {
-      title: "Clothing"
+      group: null,
+      menuList: [
+        { text: "about me", link: "aboutme", target: "#aboutme" },
+        { text: "portfolio", link: "portfolio", target: "#portfolio" }
+      ],
+      fixed: false,
+      right: true,
+      openMenu: false,
+      title: "Andri ferry"
     };
+  },
+  computed: {
+    getIndexRoute() {
+      return this.$route.name === "index";
+    },
+    changeEvent() {
+      return this.$route.name === "index" ? "addData()" : "pushRoute()";
+    }
+  },
+  methods: {
+    pushRoute(link) {
+      this.$router.push(link);
+    }
+  },
+  watch: {
+    group() {
+      this.openMenu = false;
+    }
   }
 };
 </script>
 
-<style></style>
+<style>
+.v-application a {
+  color: #444;
+}
+</style>
