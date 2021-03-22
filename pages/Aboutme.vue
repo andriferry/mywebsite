@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Hero>
+    <Hero :target="'#aboutmePages'">
       <template #textComponent>
         about me
       </template>
     </Hero>
 
-    <div class="intro flex justify-center p-10">
+    <div class="intro flex justify-center p-10" id="aboutmePages">
       <h1 class="font-bold text-3xl text-primaryColor capitalize">
         hello everybody
       </h1>

@@ -12,7 +12,7 @@
           <slot name="textComponent" />
         </h1>
 
-        <button class="animate-bounce pa-5">
+        <button class="animate-bounce pa-5" @click="clickScroll(target)">
           <v-icon
             :style="{ 'font-size': iconSize }"
             v-text="'mdi-arrow-down'"
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  props: ["text"],
+  props: ["target"],
   computed: {
     iconSize() {
       switch (this.$vuetify.breakpoint.name) {

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Hero>
+    <Hero :target="'#portfolioPages'">
       <template #textComponent>
         awesome work
       </template>
     </Hero>
 
-    <div class="container">
+    <div class="container" id="portfolioPages">
       <div class="p-2 md:p-6">
         <h1
           class="font-bold sm:text-4xl text-3xl text-primaryColor capitalize md:p-4 flex justify-center my-5 lg:my-10 lg:text-5xl"
@@ -43,7 +43,7 @@
 export default {
   head() {
     return {
-      title: "portfolio",
+      title: "Portfolio",
       meta: [
         {
           hid: "description hid",
