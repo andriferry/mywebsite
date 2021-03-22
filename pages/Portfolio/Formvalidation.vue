@@ -60,7 +60,6 @@ export default {
   }),
 
   mounted() {
-    console.log(this.$route);
     let form = document.getElementsByClassName("form");
     let name = document.getElementById("name");
     let input = document.querySelectorAll("input");

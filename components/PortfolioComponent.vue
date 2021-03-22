@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full h-auto p-4" id="portfolio">
-    <div class="sm:p-16 flex flex-col justify-center xl:p-20">
-      <div class="container sm:flex-row flex flex-col xl:p-12">
+  <div class="w-full p-4 lg:p-5" id="portfolio">
+    <div class="flex flex-col justify-center sm:p-5">
+      <div class="container sm:flex-row flex flex-col">
         <div class="w-full p-2 flex items-center">
           <h1
-            class="capitalize mb-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
+            class="capitalize my-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
           >
             latest my project <br />
             and selected project
@@ -24,26 +24,25 @@
         </div>
       </div>
 
-      <div class="container py-4 my-4 sm:flex-row flex flex-col xl:p-12">
-        <NuxtLink
-          to="/portfolio/Moviebooking"
-          class="mx-2 md:mx-1"
-          v-for="(data, index) in dataImage"
+      <div
+        class="container grid grid-rows-auto sm:grid-cols-2 gap-3 lg:gap-4 sm:flex-row xl:p-12"
+      >
+        <v-hover
+          v-slot="{ hover }"
+          v-for="(data, index) in dataPortfolio"
           :key="index"
         >
-          <div
-            class="w-full card p-3 rounded-lg shadow-xl bg-white"
-            @mouseover="mouseOver(index, 'text-secondaryColor')"
-            @mouseleave="mouseOver(index, 'text-primaryColor')"
-          >
-            <img height="200" src="~/assets/image/formValidation.png" alt="" />
-          </div>
-          <p
-            class="flex justify-center p-4 font-bold text-xl lg:text-2xl xl:text-3xl capitalize"
-            v-text="data.title"
-            :class="data.textColor"
-          ></p>
-        </NuxtLink>
+          <NuxtLink :to="data.link" class="mx-2 md:mx-1">
+            <div class="w-full card p-3 rounded-lg shadow-xl bg-white">
+              <img height="200" :src="data.image" alt="" />
+            </div>
+            <p
+              class="flex justify-center p-4 font-bold text-xl lg:text-2xl xl:text-3xl capitalize"
+              v-text="data.title"
+              :class="hover ? 'text-secondaryColor' : 'text-primaryColor'"
+            ></p>
+          </NuxtLink>
+        </v-hover>
       </div>
     </div>
   </div>
@@ -51,21 +50,24 @@
 
 <script>
 export default {
-  data: () => ({
-    hover: false,
-    dataImage: [
-      {
-        image: "/_nuxt/assets/image/formValidation.png",
-        title: "form validation",
-        textColor: "text-primaryColor"
-      },
-      {
-        image: "/_nuxt/assets/image/movieTicket.png",
-        title: "movie ticket",
-        textColor: "text-primaryColor"
-      }
-    ]
-  }),
+  data() {
+    return {
+      dataPortfolio: [
+        {
+          image: "/_nuxt/assets/image/formValidation.png",
+          title: "form validation",
+          textColor: "text-primaryColor",
+          link: "/portfolio/Formvalidation"
+        },
+        {
+          image: "/_nuxt/assets/image/movieTicket.png",
+          title: "movie ticket",
+          textColor: "text-primaryColor",
+          link: "/portfolio/Moviebooking"
+        }
+      ]
+    };
+  },
   computed: {
     mobileDisplay() {
       return this.$vuetify.breakpoint.mobile;
@@ -89,14 +91,6 @@ export default {
               />
             </svg>`;
     }
-  },
-  methods: {
-    mouseOver(data, classColor) {
-      let HoverElement = this.dataImage[data];
-      HoverElement.textColor = classColor;
-    },
-
-    mouseLeave() {}
   }
 };
 </script>

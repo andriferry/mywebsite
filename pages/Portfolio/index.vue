@@ -14,28 +14,25 @@
           latest creative <span class="secondaryColor--text ml-1"> work</span>
         </h1>
 
-        <div class="catalog">
-          <div
-            class="container grid grid-rows-2 sm:grid-cols-2 lg:gap-4 gap-3 xl:p-12"
+        <div
+          class="container grid grid-rows-auto sm:grid-cols-2 gap-3 lg:gap-4 sm:flex-row xl:p-12"
+        >
+          <v-hover
+            v-slot="{ hover }"
+            v-for="(data, index) in dataPortfolio"
+            :key="index"
           >
-            <v-hover v-slot="{ hover }" v-for="index in 3" :key="index">
-              <NuxtLink to="/">
-                <div class="w-full card p-3 rounded-lg shadow-xl bg-white">
-                  <img
-                    height="200"
-                    src="~/assets/image/formValidation.png"
-                    alt=""
-                  />
-                </div>
-                <p
-                  class="flex justify-center p-4 font-bold text-xl lg:text-2xl xl:text-3xl capitalize"
-                  :class="hover ? 'text-secondaryColor' : 'text-primaryColor'"
-                >
-                  form validation
-                </p>
-              </NuxtLink>
-            </v-hover>
-          </div>
+            <NuxtLink :to="data.link" class="mx-2 md:mx-1">
+              <div class="w-full card p-3 rounded-lg shadow-xl bg-white">
+                <img height="200" :src="data.image" alt="" />
+              </div>
+              <p
+                class="flex justify-center p-4 font-bold text-xl lg:text-2xl xl:text-3xl capitalize"
+                v-text="data.title"
+                :class="hover ? 'text-secondaryColor' : 'text-primaryColor'"
+              ></p>
+            </NuxtLink>
+          </v-hover>
         </div>
       </div>
     </div>
@@ -46,7 +43,7 @@
 export default {
   head() {
     return {
-      title: this.title,
+      title: "portfolio",
       meta: [
         {
           hid: "description hid",
@@ -58,7 +55,20 @@ export default {
   },
   data() {
     return {
-      title: "Portfolio"
+      dataPortfolio: [
+        {
+          image: "/_nuxt/assets/image/formValidation.png",
+          title: "form validation",
+          textColor: "text-primaryColor",
+          link: "/portfolio/Formvalidation"
+        },
+        {
+          image: "/_nuxt/assets/image/movieTicket.png",
+          title: "movie ticket",
+          textColor: "text-primaryColor",
+          link: "/portfolio/Moviebooking"
+        }
+      ]
     };
   }
 };
