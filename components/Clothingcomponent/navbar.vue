@@ -1,36 +1,50 @@
 <template>
   <div>
-    <v-app-bar fixed color="white" flat app>
+    <v-app-bar fixed color="black" flat app>
       <v-container class="flex">
         <v-row>
           <v-col align-self="center">
             <NuxtLink
               to="/portfolio/clothing"
-              v-text="'Clothing Store'"
-              class="capitalize text-xl primaryColor--text font-bold"
+              v-text="'clothing Store'"
+              class="capitalize text-xl white--text font-bold"
             ></NuxtLink>
           </v-col>
 
           <!-- menu -->
-          <v-col class="d-flex justify-end">
+          <v-col
+            :class="
+              getBreakpointSmDown
+                ? 'hidden-sm-and-down'
+                : 'd-flex justify-center'
+            "
+          >
             <div
-              class="flex justify-end capitalize font-medium text-lg items-center hidden-sm-and-down"
+              class="flex justify-center capitalize font-medium text-lg items-center hidden-sm-and-down"
             >
-              <a
-                class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
+              <v-hover
+                v-slot="{ hover }"
                 v-for="(menu, index) of menuList"
                 :key="index"
-                v-text="menu.text"
-              ></a>
+              >
+                <a
+                  class="px-5 font-bold transition duration-200 ease-out"
+                  v-text="menu.text"
+                  :class="hover ? 'greenColor200--text' : 'white--text'"
+                ></a>
+              </v-hover>
             </div>
           </v-col>
 
           <v-col class="d-flex justify-end">
+            <!-- cart icon -->
             <v-btn rounded icon>
-              <v-badge color="black" content="5" overlap>
-                <v-icon v-text="'mdi-cart-outline'" color="black"></v-icon>
+              <v-badge color="grey darken-1" content="5" overlap>
+                <v-icon v-text="'mdi-cart-outline'" color="white"></v-icon>
               </v-badge>
             </v-btn>
+
+            <!-- cart icon -->
 
             <!-- button triger menu -->
             <v-btn
@@ -38,7 +52,7 @@
               icon
               @click.stop="openMenu = !openMenu"
             >
-              <v-icon v-text="'mdi-menu'"></v-icon>
+              <v-icon color="white" v-text="'mdi-menu'"></v-icon>
             </v-btn>
 
             <!-- button triger menu -->
@@ -78,32 +92,29 @@
         </v-list-item-content>
 
         <v-list-item-group color="primary" v-model="group">
-          <!-- <v-list-item v-for="(menu, i) in menuList" :key="i">
-            <v-list-item-content>
-              <v-list-item-title
-                class="capitalize"
-                v-text="menu.text"
-              ></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item> -->
+          <v-hover v-slot="{ hover }" v-for="menu in 3" :key="menu">
+            <v-list-item three-line>
+              <v-list-item-avatar tile width="50" height="50">
+                <v-img
+                  class=""
+                  lazy-src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dHNoaXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                  src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8dHNoaXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+                ></v-img>
+              </v-list-item-avatar>
 
-          <v-list-item class="d-flex flex-row" three-line>
-            <v-img
-              lazy-src="https://picsum.photos/id/11/10/6"
-              max-height="150"
-              max-width="250"
-              src="https://picsum.photos/id/11/500/300"
-            ></v-img>
-            <v-list-item-content class="mx-auto">
-              <v-list-item-title>T-shirt</v-list-item-title>
-              <v-list-item-subtitle>
-                3 items x $ 5
-              </v-list-item-subtitle>
-              <v-list-item-subtitle>
-                $ 15
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
+              <v-list-item-content class="mx-2">
+                <v-list-item-title :class="{ 'text-cyan': hover }"
+                  >T-shirt Green hanger
+                </v-list-item-title>
+                <v-list-item-subtitle>
+                  3 items x $ 5
+                </v-list-item-subtitle>
+                <v-list-item-subtitle>
+                  $ 15
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-hover>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
@@ -129,6 +140,11 @@ export default {
   watch: {
     group() {
       this.openMenu = false;
+    }
+  },
+  computed: {
+    getBreakpointSmDown() {
+      return this.$vuetify.breakpoint.smAndDown == true;
     }
   }
 };
