@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       group: null,
-      open: true
+      open: false
     };
   },
   watch: {

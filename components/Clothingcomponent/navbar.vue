@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-app-bar fixed color="black" flat app>
+  <div class="z-10">
+    <v-app-bar height="70" fixed color="black" flat app>
       <v-container class="flex">
         <v-row>
           <v-col align-self="center">
@@ -58,8 +58,6 @@
         <!-- menu -->
       </v-container>
     </v-app-bar>
-
-    <v-main> </v-main>
 
     <!-- Navigation drawer -->
     <ClothingcomponentDrawermenu :openMenu="menu" />

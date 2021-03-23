@@ -3,6 +3,10 @@
     <!-- navbar -->
     <ClothingcomponentNavbar />
     <!-- navbar -->
+
+    <v-main>
+      <ClothingcomponentHero />
+    </v-main>
   </v-app>
 </template>
 
