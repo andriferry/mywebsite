@@ -29,7 +29,7 @@
                 :class="image.class"
               >
                 <h1
-                  class="text-white font-bold sm:text-6xl tracking-wider text-3xl capitalize"
+                  class="text-white font-bold sm:text-6xl md:text-5xl lg:text-6xl tracking-wider text-3xl capitalize"
                   v-text="image.textH1"
                 ></h1>
                 <a
@@ -65,7 +65,7 @@ export default {
         {
           class: "image6Sunglasses",
           colClass: "md:col-span-5",
-          textH1: "Sunglasses"
+          textH1: "eyewear"
         },
         {
           class: "image7MoreCollection",
@@ -114,7 +114,7 @@ export default {
   background-size: cover;
   background-position: center;
 }
-.image6Sunglasses {
+.image6Sunglasses { 
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
     url("https://images.unsplash.com/photo-1570993492880-e8b3bfd5e100?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60")
       no-repeat center center;
