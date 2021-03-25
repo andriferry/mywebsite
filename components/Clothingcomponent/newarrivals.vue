@@ -1,27 +1,37 @@
 <template>
-  <div class="w-full h-screen p-5">
+  <div class="w-full bg-gray-100 h-auto p-5">
     <div class="grid container grid-rows-1">
       <div class="grid grid-cols-12">
         <div class="col-span-12 p-3 md:col-span-6">
           <div class="flex flex-col items-center">
-            <h1 class="text-xl font-medium p-2 text-gray-500 capitalize">
-              new Arrivals
-            </h1>
+            <div class="flex flex-col items-center sm:p-6">
+              <h1 class="text-xl font-medium p-2 text-gray-600 capitalize">
+                new Arrivals
+              </h1>
 
-            <p class="text-3xl font-bold mb-0 capitalize p-3">
-              green collection
-            </p>
+              <p class="text-3xl tracking-widest font-bold mb-0 capitalize p-3">
+                green collection
+              </p>
 
-            <p class="p-3 sm:px-8 font-light mb-0 text-gray-500 text-center">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
-              odit laboriosam accusantium voluptatum sapiente! Doloremque est
-              doloribus, possimus non recusandae
-            </p>
+              <p
+                class="p-3 md:p-3 sm:px-8 text-sm md:text-lg sm:text-sm font-light mb-0 text-gray-600 text-center"
+              >
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
+                odit laboriosam accusantium voluptatum sapiente! Doloremque est
+                doloribus, possimus non recusandae
+              </p>
+
+              <NuxtLink
+                to="/portfolio/clothing"
+                class="bg-black white--text font-bold uppercase p-2 my-4 px-4 rounded-lg"
+                >shop now</NuxtLink
+              >
+            </div>
 
             <div class="grid grid-row-1 w-full">
               <div class="grid grid-cols-2 gap-4">
-                <div class="bg-red-500 h-40 sm:h-60 xl:h-80 image1"></div>
-                <div class="bg-red-500 h-40 sm:h-60 xl:h-80 image2"></div>
+                <div class="h-40 sm:h-60 xl:h-80 image1"></div>
+                <div class="h-40 sm:h-60 xl:h-80 image2"></div>
               </div>
             </div>
           </div>
