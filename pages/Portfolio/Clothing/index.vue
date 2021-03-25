@@ -7,6 +7,7 @@
     <v-main>
       <ClothingcomponentHero />
       <ClothingcomponentCategories />
+      <ClothingcomponentNewarrivals />
     </v-main>
   </v-app>
 </template>

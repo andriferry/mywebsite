@@ -1,7 +1,7 @@
 <template>
-  <div class="w-full h-screen p-5">
+  <div class="w-full h-auto mb-5 p-5">
     <div class="container grid grid-rows-1">
-      <div class="sm:p-10">
+      <div class="">
         <div class="container flex justify-center flex-col">
           <h1
             class="text-primaryColor sm:text-6xl flex justify-center py-5 py-sm-3 font-bold capitalize text-3xl"
