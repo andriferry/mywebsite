@@ -5,16 +5,20 @@
         <div class="col-span-12 p-3 md:col-span-6">
           <div class="flex flex-col items-center">
             <div class="flex flex-col items-center sm:p-6">
-              <h1 class="text-xl font-medium p-2 text-gray-600 capitalize">
+              <h1
+                class="text-xl font-medium p-2 text-gray-600 capitalize xl:tracking-wider xl:text-2xl"
+              >
                 new Arrivals
               </h1>
 
-              <p class="text-3xl tracking-widest font-bold mb-0 capitalize p-3">
+              <p
+                class="text-3xl lg:text-4xl xl:text-5xl tracking-wide sm:tracking-widest md:tracking-wider lg:tracking-widest font-bold mb-0 capitalize"
+              >
                 green collection
               </p>
 
               <p
-                class="p-3 md:p-3 sm:px-8 text-sm md:text-lg sm:text-sm font-light mb-0 text-gray-600 text-center"
+                class="p-3 md:p-3 sm:px-8 text-sm md:text-lg sm:text-lg font-light mb-0 text-gray-600 text-center"
               >
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe
                 odit laboriosam accusantium voluptatum sapiente! Doloremque est
