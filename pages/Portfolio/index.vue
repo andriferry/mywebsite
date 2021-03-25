@@ -24,7 +24,11 @@
           >
             <NuxtLink :to="data.link" class="mx-2 md:mx-1">
               <div class="w-full card p-3 rounded-lg shadow-xl bg-white">
-                <img height="200" :src="data.image" alt="" />
+                <img
+                  height="200"
+                  :src="require(`~/assets/image/${data.image}`)"
+                  alt=""
+                />
               </div>
               <p
                 class="flex justify-center p-4 font-bold text-xl lg:text-2xl xl:text-3xl capitalize"
@@ -57,13 +61,13 @@ export default {
     return {
       dataPortfolio: [
         {
-          image: "/_nuxt/assets/image/formValidation.png",
+          image: "formValidation.png",
           title: "form validation",
           textColor: "text-primaryColor",
           link: "/portfolio/Formvalidation"
         },
         {
-          image: "/_nuxt/assets/image/movieTicket.png",
+          image: "movieTicket.png",
           title: "movie ticket",
           textColor: "text-primaryColor",
           link: "/portfolio/Moviebooking"
