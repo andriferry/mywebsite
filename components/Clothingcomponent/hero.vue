@@ -3,7 +3,7 @@
     class="w-full h-screen p-5"
     style="background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgb(0,0,0) 20%) repeat scroll 0% 0%"
   >
-    <div
+    <!-- <div
       class="container flex items-center w-full h-3/5 bg-black"
       :style="
         `background-image: url('${items[imagePosition].src}'); background-size: cover; background-position:center`
@@ -17,7 +17,25 @@
           <v-icon x-large color="black" v-text="'mdi-arrow-right'"></v-icon>
         </v-btn>
       </div>
-    </div>
+    </div> -->
+    <v-container>
+      <v-carousel hide-delimiters cycle>
+        <v-carousel-item
+          eager
+          v-for="(image, index) in items"
+          :key="index"
+          :src="image.src"
+        >
+          <v-sheet color="transparent" height="100%">
+            <v-row class="fill-height" align="center" justify="center">
+              <div class="display-3">Slide</div>
+
+              <div>shop now</div>
+            </v-row>
+          </v-sheet>
+        </v-carousel-item>
+      </v-carousel>
+    </v-container>
   </div>
 </template>
 
