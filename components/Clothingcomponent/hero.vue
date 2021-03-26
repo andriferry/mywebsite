@@ -11,17 +11,36 @@
           :key="index"
           :src="image.src"
         >
-          <v-sheet color="transparent" height="100%">
+          <v-sheet color="transparent" height="103%">
             <v-row class="fill-height" align="center" justify="center">
-              <!-- Maintenance -->
-              <!-- <div class="flex flex-col items-center">
-                <div class="display-3 uppercase">slide</div>
-                <div class="display-3 uppercase">slide</div>
+              <v-col
+                class="d-flex flex-column items-center"
+                align-self="center"
+                cols="12"
+              >
+                <v-card color="transparent" class="pa-10" flat>
+                  <v-card-title class="text-h5 text-sm-h3 text-md-h2 text-lg-h1 capitalize font-weight-bold">
+                    green collection
+                  </v-card-title>
 
-                <button class="bg-red-500 p-5 uppercase font-bold rounded-lg">
-                  shop now
-                </button>
-              </div> -->
+                  <v-card-subtitle class="d-flex pa-2 justify-center capitalize">
+                    t-shirt new collection
+                  </v-card-subtitle>
+
+                  <v-card-actions class="d-flex justify-center">
+                    <v-hover v-slot="{ hover }">
+                      <v-btn
+                        nuxt
+                        to="/"
+                        width="150"
+                        :color="hover ? 'black' : 'white'"
+                        :outlined="hover ? false : true"
+                        >shop now</v-btn
+                      >
+                    </v-hover>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
             </v-row>
           </v-sheet>
         </v-carousel-item>
@@ -34,7 +53,6 @@
 export default {
   data() {
     return {
-      imagePosition: 0,
       items: [
         {
           src:
@@ -54,18 +72,6 @@ export default {
         }
       ]
     };
-  },
-  methods: {
-    nextImage() {
-      this.imagePosition === this.items.length - 1
-        ? (this.imagePosition = 0)
-        : (this.imagePosition = this.imagePosition + 1);
-    },
-    prevImage() {
-      this.imagePosition === 0
-        ? (this.imagePosition = this.items.length - 1)
-        : (this.imagePosition = this.imagePosition - 1);
-    }
   }
 };
 </script>
