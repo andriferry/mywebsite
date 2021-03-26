@@ -8,6 +8,7 @@
       <ClothingcomponentHero />
       <ClothingcomponentCategories />
       <ClothingcomponentNewarrivals />
+      <ClothingcomponentBestseller />
     </v-main>
   </v-app>
 </template>

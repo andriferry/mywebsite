@@ -3,21 +3,6 @@
     class="w-full h-screen p-5"
     style="background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgb(0,0,0) 20%) repeat scroll 0% 0%"
   >
-    <!-- <div
-      class="container flex items-center w-full h-3/5 bg-black"
-      :style="
-        `background-image: url('${items[imagePosition].src}'); background-size: cover; background-position:center`
-      "
-    >
-      <div class="arrow flex justify-between">
-        <v-btn x-large icon @click="prevImage">
-          <v-icon color="black" x-large v-text="'mdi-arrow-left'"></v-icon>
-        </v-btn>
-        <v-btn x-large icon @click="nextImage">
-          <v-icon x-large color="black" v-text="'mdi-arrow-right'"></v-icon>
-        </v-btn>
-      </div>
-    </div> -->
     <v-container>
       <v-carousel hide-delimiters cycle>
         <v-carousel-item
@@ -28,9 +13,15 @@
         >
           <v-sheet color="transparent" height="100%">
             <v-row class="fill-height" align="center" justify="center">
-              <div class="display-3">Slide</div>
+              <!-- Maintenance -->
+              <!-- <div class="flex flex-col items-center">
+                <div class="display-3 uppercase">slide</div>
+                <div class="display-3 uppercase">slide</div>
 
-              <div>shop now</div>
+                <button class="bg-red-500 p-5 uppercase font-bold rounded-lg">
+                  shop now
+                </button>
+              </div> -->
             </v-row>
           </v-sheet>
         </v-carousel-item>
