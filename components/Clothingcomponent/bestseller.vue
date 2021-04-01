@@ -2,9 +2,14 @@
   <div class="w-full p-5 h-screen">
     <div class="container">
       <div
-        class="flex mb-6 justify-center capitalize font-semibold text-primaryColor text-xl"
+        class="flex mb-6 py-6 items-center capitalize font-semibold text-primaryColor"
       >
-        best selling in {{ month }}
+        <v-divider></v-divider>
+        <span class="mx-2 text-xl sm:text-2xl md:text-3xl xl:text-4xl">
+          best selling in {{ month }}
+        </span>
+
+        <v-divider></v-divider>
       </div>
 
       <div class="grid grid-rows-1 gap-3">
