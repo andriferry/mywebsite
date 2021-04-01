@@ -1,22 +1,16 @@
 <template>
-  <v-app>
-    <!-- navbar -->
-    <ClothingcomponentNavbar />
-    <!-- navbar -->
-
-    <v-main>
-      <ClothingcomponentHero />
-      <ClothingcomponentCategories />
-      <ClothingcomponentNewarrivals />
-      <ClothingcomponentBestseller />
-    </v-main>
-  </v-app>
+  <div>
+    <ClothingcomponentHero />
+    <ClothingcomponentCategories />
+    <ClothingcomponentNewarrivals />
+    <ClothingcomponentBestseller />
+  </div>
 </template>
 
 <script>
 export default {
   layout(context) {
-    return "secondLayout";
+    return "clothinglayout";
   },
   data() {
     return {
