@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-screen p-5"
+    class="w-full h-auto md:h-auto md:mb-10 xl:h-screen p-5"
     style="background: rgba(0, 0, 0, 0) linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 50%, rgb(0,0,0) 20%) repeat scroll 0% 0%"
   >
     <v-container>
