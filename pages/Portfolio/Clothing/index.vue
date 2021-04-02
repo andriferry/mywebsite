@@ -2,6 +2,7 @@
   <div>
     <ClothingcomponentHero />
     <ClothingcomponentCategories />
+    <ClothingcomponentSale />
     <ClothingcomponentNewarrivals />
     <ClothingcomponentBestseller />
   </div>
