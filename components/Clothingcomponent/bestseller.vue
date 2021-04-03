@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-5 h-screen">
+  <div class="w-full p-5 h-auto">
     <div class="container">
       <div
         class="flex mb-6 py-6 items-center capitalize font-semibold text-primaryColor"
