@@ -6,7 +6,7 @@
       >
         <v-divider></v-divider>
         <span class="mx-2 text-xl sm:text-2xl md:text-3xl xl:text-4xl">
-          Sale up to 70%
+          Sale up to 50%
         </span>
 
         <v-divider></v-divider>
