@@ -24,8 +24,8 @@
                 <span
                   v-if="data.discount"
                   class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
-                  >sale !</span
-                >
+                  v-text="`- ${data.discount}%`"
+                ></span>
               </div>
             </v-img>
             <div class="p-4">
@@ -34,15 +34,14 @@
                 v-text="data.text"
               ></div>
 
-              <template v-if="data.dicount">
+              <template v-if="data.discount">
                 <del class="text-gray-500 price" v-text="'$ ' + data.price">
                 </del>
-                <span
-                  class="text-secondaryColor font-bold price"
-                  v-text="'$ ' + data.price"
-                >
+                <span class="text-secondaryColor font-bold price">
+                  {{ data.price | discount(data.discount) | toUsd }}
                 </span>
               </template>
+
               <template v-else>
                 <span
                   class="text-secondaryColor font-bold price"
@@ -66,7 +65,8 @@ export default {
           img:
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
           text: "nike red edition",
-          price: "50.00"
+          price: "50.00",
+          discount: 10
         },
         {
           img:
@@ -79,7 +79,8 @@ export default {
           img:
             "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60",
           text: "saturdays cap",
-          price: "20.00"
+          price: "20.00",
+          discount: 5
         },
         {
           img:
@@ -91,35 +92,23 @@ export default {
       ]
     };
   },
-  methods: {
-    randomPrice() {
-      let min = 10;
-      let max = 50;
-      let priceRandom = Math.floor(Math.random() * (max - min)) + min;
+  filters: {
+    discount(price, discount) {
+      let getDiscountPrice = price * (discount / 100);
 
-      let n = new Number(priceRandom);
+      return price - getDiscountPrice;
+    },
+    toUsd(value) {
+      let numberObject = new Number(value);
       let myObj = {
         style: "currency",
         currency: "USD"
       };
 
-      return n.toLocaleString("en-US", myObj);
+      return numberObject.toLocaleString("en-US", myObj);
     }
   }
 };
 </script>
 
-<style>
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
-.list-enter-active,
-.list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-</style>
+<style></style>
