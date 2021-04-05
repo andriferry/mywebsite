@@ -22,6 +22,7 @@
             <v-img :lazy-src="data.img" :src="data.img" height="300">
               <div class="p-3">
                 <span
+                  v-if="index === 2"
                   class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
                   >sale !</span
                 >
@@ -32,10 +33,22 @@
                 class="font-bold text-xl md:text-lg lg:text-base xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
                 v-text="data.text"
               ></div>
-              <del class="text-gray-500 price" v-text="'$ ' + data.price">
-              </del>
-              <span class="text-secondaryColor font-bold price" v-text="'$ ' + data.price">
-              </span>
+
+              <template v-if="index === 2">
+                <del class="text-gray-500 price" v-text="'$ ' + data.price">
+                </del>
+                <span
+                  class="text-secondaryColor font-bold price"
+                  v-text="'$ ' + data.price"
+                >
+                </span>
+              </template>
+              <template v-else>
+                <span
+                  class="text-secondaryColor font-bold price"
+                  v-text="'$ ' + data.price"
+                ></span>
+              </template>
             </div>
           </NuxtLink>
         </div>
