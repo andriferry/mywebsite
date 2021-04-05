@@ -19,7 +19,14 @@
             v-for="(data, index) in dataImage"
             :key="index"
           >
-            <v-img :lazy-src="data.img" :src="data.img" height="300"></v-img>
+            <v-img :lazy-src="data.img" :src="data.img" height="300">
+              <div class="p-3">
+                <span
+                  class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
+                  >sale !</span
+                >
+              </div>
+            </v-img>
             <div class="p-4">
               <div
                 class="font-bold text-xl md:text-lg lg:text-base xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
