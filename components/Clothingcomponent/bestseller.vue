@@ -20,14 +20,48 @@
             v-for="(data, index) in dataImage"
             :key="index"
           >
-            <v-img :lazy-src="data.img" :src="data.img" height="300"></v-img>
+            <v-img :lazy-src="data.img" eager :src="data.img" height="300">
+              <div class="p-3">
+                <template v-if="data.hasOwnProperty('discount') === true">
+                  <span
+                    v-if="data.discount !== 'out of stock'"
+                    class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
+                    v-text="`- ${data.discount}%`"
+                  ></span>
+
+                  <span
+                    v-if="data.discount === 'out of stock'"
+                    class="py-2 px-3 tracking-widest capitalize font-bold bg-primaryColor text-white rounded-lg"
+                    v-text="`${data.discount}!`"
+                  ></span>
+                </template>
+              </div>
+            </v-img>
             <div class="p-4">
               <div
                 class="font-bold text-xl md:text-lg lg:text-base xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
                 v-text="data.text"
               ></div>
-              <span class="text-secondaryColor font-bold price" v-text="'$ ' + data.price">
-              </span>
+
+              <template
+                v-if="
+                  data.hasOwnProperty('discount') === true &&
+                    discount !== 'out of stock'
+                "
+              >
+                <del class="text-gray-500 price" v-text="'$ ' + data.price">
+                </del>
+                <span class="text-secondaryColor font-bold price">
+                  {{ data.price | discount(data.discount) | toUsd }}
+                </span>
+              </template>
+
+              <template v-else>
+                <span
+                  class="text-secondaryColor font-bold price"
+                  v-text="'$ ' + data.price"
+                ></span>
+              </template>
             </div>
           </NuxtLink>
         </div>
@@ -45,25 +79,29 @@ export default {
           img:
             "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
           text: "nike red edition",
-          price: "50.00"
+          price: "50.00",
+          discount: 10
         },
         {
           img:
             "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
           text: "vinta travel bags",
-          price: "30.00"
+          price: "30.00",
+          discount: 50
         },
         {
           img:
             "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60",
           text: "saturdays cap",
-          price: "20.00"
+          price: "20.00",
+          discount: "out of stock"
         },
         {
           img:
             "https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80",
           text: "classic white",
-          price: "10.00"
+          price: "10.00",
+          discount: 20
         },
         {
           img:
@@ -75,7 +113,8 @@ export default {
           img:
             "https://images.unsplash.com/photo-1532667449560-72a95c8d381b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80",
           text: "minimalist watch",
-          price: "50.00"
+          price: "50.00",
+          discount: "out of stock"
         },
         {
           img:
@@ -87,7 +126,8 @@ export default {
           img:
             "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
           text: "classic green",
-          price: "20.00"
+          price: "20.00",
+          discount: 15
         }
       ]
     };
