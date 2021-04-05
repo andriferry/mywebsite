@@ -97,22 +97,6 @@ export default {
         }
       ]
     };
-  },
-  filters: {
-    discount(price, discount) {
-      let getDiscountPrice = price * (discount / 100);
-
-      return price - getDiscountPrice;
-    },
-    toUsd(value) {
-      let numberObject = new Number(value);
-      let myObj = {
-        style: "currency",
-        currency: "USD"
-      };
-
-      return numberObject.toLocaleString("en-US", myObj);
-    }
   }
 };
 </script>
