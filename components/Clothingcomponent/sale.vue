@@ -32,6 +32,8 @@
                 class="font-bold text-xl md:text-lg lg:text-base xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
                 v-text="data.text"
               ></div>
+              <del class="text-gray-500 price" v-text="'$ ' + data.price">
+              </del>
               <span class="text-gray-500 price" v-text="'$ ' + data.price">
               </span>
             </div>
