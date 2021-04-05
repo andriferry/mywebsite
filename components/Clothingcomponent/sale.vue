@@ -22,7 +22,7 @@
             <v-img :lazy-src="data.img" :src="data.img" height="300">
               <div class="p-3">
                 <span
-                  v-if="index === 2"
+                  v-if="data.discount"
                   class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
                   >sale !</span
                 >
@@ -34,7 +34,7 @@
                 v-text="data.text"
               ></div>
 
-              <template v-if="index === 2">
+              <template v-if="data.dicount">
                 <del class="text-gray-500 price" v-text="'$ ' + data.price">
                 </del>
                 <span
@@ -72,7 +72,8 @@ export default {
           img:
             "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
           text: "vinta travel bags",
-          price: "30.00"
+          price: "30.00",
+          discount: 50
         },
         {
           img:
@@ -84,20 +85,25 @@ export default {
           img:
             "https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80",
           text: "classic white",
-          price: "10.00"
+          price: "10.00",
+          discount: 20
         }
       ]
     };
   },
   methods: {
-    randomIndex: function() {
-      return Math.floor(Math.random() * this.items.length);
-    },
-    add: function() {
-      this.items.splice(this.randomIndex(), 0, this.nextNum++);
-    },
-    remove: function() {
-      this.items.splice(this.randomIndex(), 1);
+    randomPrice() {
+      let min = 10;
+      let max = 50;
+      let priceRandom = Math.floor(Math.random() * (max - min)) + min;
+
+      let n = new Number(priceRandom);
+      let myObj = {
+        style: "currency",
+        currency: "USD"
+      };
+
+      return n.toLocaleString("en-US", myObj);
     }
   }
 };
