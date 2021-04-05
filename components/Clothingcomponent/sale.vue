@@ -34,7 +34,7 @@
               ></div>
               <del class="text-gray-500 price" v-text="'$ ' + data.price">
               </del>
-              <span class="text-gray-500 price" v-text="'$ ' + data.price">
+              <span class="text-secondaryColor font-bold price" v-text="'$ ' + data.price">
               </span>
             </div>
           </NuxtLink>
