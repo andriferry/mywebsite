@@ -19,12 +19,18 @@
             v-for="(data, index) in dataImage"
             :key="index"
           >
-            <v-img :lazy-src="data.img" :src="data.img" height="300">
+            <v-img :lazy-src="data.img" eager :src="data.img" height="300">
               <div class="p-3">
                 <span
-                  v-if="data.discount"
+                  v-if="data.discount !== 'out of stock'"
                   class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
                   v-text="`- ${data.discount}%`"
+                ></span>
+
+                <span
+                  v-if="data.discount === 'out of stock'"
+                  class="py-2 px-3 tracking-widest capitalize font-bold bg-primaryColor text-white rounded-lg"
+                  v-text="`${data.discount}!`"
                 ></span>
               </div>
             </v-img>
@@ -34,7 +40,7 @@
                 v-text="data.text"
               ></div>
 
-              <template v-if="data.discount">
+              <template v-if="data.discount !== 'out of stock'">
                 <del class="text-gray-500 price" v-text="'$ ' + data.price">
                 </del>
                 <span class="text-secondaryColor font-bold price">
@@ -80,7 +86,7 @@ export default {
             "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60",
           text: "saturdays cap",
           price: "20.00",
-          discount: 5
+          discount: "out of stock"
         },
         {
           img:
