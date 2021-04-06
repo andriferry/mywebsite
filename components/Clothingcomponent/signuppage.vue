@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <ClothingcomponentSignupbox />
+    <ClothingcomponentSignupbox :dialog="dialog" />
   </div>
 </template>
 
@@ -29,12 +29,12 @@
 export default {
   data() {
     return {
-      dialog: true
+      dialog: false
     };
   },
   methods: {
     signUpOpen() {
-      console.log("Open");
+      console.log((this.dialog = !this.dialog));
     }
   }
 };

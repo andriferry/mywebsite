@@ -66,9 +66,9 @@
 
 <script>
 export default {
+  props: ["dialog"],
   data() {
     return {
-      dialog: true,
       acountButton: [
         {
           buttonColor: "red",
