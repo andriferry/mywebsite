@@ -21,11 +21,17 @@
         </div>
       </div>
     </div>
+    <ClothingcomponentSignupbox />
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      dialog: true
+    };
+  },
   methods: {
     signUpOpen() {
       console.log("Open");
