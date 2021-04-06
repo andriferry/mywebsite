@@ -5,7 +5,7 @@
       transition="dialog-bottom-transition"
       max-width="500px"
     >
-      <div class="bg-white w-full h-screen">
+      <div class="bg-white w-full h-auto">
         <div class="container">
           <div class="p-5 flex flex-col justify-center">
             <h1 class="capitalize font-bold text-primaryColor text-3xl">
@@ -20,7 +20,7 @@
 
             <v-divider></v-divider>
 
-            <div class="grid mt-5 grid-rows-1">
+            <div class="grid my-5 grid-rows-1">
               <div class="grid grid-cols-12 gap-5">
                 <div
                   class="col-span-4"
@@ -37,6 +37,26 @@
                 </div>
               </div>
             </div>
+
+            <form action="" class="">
+              <div
+                class="form-control pb-5"
+                v-for="(item, index) in formData"
+                :key="index"
+              >
+                <input
+                  :id="item.inputId"
+                  :type="item.type"
+                  :placeholder="item.label"
+                  class="w-full border-gray-200 capitalize placeholder-gray-600 border-solid rounded-md p-2 border-2 focus:outline-none focus:border-gray-500"
+                />
+              </div>
+              <button
+                class="w-full capitalize font-bold bg-secondaryColor p-2 rounded-md text-white active:bg-blue-500"
+              >
+                register
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -62,6 +82,11 @@ export default {
           buttonColor: "blue",
           iconName: "mdi-facebook"
         }
+      ],
+      formData: [
+        { label: "full name", inputId: "name", type: "text" },
+        { label: "email", inputId: "email", type: "email" },
+        { label: "password", inputId: "password", type: "password" }
       ]
     };
   }
