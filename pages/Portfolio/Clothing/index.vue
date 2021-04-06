@@ -5,6 +5,7 @@
     <ClothingcomponentSale />
     <ClothingcomponentNewarrivals />
     <ClothingcomponentBestseller />
+    <ClothingcomponentSignuppage />
   </div>
 </template>
 
@@ -12,7 +13,7 @@
 export default {
   head() {
     return {
-      title: 'Clothing Store',
+      title: "Clothing Store",
       meta: [
         {
           hid: "description hid",

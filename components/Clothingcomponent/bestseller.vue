@@ -46,7 +46,7 @@
               <template
                 v-if="
                   data.hasOwnProperty('discount') === true &&
-                    discount !== 'out of stock'
+                    data.discount !== 'out of stock'
                 "
               >
                 <del class="text-gray-500 price" v-text="'$ ' + data.price">
