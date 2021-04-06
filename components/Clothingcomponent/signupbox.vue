@@ -21,16 +21,16 @@
             <v-divider></v-divider>
 
             <div class="grid my-5 grid-rows-1">
-              <div class="grid grid-cols-12 gap-5">
+              <div class="grid grid-cols-3 gap-5 sm:gap-5">
                 <div
-                  class="col-span-4"
+                  class="col-span-1"
                   v-for="(data, index) in acountButton"
                   :key="index"
                 >
                   <v-btn :color="data.buttonColor" depressed>
                     <v-icon
                       color="white"
-                      class="px-2"
+                      class="px-2 px-sm-10"
                       v-text="data.iconName"
                     ></v-icon>
                   </v-btn>
