@@ -8,6 +8,8 @@
       <nuxt />
       <!-- Main area -->
     </v-main>
+
+    <ClothingcomponentFooter />
   </v-app>
 </template>
 

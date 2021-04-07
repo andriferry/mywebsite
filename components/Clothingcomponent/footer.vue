@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-full p-5 h-auto bg-black text-white">
+    <div class="w-full p-5 h-auto bg-gray-900 text-white">
       <div class="container">
         <div class="grid grid-rows-1 gap-3">
           <div class="grid grid-cols-2 lg:grid-cols-12 gap-5 lg:gap-x-20">
@@ -15,7 +15,7 @@
               ></h1>
               <div class="w-16 h-0.5 bg-primaryColor"></div>
 
-              <div class="address py-3 flex flex-col">
+              <div class="address capitalize py-3 flex flex-col">
                 <template v-if="index === 2">
                   <NuxtLink
                     to="/"
@@ -56,7 +56,7 @@
         </div>
       </div>
     </div>
-    <div class="w-full bg-gray-900">
+    <div class="w-full bg-gray-800">
       <div class="container text-white font-bold flex justify-center">
         Copyright &copy {{ year }}
         <span class="text-secondaryColor"> Cloting Store.inc</span>
