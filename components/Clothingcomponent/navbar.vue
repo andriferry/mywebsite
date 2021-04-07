@@ -77,10 +77,10 @@ export default {
       open: true,
       menu: false,
       menuList: [
-        { text: "about", link: "aboutme", target: "#aboutme" },
-        { text: "contact", link: "portfolio", target: "#portfolio" },
+        { text: "shop" },
         { text: "blog" },
-        { text: "shop" }
+        { text: "contact", link: "portfolio", target: "#portfolio" },
+        { text: "about", link: "aboutme", target: "#aboutme" }
       ]
     };
   },
