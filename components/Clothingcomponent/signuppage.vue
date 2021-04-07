@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-full h-auto flex flex-col justify-center signUpImage bg-red-500 p-5"
+    class="w-full h-auto flex flex-col justify-center signUpImage bg-red-500 p-5 sm:p-16 lg:p-20 xl:p-24"
   >
     <div class="container text-white">
       <div class="grid grid-rows-1 p-5">
-        <div class="grid grid-cols-2 gap-10 md:px-10">
+        <div class="grid grid-cols-2 gap-10 sm:gap-16 md:px-10 lg:gap-20">
           <div
             class="col-span-2 text-center text-xl sm:text-4xl lg:text-4xl xl:text-5xl lg:tracking-widest capitalize font-bold"
           >
