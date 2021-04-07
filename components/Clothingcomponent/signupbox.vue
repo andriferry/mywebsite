@@ -1,9 +1,10 @@
 <template>
   <div>
     <v-dialog
-      v-model="dialog"
+      v-model="openDialog"
       transition="dialog-bottom-transition"
       max-width="500px"
+      @input="trial"
     >
       <div class="bg-white w-full h-auto">
         <div class="container">
@@ -89,6 +90,24 @@ export default {
         { label: "password", inputId: "password", type: "password" }
       ]
     };
+  },
+  computed: {
+    openDialog: {
+      get() {
+        return this.dialog;
+      },
+      set(value) {
+        return value;
+      }
+    }
+  },
+  methods: {
+    trial(value) {
+      this.openDialog = value;
+
+      this.$emit("closeSignupBox", value);
+
+    }
   }
 };
 </script>

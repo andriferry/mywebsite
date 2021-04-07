@@ -21,7 +21,10 @@
         </div>
       </div>
     </div>
-    <ClothingcomponentSignupbox :dialog="dialog" />
+    <ClothingcomponentSignupbox
+      :dialog="openDialog"
+      @closeSignupBox="closeSignup"
+    />
   </div>
 </template>
 
@@ -32,9 +35,22 @@ export default {
       dialog: false
     };
   },
+  computed: {
+    openDialog: {
+      get() {
+        return this.dialog;
+      },
+      set(value) {
+        this.dialog = value;
+      }
+    }
+  },
   methods: {
     signUpOpen() {
-      console.log((this.dialog = !this.dialog));
+      this.openDialog = true;
+    },
+    closeSignup(value) {
+      this.openDialog = value;
     }
   }
 };
