@@ -47,7 +47,7 @@
             <!-- cart icon -->
 
             <!-- button triger menu -->
-            <v-btn class="hidden-md-and-up" icon @click.stop="menu = !menu">
+            <v-btn class="hidden-md-and-up" icon @click.stop="openMenu">
               <v-icon color="white" v-text="'mdi-menu'"></v-icon>
             </v-btn>
 
@@ -60,7 +60,10 @@
     </v-app-bar>
 
     <!-- Navigation drawer -->
-    <ClothingcomponentDrawermenu :openMenu="menu" />
+    <ClothingcomponentDrawermenu
+      :openMenu="openDrawer"
+      @closeDrawer="closeMenu"
+    />
     <!-- Navigation drawer -->
 
     <!-- cart drawer -->
@@ -87,6 +90,22 @@ export default {
   computed: {
     getBreakpointSmDown() {
       return this.$vuetify.breakpoint.smAndDown == true;
+    },
+    openDrawer: {
+      get() {
+        return this.menu;
+      },
+      set(value) {
+        this.menu = value;
+      }
+    }
+  },
+  methods: {
+    closeMenu(value) {
+      this.openDrawer = value;
+    },
+    openMenu() {
+      this.menu = true;
     }
   }
 };

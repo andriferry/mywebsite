@@ -1,5 +1,11 @@
 <template>
-  <v-navigation-drawer v-model="openMenu" right temporary fixed>
+  <v-navigation-drawer
+    v-model="openDrawer"
+    right
+    temporary
+    fixed
+    @input="closeDrawer"
+  >
     <v-list dense>
       <v-list-item-group color="primary" v-model="group">
         <v-list-item v-for="(menu, i) in menuList" :key="i">
@@ -11,7 +17,7 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-item-group>
-    </v-list>   
+    </v-list>
   </v-navigation-drawer>
 </template>
 
@@ -32,6 +38,22 @@ export default {
   watch: {
     group() {
       this.openMenu = false;
+    }
+  },
+  computed: {
+    openDrawer: {
+      get() {
+        return this.openMenu;
+      },
+      set(value) {
+        return value;
+      }
+    }
+  },
+  methods: {
+    closeDrawer(value) {
+      this.openDrawer = value;
+      this.$emit("closeDrawer", value);
     }
   }
 };
