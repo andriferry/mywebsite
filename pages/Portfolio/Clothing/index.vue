@@ -6,6 +6,7 @@
     <ClothingcomponentNewarrivals />
     <ClothingcomponentBestseller />
     <ClothingcomponentSignuppage />
+    <ClothingcomponentFooter />
   </div>
 </template>
 
