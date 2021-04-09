@@ -43,10 +43,18 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4">Hello 3</div>
+        <div class="grid grid-cols-2 gap-4 px-3">
+          <div class="col-span-1 flex flex-col justify-center">
+            <span class="text-black font-black text-lg text-opacity-75"
+              >$ 20.00</span
+            >
+          </div>
+          <div class="col-span-1 flex flex-col justify-center">
+            <button class="uppercase font-bold rounded-lg bg-secondaryColor p-2">view cart</button>
+          </div>
+        </div>
       </div>
     </div>
-  
   </v-menu>
 </template>
 
