@@ -3,11 +3,10 @@
     fixed
     activator="#cartList"
     nudge-bottom="210"
-    nudge-left="220"
-    min-width="20rem"
+    :nudge-left="nudgeLeft"
+    :min-width="cartListMinWidth"
     nudge-top="200"
     z-index="20"
-    v-model="open1"
     offset-y
   >
     <div class="container text-white bg-white">
@@ -50,7 +49,11 @@
             >
           </div>
           <div class="col-span-1 flex flex-col justify-center">
-            <button class="uppercase font-bold rounded-lg bg-secondaryColor p-2">view cart</button>
+            <button
+              class="uppercase font-bold rounded-lg bg-secondaryColor p-2"
+            >
+              view cart
+            </button>
           </div>
         </div>
       </div>
@@ -60,33 +63,30 @@
 
 <script>
 export default {
-  props: ["open"],
-  data() {
-    return {
-      open1: true,
-      items: [
-        { title: "Click Me" },
-        { title: "Click Me" },
-        { title: "Click Me" },
-        { title: "Click Me 2" }
-      ]
-    };
-  },
   computed: {
-    show: {
-      get() {
-        return true;
-      },
-      set(value) {
-        this.open = value;
+    cartListMinWidth() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "20rem";
+        case "sm":
+          return "22rem";
+        case "md":
+          return "24rem";
+        case "lg":
+          return "25rem";
       }
-    }
-  },
-  methods: {
-    closeCart(value) {
-      console.log(value);
-      this.show = value;
-      this.$emit("closeCartList", value);
+    },
+    nudgeLeft() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return 220;
+        case "sm":
+          return 290;
+        case "md":
+          return 340;
+        case "lg":
+          return 350;
+      }
     }
   }
 };

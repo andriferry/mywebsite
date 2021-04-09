@@ -76,21 +76,12 @@
 export default {
   data() {
     return {
-      group: null,
-      openCart: true,
       menu: false,
       menuList: [
         { text: "shop" },
         { text: "blog" },
         { text: "contact", link: "portfolio", target: "#portfolio" },
         { text: "about", link: "aboutme", target: "#aboutme" }
-      ],
-      items: [
-        { title: "Click Me" },
-        { title: "Click Me" },
-        { title: "Click Me" },
-        { title: "Click Me 2" },
-        { title: "Click Me 2" }
       ]
     };
   },
@@ -113,12 +104,6 @@ export default {
     },
     openMenu() {
       this.menu = true;
-    },
-    openCartList() {
-      this.openCart = true;
-    },
-    closeCart(value) {
-      this.openCart = value;
     }
   }
 };
