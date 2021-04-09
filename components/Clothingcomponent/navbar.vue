@@ -36,9 +36,11 @@
             </div>
           </v-col>
 
+          <!-- <button class="hello text-white" id="hello">Hello</button> -->
           <v-col class="d-flex justify-end">
             <!-- cart icon -->
-            <v-btn rounded icon @click="openCartList">
+
+            <v-btn rounded icon id="cartList">
               <v-badge color="grey darken-1" content="5" overlap>
                 <v-icon v-text="'mdi-cart-outline'" color="white"></v-icon>
               </v-badge>
@@ -66,9 +68,7 @@
     />
     <!-- Navigation drawer -->
 
-    <!-- cart drawer -->
-    <ClothingcomponentCartlist :open="openCart" @closeCartList="closeCart" />
-    <!-- cart drawer -->
+    <ClothingcomponentCartlist></ClothingcomponentCartlist>
   </div>
 </template>
 
@@ -77,13 +77,20 @@ export default {
   data() {
     return {
       group: null,
-      openCart: false,
+      openCart: true,
       menu: false,
       menuList: [
         { text: "shop" },
         { text: "blog" },
         { text: "contact", link: "portfolio", target: "#portfolio" },
         { text: "about", link: "aboutme", target: "#aboutme" }
+      ],
+      items: [
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me" },
+        { title: "Click Me 2" },
+        { title: "Click Me 2" }
       ]
     };
   },
