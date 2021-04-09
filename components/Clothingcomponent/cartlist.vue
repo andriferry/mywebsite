@@ -10,7 +10,7 @@
     offset-y
   >
     <div class="container text-white bg-white">
-      <div class="grid grid-rows-3 divide-y divide-yellow-500">
+      <div class="grid grid-rows-3 divide-y divide-gray-300">
         <div class="text-primaryColor font-bold capitalize text-lg">
           shopping cart
         </div>
@@ -49,7 +49,7 @@
             >
           </div>
           <div
-            class="col-span-1 bg-red-500 flex flex-col justify-center lg:px-6 sm:px-4"
+            class="col-span-1 flex flex-col justify-center lg:px-6 sm:px-4"
           >
             <button
               class="uppercase font-bold w-auto rounded-lg bg-secondaryColor p-2"
