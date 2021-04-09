@@ -48,9 +48,11 @@
               >$ 20.00</span
             >
           </div>
-          <div class="col-span-1 flex flex-col justify-center">
+          <div
+            class="col-span-1 bg-red-500 flex flex-col justify-center lg:px-6 sm:px-4"
+          >
             <button
-              class="uppercase font-bold rounded-lg bg-secondaryColor p-2"
+              class="uppercase font-bold w-auto rounded-lg bg-secondaryColor p-2"
             >
               view cart
             </button>
