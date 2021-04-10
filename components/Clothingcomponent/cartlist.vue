@@ -10,11 +10,11 @@
     offset-y
   >
     <div class="container text-white bg-white">
-      <div class="grid grid-rows-3 divide-y divide-gray-300">
+      <div class="grid auto-rows-auto divide-y divide-gray-300 gap-4">
         <div class="text-primaryColor font-bold capitalize text-lg">
           shopping cart
         </div>
-        <div class="flex justify-between py-3 px-2">
+        <div class="flex justify-between py-3 px-2" v-for="index in 3" :key="index">
           <div class="text-black for image">
             <v-img
               src="https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
@@ -42,15 +42,13 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 px-3">
+        <div class="grid grid-cols-2 gap-4 p-3">
           <div class="col-span-1 flex flex-col justify-center">
             <span class="text-black font-black text-lg text-opacity-75"
               >$ 20.00</span
             >
           </div>
-          <div
-            class="col-span-1 flex flex-col justify-center lg:px-6 sm:px-4"
-          >
+          <div class="col-span-1 flex flex-col justify-center lg:px-6 sm:px-4">
             <button
               class="uppercase font-bold w-auto rounded-lg bg-secondaryColor p-2"
             >
