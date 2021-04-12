@@ -19,12 +19,16 @@
                 cols="12"
               >
                 <v-card color="transparent" class="pa-10" flat>
-                  <v-card-title class="text-h5 text-sm-h3 text-md-h2 text-lg-h1 capitalize font-weight-bold">
-                    green collection
+                  <v-card-title
+                    class="text-h6 text-sm-h3 text-md-h2 text-lg-h1 capitalize font-weight-bold"
+                    v-text="image.text"
+                  >
                   </v-card-title>
 
-                  <v-card-subtitle class="d-flex pa-2 justify-center capitalize">
-                    t-shirt new collection
+                  <v-card-subtitle
+                    class="d-flex pa-2 text-h6 text-body-2 text-sm-body-1 text-md-h6 text-lg-h5 justify-center capitalize"
+                    v-text="image.category"
+                  >
                   </v-card-subtitle>
 
                   <v-card-actions class="d-flex justify-center">
@@ -33,6 +37,7 @@
                         nuxt
                         to="/"
                         width="150"
+                        height="45"
                         :color="hover ? 'black' : 'white'"
                         :outlined="hover ? false : true"
                         >shop now</v-btn
@@ -56,19 +61,21 @@ export default {
       items: [
         {
           src:
-            "https://images.unsplash.com/photo-1544441893-675973e31985?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmd8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+            "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          text: "vinta travel bags",
+          category: "bags collection"
         },
         {
           src:
-            "https://images.unsplash.com/flagged/photo-1556637640-2c80d3201be8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mzd8fGNsb3RoaW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          text: "nike red edition",
+          category: "sneaker collection"
         },
         {
           src:
-            "https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fHNuZWFrZXJzfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
-        },
-        {
-          src:
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c25lYWtlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
+            "https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
+          text: "green collection",
+          category: "t-shirt collection"
         }
       ]
     };
