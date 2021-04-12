@@ -57,6 +57,14 @@
           </div>
         </div>
       </div>
+
+      <!-- 
+        <h1
+          class="text-xl capitalize text-black font-bold flex flex-col justify-center"
+        >
+          Your cart is empty
+        </h1>
+      </div> -->
     </div>
   </v-menu>
 </template>
