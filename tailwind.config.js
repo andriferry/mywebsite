@@ -4,27 +4,28 @@ module.exports = {
     // purgeLayersByDefault: true,
   },
   purge: {
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: process.env.NODE_ENV === "production",
     content: [
-      'components/**/*.vue',
-      'layouts/**/*.vue',
-      'pages/**/*.vue',
-      'plugins/**/*.js',
-      'nuxt.config.js', 
+      "components/**/*.vue",
+      "layouts/**/*.vue",
+      "pages/**/*.vue",
+      "plugins/**/*.js",
+      "nuxt.config.js",
       // TypeScript
-      'plugins/**/*.ts',
-      'nuxt.config.ts'
+      "plugins/**/*.ts",
+      "nuxt.config.ts"
     ]
   },
   theme: {
     extend: {
+      borderWidth: ["hover", "focus"],
       colors: {
-        'primaryColor': "#444444",
-        "secondaryColor" : "#00bfa5"
+        primaryColor: "#444444",
+        secondaryColor: "#00bfa5"
       },
       fontSize: {
-        "header": "6rem",
-        "mdHeader" : "5rem"
+        header: "6rem",
+        mdHeader: "5rem"
       },
       spacing: {
         bigVh: "90vh",
@@ -34,13 +35,12 @@ module.exports = {
         mdWidth: "70%",
         cardSizeXl: "24rem",
         cardSizeMd: "20rem"
-       
       },
       backgroundImage: theme => ({
-        "aboutImage" : "url('/assets/image/portraitFoto.jpg')"
+        aboutImage: "url('/assets/image/portraitFoto.jpg')"
       })
-    },
+    }
   },
   variants: {},
-  plugins: [],
-}
+  plugins: []
+};

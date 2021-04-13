@@ -20,7 +20,7 @@
               >
                 <v-card color="transparent" class="pa-10" flat>
                   <v-card-title
-                    class="text-h6 text-sm-h3 text-md-h2 text-lg-h1 capitalize font-weight-bold"
+                    class="text-h6 text-sm-h3 text-md-h2 text-lg-h1 capitalize font-weight-black"
                     v-text="image.text"
                   >
                   </v-card-title>
@@ -36,12 +36,12 @@
                       <v-btn
                         nuxt
                         to="/"
-                        width="150"
-                        height="45"
-                        :color="hover ? 'black' : 'white'"
+                        class="pa-3 pa-sm-4 pa-md-5 pa-lg-6 text-lg-h6 font-weight-bold"
+                        :class="{ 'black--text': hover }"
+                        color="white"
                         :outlined="hover ? false : true"
-                        >shop now</v-btn
-                      >
+                        v-text="'shop now'"
+                      ></v-btn>
                     </v-hover>
                   </v-card-actions>
                 </v-card>
@@ -79,7 +79,8 @@ export default {
         }
       ]
     };
-  }
+  },
+  computed: {}
 };
 </script>
 
