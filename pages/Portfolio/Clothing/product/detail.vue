@@ -8,11 +8,21 @@
       aspect-ratio="2"
     >
       <div class="w-full h-full flex items-center">
-        <h1
-          class="flex font-bold uppercase text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center justify-center tracking-widest"
-        >
-          vinta travel bags
-        </h1>
+        <div class="flex flex-col">
+          <h1
+            class="flex font-bold uppercase w-full text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl justify-center tracking-widest sm:py-2"
+          >
+            vinta travel bags
+          </h1>
+
+          <span
+            class="flex justify-center font-bold capitalize text-white text-opacity-75 text-sm sm:text-lg lg:text-xl tracking-widest"
+            >t-shirt</span
+          >
+          <div class="w-full flex justify-center">
+            <v-breadcrumbs :items="items" divider="/"></v-breadcrumbs>
+          </div>
+        </div>
       </div>
     </v-img>
   </div>
@@ -22,6 +32,27 @@
 export default {
   layout(context) {
     return "clothinglayout";
+  },
+  data() {
+    return {
+      items: [
+        {
+          text: "Dashboard",
+          disabled: false,
+          href: "breadcrumbs_dashboard"
+        },
+        {
+          text: "Link 1",
+          disabled: false,
+          href: "breadcrumbs_link_1"
+        },
+        {
+          text: "Link 2",
+          disabled: true,
+          href: "breadcrumbs_link_2"
+        }
+      ]
+    };
   }
 };
 </script>
