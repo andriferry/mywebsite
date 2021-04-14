@@ -55,6 +55,54 @@
               <v-icon class="" color="secondaryColor">mdi-truck-fast</v-icon>
             </div>
           </div>
+
+          <div class="sku py-3 flex justify-between items-center">
+            <span class="text-primaryColor text-lg capitalize font-bold"
+              >SKU</span
+            >
+            <div class="flex justify-end">
+              <span
+                class="text-black text-primaryColor  font-bold p-2 uppercase"
+              >st-12526</span>
+            </div>
+          </div>
+
+          <div class="size py-3 flex justify-between items-center">
+            <span class="text-primaryColor text-lg font-bold">Size</span>
+            <div>
+              <button
+                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+              >
+                xs
+              </button>
+              <button
+                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+              >
+                s
+              </button>
+              <button
+                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+              >
+                l
+              </button>
+              <button
+                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+              >
+                xl
+              </button>
+            </div>
+          </div>
+
+          <div class="color py-3 flex justify-between items-center">
+            <span class="text-primaryColor text-lg capitalize font-bold"
+              >color</span
+            >
+            <div class="flex justify-end">
+              <button
+                class="text-black bg-secondaryColor rounded-lg font-bold text-primaryColor border-solid p-2 uppercase"
+              ></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
