@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen">
+  <div class="w-full h-auto">
     <v-img
       eager
       height="150"
@@ -63,7 +63,27 @@
             <div class="flex justify-end">
               <span
                 class="text-black text-primaryColor  font-bold p-2 uppercase"
-              >st-12526</span>
+                >st-12526</span
+              >
+            </div>
+          </div>
+
+          <div class="sku py-3 flex justify-between items-center">
+            <span class="text-primaryColor text-lg capitalize font-bold"
+              >category</span
+            >
+            <div class="flex justify-end">
+              <NuxtLink
+                to="/"
+                class="text-black secondaryColor--text font-bold capitalize"
+                >t-shirt</NuxtLink
+              >
+              <span class="text-primaryColor px-1">,</span>
+              <NuxtLink
+                to="/"
+                class="text-black secondaryColor--text  font-bold capitalize"
+                >new arival</NuxtLink
+              >
             </div>
           </div>
 
