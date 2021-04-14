@@ -2,7 +2,7 @@
   <div class="w-full h-auto">
     <v-img
       eager
-      height="150"
+      :height="heightBreakpoint"
       src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
       lazy-src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
       aspect-ratio="2"
@@ -32,7 +32,7 @@
       </div>
     </v-img>
 
-    <div class="p-1">
+    <div class="p-1 sm:p-2 lg:p-4">
       <div class="grid grid-rows-1 lg:grid-cols-2 gap-2">
         <v-carousel height="350" hide-delimiters>
           <v-carousel-item
@@ -123,6 +123,31 @@
               ></button>
             </div>
           </div>
+
+          <div class="amount py-3 flex justify-between items-center">
+            <div class="flex justify-start text-black">
+              <button
+                class="text-white rounded-full font-bold bg-secondaryColor text-lg w-10 uppercase"
+              >
+                +
+              </button>
+              <input
+                value="1"
+                class="w-10 mx-1 border-gray-200 capitalize placeholder-gray-600 border-solid rounded p-1 border-2 focus:outline-none focus:border-gray-500"
+              />
+              <button
+                class="text-white rounded-full font-bold bg-secondaryColor p-1 text-lg w-10 uppercase"
+              >
+                -
+              </button>
+            </div>
+            <div class="flex justify-end">
+              <button
+                class="text-white bg-secondaryColor rounded-lg font-bold px-4 py-2 text-sm capitalize"
+                v-text="'add to cart'"
+              ></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -168,6 +193,20 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    heightBreakpoint() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "150";
+        case "sm":
+          return "200";
+        case "md":
+          return "230";
+        case "lg":
+          return "280";
+      }
+    }
   }
 };
 </script>
