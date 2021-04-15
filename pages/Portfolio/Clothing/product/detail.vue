@@ -125,21 +125,22 @@
           </div>
 
           <div class="amount py-3 flex justify-between items-center">
-            <div class="flex justify-start text-black">
-              <button
-                class="text-white rounded-full font-bold bg-secondaryColor text-lg w-10 uppercase"
-              >
-                +
-              </button>
+            <div class="flex justify-start text-black items-center">
+              <div class="minus">
+                <v-btn color="grey lighten-2" elevation="0" fab x-small>
+                  <v-icon class="white--text text-h4">mdi-minus</v-icon>
+                </v-btn>
+              </div>
+
               <input
                 value="1"
-                class="w-10 mx-1 border-gray-200 capitalize placeholder-gray-600 border-solid rounded p-1 border-2 focus:outline-none focus:border-gray-500"
+                class="w-16 text-center mx-1 border-gray-200 capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none focus:border-gray-500"
               />
-              <button
-                class="text-white rounded-full font-bold bg-secondaryColor p-1 text-lg w-10 uppercase"
-              >
-                -
-              </button>
+              <div class="plus">
+                <v-btn color="secondaryColor" elevation="0" fab x-small>
+                  <v-icon class="white--text text-h4">mdi-plus</v-icon>
+                </v-btn>
+              </div>
             </div>
             <div class="flex justify-end">
               <button
