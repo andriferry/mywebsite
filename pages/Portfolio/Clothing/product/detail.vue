@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto">
+  <div class="w-full min-h-screen">
     <v-img
       eager
       :height="heightBreakpoint"
@@ -91,22 +91,22 @@
             <span class="text-primaryColor text-lg font-bold">Size</span>
             <div>
               <button
-                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                class="rounded-lg font-bold bg-gray-300 px-2 text-xs uppercase py-1 border-solid border-2 border-primaryColor border-opacity-25 text-primaryColor text-opacity-50"
               >
                 xs
               </button>
               <button
-                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
               >
                 s
               </button>
               <button
-                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
               >
                 l
               </button>
               <button
-                class="text-black rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
               >
                 xl
               </button>
@@ -148,6 +148,19 @@
               ></button>
             </div>
           </div>
+        </div>
+
+        <div class="text-black p-4 lg:col-span-1">
+          <h1 class="text-black font-bold py-2 capitalize">detail product</h1>
+          <p class="p-0 m-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nihil
+            atque cum laboriosam minima odit earum nam, beatae voluptatem vitae
+            voluptatum ipsum ducimus tempora pariatur deserunt eligendi dolorum
+            tenetur necessitatibus. Quos nemo dolorem commodi eveniet
+            exercitationem reprehenderit porro rem distinctio nobis aperiam
+            earum, ad aut, ipsum molestiae, eos veniam incidunt consequuntur
+            eligendi beatae corporis quis. Accusantium, quo amet. Sit, magni.
+          </p>
         </div>
       </div>
     </div>
