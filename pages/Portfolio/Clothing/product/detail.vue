@@ -35,7 +35,7 @@
     <div class="p-1 sm:p-2 lg:p-4">
       <v-container>
         <v-row>
-          <v-col md="6" align-self="start">
+          <v-col cols="12" md="6" align-self="start">
             <v-carousel height="350" hide-delimiters>
               <v-carousel-item
                 eager
@@ -48,7 +48,7 @@
             </v-carousel>
           </v-col>
 
-          <v-col md="6" align-self="end">
+          <v-col md="6" cols="12" align-self="end">
             <div class="price flex justify-between items-center">
               <span class="text-primaryColor text-3xl font-bold">$ 20.00</span>
               <div class="flex justify-end">
@@ -81,14 +81,11 @@
                     <NuxtLink
                       to="/"
                       class="text-black secondaryColor--text font-bold capitalize"
-                      >t-shirt</NuxtLink
-                    >
+                      v-for="(category, index) in data.element"
+                      :key="index"
+                      v-text="category"
+                    ></NuxtLink>
                     <span class="text-primaryColor px-1">,</span>
-                    <NuxtLink
-                      to="/"
-                      class="text-black secondaryColor--text  font-bold capitalize"
-                      >new arival</NuxtLink
-                    >
                   </template>
 
                   <template v-else-if="data.properties === 'size'">
@@ -116,17 +113,31 @@
             <div class="amount py-3 flex justify-between items-center">
               <div class="flex justify-start text-black items-center">
                 <div class="minus">
-                  <v-btn color="grey lighten-2" elevation="0" fab x-small>
+                  <v-btn
+                    :color="
+                      dataCheckout > 1 ? 'secondaryColor' : 'grey lighten-2'
+                    "
+                    elevation="0"
+                    @click="dataCheckout--"
+                    fab
+                    x-small
+                  >
                     <v-icon class="white--text text-h4">mdi-minus</v-icon>
                   </v-btn>
                 </div>
 
                 <input
-                  value="1"
+                  v-model="dataCheckout"
                   class="w-16 text-center mx-1 border-gray-200 capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none focus:border-gray-500"
                 />
                 <div class="plus">
-                  <v-btn color="secondaryColor" elevation="0" fab x-small>
+                  <v-btn
+                    color="secondaryColor"
+                    elevation="0"
+                    fab
+                    x-small
+                    @click="dataCheckout++"
+                  >
                     <v-icon class="white--text text-h4">mdi-plus</v-icon>
                   </v-btn>
                 </div>
@@ -170,6 +181,7 @@ export default {
   },
   data() {
     return {
+      dataCheckout: 1,
       items: [
         {
           text: "Dashboard",
@@ -222,13 +234,6 @@ export default {
           return "280";
       }
     }
-  },
-  mounted() {
-    this.productInformation.forEach((element, index) => {
-      console.log(element, index);
-    });
-
-    console.log(this.productInformation.length);
   }
 };
 </script>
