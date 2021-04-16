@@ -51,7 +51,7 @@
           <v-col md="6" align-self="end">
             <div class="price flex justify-between items-center">
               <span class="text-primaryColor text-3xl font-bold">$ 20.00</span>
-              <div class="">
+              <div class="flex justify-end">
                 <span class="text-secondaryColor text-lg font-bold"
                   >Free delivery</span
                 >
@@ -68,6 +68,7 @@
                 class="text-primaryColor text-lg capitalize font-bold"
                 v-text="data.properties"
               ></span>
+
               <div class="flex justify-end">
                 <template v-if="Array.isArray(data.element) !== true">
                   <span
@@ -77,76 +78,38 @@
                 </template>
 
                 <template v-else>
-                  <template>
-                    {{ Object.keys(data.properties) }}
+                  <template v-if="data.properties === 'category'">
+                    <NuxtLink
+                      to="/"
+                      class="text-black secondaryColor--text font-bold capitalize"
+                      >t-shirt</NuxtLink
+                    >
+                    <span class="text-primaryColor px-1">,</span>
+                    <NuxtLink
+                      to="/"
+                      class="text-black secondaryColor--text  font-bold capitalize"
+                      >new arival</NuxtLink
+                    >
+                  </template>
+
+                  <template v-else-if="data.properties === 'size'">
+                    <button
+                      class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                      v-for="(size, index) in data.element"
+                      :key="index"
+                      v-text="size"
+                    ></button>
+                  </template>
+
+                  <template v-else-if="data.properties === 'color'">
+                    <button
+                      class="rounded-lg p-2"
+                      v-for="(colorClass, index) in data.element"
+                      :key="index"
+                      :class="colorClass"
+                    ></button>
                   </template>
                 </template>
-              </div>
-            </div>
-
-            <div class="sku py-3 flex justify-between items-center">
-              <span class="text-primaryColor text-lg capitalize font-bold"
-                >SKU</span
-              >
-              <div class="flex justify-end">
-                <span
-                  class="text-black text-primaryColor  font-bold p-2 uppercase"
-                  >st-12526</span
-                >
-              </div>
-            </div>
-
-            <div class="category py-3 flex justify-between items-center">
-              <span class="text-primaryColor text-lg capitalize font-bold"
-                >category</span
-              >
-              <div class="flex justify-end">
-                <NuxtLink
-                  to="/"
-                  class="text-black secondaryColor--text font-bold capitalize"
-                  >t-shirt</NuxtLink
-                >
-                <span class="text-primaryColor px-1">,</span>
-                <NuxtLink
-                  to="/"
-                  class="text-black secondaryColor--text  font-bold capitalize"
-                  >new arival</NuxtLink
-                >
-              </div>
-            </div>
-
-            <div class="size py-3 flex justify-between items-center">
-              <span class="text-primaryColor text-lg font-bold">Size</span>
-              <div class="flex justify-end">
-                <button
-                  class="rounded-lg mx-1 font-bold bg-gray-300 px-2 text-xs uppercase py-1 border-solid border-2 border-primaryColor border-opacity-25 text-primaryColor text-opacity-50"
-                >
-                  xs
-                </button>
-                <button
-                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
-                >
-                  s
-                </button>
-                <button
-                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
-                >
-                  l
-                </button>
-                <button
-                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
-                >
-                  xl
-                </button>
-              </div>
-            </div>
-
-            <div class="color py-3 flex justify-between items-center">
-              <span class="text-primaryColor text-lg capitalize font-bold"
-                >color</span
-              >
-              <div class="flex justify-end">
-                <button class="bg-secondaryColor rounded-lg p-2"></button>
               </div>
             </div>
 
