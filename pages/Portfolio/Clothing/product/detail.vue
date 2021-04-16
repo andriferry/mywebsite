@@ -118,7 +118,7 @@
                       dataCheckout > 1 ? 'secondaryColor' : 'grey lighten-2'
                     "
                     elevation="0"
-                    @click="dataCheckout--"
+                    @[countMinus]="dataCheckout--"
                     fab
                     x-small
                   >
@@ -182,6 +182,7 @@ export default {
   data() {
     return {
       dataCheckout: 1,
+      countMinus: "",
       items: [
         {
           text: "Dashboard",
@@ -220,6 +221,12 @@ export default {
         }
       ]
     };
+  },
+  watch: {
+    dataCheckout(value) {
+      value > 1 ? (this.countMinus = "click") : null;
+      console.log(value);
+    }
   },
   computed: {
     heightBreakpoint() {
