@@ -68,7 +68,6 @@
                 class="text-primaryColor text-lg capitalize font-bold"
                 v-text="data.properties"
               ></span>
-
               <div class="flex justify-end">
                 <template v-if="Array.isArray(data.element) !== true">
                   <span
@@ -94,10 +93,11 @@
 
                   <template v-else-if="data.properties === 'size'">
                     <button
-                      class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
                       v-for="(size, index) in data.element"
                       :key="index"
                       v-text="size"
+                      class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                      :class="index === 3 ? 'ml-1' : 'mx-1'"
                     ></button>
                   </template>
 
@@ -224,7 +224,11 @@ export default {
     }
   },
   mounted() {
-    console.log(this.productInformation);
+    this.productInformation.forEach((element, index) => {
+      console.log(element, index);
+    });
+
+    console.log(this.productInformation.length);
   }
 };
 </script>
