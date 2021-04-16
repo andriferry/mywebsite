@@ -225,7 +225,6 @@ export default {
   watch: {
     dataCheckout(value) {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
-      console.log(value);
     }
   },
   computed: {
