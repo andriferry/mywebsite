@@ -15,9 +15,9 @@
             vinta travel bags
           </h1>
 
-          <spand
+          <span
             class="flex justify-center font-bold capitalize text-white text-opacity-75 text-sm sm:text-lg lg:text-xl tracking-widest"
-            >t-shirt</spand
+            >t-shirt</span
           >
           <div class="w-full flex justify-center">
             <v-breadcrumbs :items="items">
@@ -73,6 +73,18 @@
 
             <div class="sku py-3 flex justify-between items-center">
               <span class="text-primaryColor text-lg capitalize font-bold"
+                >SKU</span
+              >
+              <div class="flex justify-end">
+                <span
+                  class="text-black text-primaryColor  font-bold p-2 uppercase"
+                  >st-12526</span
+                >
+              </div>
+            </div>
+
+            <div class="category py-3 flex justify-between items-center">
+              <span class="text-primaryColor text-lg capitalize font-bold"
                 >category</span
               >
               <div class="flex justify-end">
@@ -122,7 +134,7 @@
               >
               <div class="flex justify-end">
                 <button
-                  class="text-black bg-secondaryColor rounded-lg font-bold text-primaryColor border-solid p-2 uppercase"
+                  class="text-black bg-secondaryColor rounded-lg p-2"
                 ></button>
               </div>
             </div>
@@ -157,7 +169,9 @@
 
         <v-row>
           <v-col>
-            <h1 class="text-black font-bold py-2 capitalize">detail product</h1>
+            <h1 class="text-black font-bold py-2 capitalize text-xl">
+              detail product
+            </h1>
             <p class="p-0 m-0 text-justify">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero
               nihil atque cum laboriosam minima odit earum nam, beatae
@@ -199,6 +213,12 @@ export default {
           href: "breadcrumbs_link_2"
         }
       ],
+      productInformation: [
+        { properties: "SKU", element: "st-12526" },
+        { properties: "category", element: ["t-shirt", "new arival"] },
+        { properties: "size", element: ["xs", "s", "l", "xl"] },
+        { properties: "color", element: ["bg-secondaryColor"] }
+      ],
       product: [
         {
           src:
@@ -228,6 +248,9 @@ export default {
           return "280";
       }
     }
+  },
+  mounted() {
+    console.log(this.productInformation)
   }
 };
 </script>
