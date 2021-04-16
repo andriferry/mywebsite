@@ -59,15 +59,28 @@
               </div>
             </div>
 
-            <div class="sku py-3 flex justify-between items-center">
-              <span class="text-primaryColor text-lg capitalize font-bold"
-                >SKU</span
-              >
+            <div
+              class="sku py-3 flex justify-between items-center"
+              v-for="(data, index) in productInformation"
+              :key="index"
+            >
+              <span
+                class="text-primaryColor text-lg capitalize font-bold"
+                v-text="data.properties"
+              ></span>
               <div class="flex justify-end">
-                <span
-                  class="text-black text-primaryColor  font-bold p-2 uppercase"
-                  >st-12526</span
-                >
+                <template v-if="Array.isArray(data.element) !== true">
+                  <span
+                    class="text-primaryColor font-bold p-2 uppercase"
+                    v-text="data.element"
+                  ></span>
+                </template>
+
+                <template v-else>
+                  <template>
+                    {{ Object.keys(data.properties) }}
+                  </template>
+                </template>
               </div>
             </div>
 
@@ -104,24 +117,24 @@
 
             <div class="size py-3 flex justify-between items-center">
               <span class="text-primaryColor text-lg font-bold">Size</span>
-              <div>
+              <div class="flex justify-end">
                 <button
-                  class="rounded-lg font-bold bg-gray-300 px-2 text-xs uppercase py-1 border-solid border-2 border-primaryColor border-opacity-25 text-primaryColor text-opacity-50"
+                  class="rounded-lg mx-1 font-bold bg-gray-300 px-2 text-xs uppercase py-1 border-solid border-2 border-primaryColor border-opacity-25 text-primaryColor text-opacity-50"
                 >
                   xs
                 </button>
                 <button
-                  class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
                 >
                   s
                 </button>
                 <button
-                  class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
                 >
                   l
                 </button>
                 <button
-                  class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
+                  class="rounded-lg mx-1 font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
                 >
                   xl
                 </button>
@@ -133,9 +146,7 @@
                 >color</span
               >
               <div class="flex justify-end">
-                <button
-                  class="text-black bg-secondaryColor rounded-lg p-2"
-                ></button>
+                <button class="bg-secondaryColor rounded-lg p-2"></button>
               </div>
             </div>
 
@@ -250,7 +261,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.productInformation)
+    console.log(this.productInformation);
   }
 };
 </script>
