@@ -93,8 +93,13 @@
                       v-for="(size, index) in data.element"
                       :key="index"
                       v-text="size"
-                      class="rounded-lg font-bold text-primaryColor border-solid border-2 border-black border-opacity-50 px-2 text-xs uppercase py-1"
-                      :class="index === 3 ? 'ml-1' : 'mx-1'"
+                      :class="
+                        `${index === 3 ? 'ml-1' : 'mx-1'} ${
+                          index === 0
+                            ? 'bg-gray-300 text-white border-white'
+                            : 'bg-white border-black text-primaryColor'
+                        } rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1`
+                      "
                     ></button>
                   </template>
 
