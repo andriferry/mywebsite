@@ -49,67 +49,78 @@
           </v-col>
 
           <v-col md="6" cols="12" align-self="end">
-            <div class="price flex justify-between items-center">
-              <span class="text-primaryColor text-3xl font-bold">$ 20.00</span>
-              <div class="flex justify-end">
-                <span class="text-secondaryColor text-lg font-bold"
-                  >Free delivery</span
-                >
-                <v-icon class="" color="secondaryColor">mdi-truck-fast</v-icon>
-              </div>
-            </div>
-
             <div
               class="sku py-3 flex justify-between items-center"
               v-for="(data, index) in productInformation"
               :key="index"
             >
-              <span
-                class="text-primaryColor text-lg capitalize font-bold"
-                v-text="data.properties"
-              ></span>
+              <template v-if="index === 0">
+                <span
+                  class="text-primaryColor text-3xl font-bold"
+                  v-text="data.properties"
+                ></span>
+              </template>
+
+              <template v-else>
+                <span
+                  class="text-primaryColor text-lg capitalize font-bold"
+                  v-text="data.properties"
+                ></span>
+              </template>
+
               <div class="flex justify-end">
-                <template v-if="Array.isArray(data.element) !== true">
-                  <span
-                    class="text-primaryColor font-bold p-2 uppercase"
-                    v-text="data.element"
-                  ></span>
+                <template v-if="index === 0">
+                  <span class="text-secondaryColor text-lg font-bold"
+                    >Free delivery</span
+                  >
+                  <v-icon class="" color="secondaryColor"
+                    >mdi-truck-fast</v-icon
+                  >
                 </template>
 
                 <template v-else>
-                  <template v-if="data.properties === 'category'">
-                    <NuxtLink
-                      to="/"
-                      class="text-black secondaryColor--text font-bold capitalize"
-                      v-for="(category, index) in data.element"
-                      :key="index"
-                      v-text="category"
-                    ></NuxtLink>
-                    <span class="text-primaryColor px-1">,</span>
+                  <template v-if="Array.isArray(data.element) !== true">
+                    <span
+                      class="text-primaryColor font-bold p-2 uppercase"
+                      v-text="data.element"
+                    ></span>
                   </template>
 
-                  <template v-else-if="data.properties === 'size'">
-                    <button
-                      v-for="(size, index) in data.element"
-                      :key="index"
-                      v-text="size"
-                      :class="
-                        `${index === 3 ? 'ml-1' : 'mx-1'} ${
-                          index === soldoutSize
-                            ? 'bg-gray-300 text-white border-white'
-                            : 'bg-white border-black text-primaryColor'
-                        } rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1`
-                      "
-                    ></button>
-                  </template>
+                  <template v-else>
+                    <template v-if="data.properties === 'category'">
+                      <NuxtLink
+                        to="/"
+                        class="text-black secondaryColor--text font-bold capitalize"
+                        v-for="(category, index) in data.element"
+                        :key="index"
+                        v-text="category"
+                      ></NuxtLink>
+                      <span class="text-primaryColor px-1">,</span>
+                    </template>
 
-                  <template v-else-if="data.properties === 'color'">
-                    <button
-                      class="rounded-lg p-2"
-                      v-for="(colorClass, index) in data.element"
-                      :key="index"
-                      :class="colorClass"
-                    ></button>
+                    <template v-else-if="data.properties === 'size'">
+                      <button
+                        v-for="(size, index) in data.element"
+                        :key="index"
+                        v-text="size"
+                        :class="
+                          `${index === 3 ? 'ml-1' : 'mx-1'} ${
+                            index === soldoutSize
+                              ? 'bg-gray-300 text-white border-white'
+                              : 'bg-white border-black text-primaryColor'
+                          } rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1`
+                        "
+                      ></button>
+                    </template>
+
+                    <template v-else-if="data.properties === 'color'">
+                      <button
+                        class="rounded-lg p-2"
+                        v-for="(colorClass, index) in data.element"
+                        :key="index"
+                        :class="colorClass"
+                      ></button>
+                    </template>
                   </template>
                 </template>
               </div>
@@ -207,8 +218,12 @@ export default {
         }
       ],
       productInformation: [
+        { properties: "$ 20.00", element: "Free delivery" },
         { properties: "SKU", element: "st-12526" },
-        { properties: "category", element: ["t-shirt", "new arival"] },
+        {
+          properties: "category",
+          element: ["t-shirt", "new arival"]
+        },
         { properties: "size", element: ["xs", "s", "l", "xl"] },
         { properties: "color", element: ["bg-secondaryColor"] }
       ],
@@ -248,7 +263,9 @@ export default {
     }
   },
   methods: {
-    
+    sizeChoose() {
+      console.log("hello");
+    }
   }
 };
 </script>
