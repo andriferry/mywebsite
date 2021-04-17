@@ -62,13 +62,10 @@
     </v-app-bar>
 
     <!-- Navigation drawer -->
-    <ClothingcomponentDrawermenu
-      :openMenu="openDrawer"
-      @closeDrawer="closeMenu"
-    />
+    <Drawermenu :openMenu="openDrawer" @closeDrawer="closeMenu" />
     <!-- Navigation drawer -->
 
-    <ClothingcomponentCartlist></ClothingcomponentCartlist>
+    <Cartlist></Cartlist>
   </div>
 </template>
 

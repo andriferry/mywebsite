@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <!-- navbar -->
-    <ClothingcomponentNavbar />
+    <Navbar />
     <!-- navbar -->
     <v-main>
       <!-- Main area -->
@@ -9,7 +9,7 @@
       <!-- Main area -->
     </v-main>
 
-    <ClothingcomponentFooter />
+    <Footer />
   </v-app>
 </template>
 

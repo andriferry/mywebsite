@@ -1,46 +1,42 @@
-import colors from 'vuetify/es5/util/colors'
+import colors from "vuetify/es5/util/colors";
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Andri Ferry',
-    title: 'Home',
+    titleTemplate: "%s - Andri Ferry",
+    title: "Home",
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/mixins.js'
-  ],
+  plugins: ["~/plugins/mixins.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: {
+    dirs: ["~/components", "~/components/Clothingcomponent"]
+  },
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify',
-    '@nuxtjs/tailwindcss' 
-
+    "@nuxtjs/vuetify",
+    "@nuxtjs/tailwindcss"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    "@nuxtjs/pwa"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -49,13 +45,13 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
-      lang: 'en'
+      lang: "en"
     }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ["~/assets/variables.scss"],
     theme: {
       dark: false,
       themes: {
@@ -69,25 +65,24 @@ export default {
           success: colors.green.accent3
         },
         light: {
-                primaryColor: "#444",
-                instagramColor: "#fd1d1d",
-                secondaryColor: "#00BFA5",
-                greenColor100: "#def7ec",
-                greenColor200: "#34D399",
-                greenColor250: "#A7F3D0",
-                grayColor100: "#f4f5f7",
-                grayColor200: "#E5E7EB",
-                grayColor300: "#e8e1df",
-                redColor100: "#FEE2E2",
-                blueColor100: "#BFDBFE",
-                yellowColor100: "#fcf3cf",
-                purpleColor100: "#e8daef"
-            },
+          primaryColor: "#444",
+          instagramColor: "#fd1d1d",
+          secondaryColor: "#00BFA5",
+          greenColor100: "#def7ec",
+          greenColor200: "#34D399",
+          greenColor250: "#A7F3D0",
+          grayColor100: "#f4f5f7",
+          grayColor200: "#E5E7EB",
+          grayColor300: "#e8e1df",
+          redColor100: "#FEE2E2",
+          blueColor100: "#BFDBFE",
+          yellowColor100: "#fcf3cf",
+          purpleColor100: "#e8daef"
+        }
       }
     }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
-}
+  build: {}
+};
