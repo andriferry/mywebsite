@@ -95,7 +95,7 @@
                       v-text="size"
                       :class="
                         `${index === 3 ? 'ml-1' : 'mx-1'} ${
-                          index === 0
+                          index === soldoutSize
                             ? 'bg-gray-300 text-white border-white'
                             : 'bg-white border-black text-primaryColor'
                         } rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1`
@@ -186,6 +186,7 @@ export default {
   },
   data() {
     return {
+      soldoutSize: 0,
       dataCheckout: 1,
       countMinus: "",
       items: [
@@ -245,6 +246,9 @@ export default {
           return "280";
       }
     }
+  },
+  methods: {
+    
   }
 };
 </script>
