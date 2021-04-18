@@ -73,18 +73,28 @@
                     </template>
 
                     <template v-else-if="data.properties === 'size'">
-                      <button
-                        v-for="(size, index) in data.element"
-                        :key="index"
-                        v-text="size"
-                        :class="
-                          `${index === 3 ? 'ml-1' : 'mx-1'} ${
-                            index === soldoutSize
-                              ? 'bg-gray-300 text-white border-white'
-                              : 'bg-white border-black text-primaryColor'
-                          } rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1`
-                        "
-                      ></button>
+                      <ul class="">
+                        <li
+                          v-for="(data, index) in data.element"
+                          :key="index"
+                          class="inline-block bg-white border-black text-primaryColor"
+                          :class="index === 3 ? 'ml-1' : 'mx-1'"
+                        >
+                          <button
+                            v-if="index === soldoutSize"
+                            @[null]="sizeChoose"
+                            class="bg-gray-300 text-white border-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                            v-text="data"
+                          ></button>
+
+                          <button
+                            v-else
+                            @click="sizeChoose"
+                            class="bg-white border-black text-primaryColor rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                            v-text="data"
+                          ></button>
+                        </li>
+                      </ul>
                     </template>
 
                     <template v-else-if="data.properties === 'color'">
@@ -186,7 +196,6 @@ export default {
       soldoutSize: 0,
       dataCheckout: 1,
       countMinus: "",
-      show: false,
       productInformation: [
         { properties: "$ 20.00", element: "Free delivery" },
         { properties: "SKU", element: "st-12526" },
