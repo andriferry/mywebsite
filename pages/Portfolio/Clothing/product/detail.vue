@@ -62,9 +62,16 @@
                         class="text-black secondaryColor--text font-bold capitalize"
                         v-for="(category, index) in data.element"
                         :key="index"
-                        v-text="category"
-                      ></NuxtLink>
-                      <span class="text-primaryColor px-1">,</span>
+                      >
+                        {{ category }}
+                        <span
+                          v-if="
+                            index == data.element.length - 1 ? false : true
+                          "
+                          class="text-primaryColor"
+                          >,</span
+                        >
+                      </NuxtLink>
                     </template>
 
                     <template v-else-if="data.properties === 'size'">
@@ -169,29 +176,13 @@ export default {
       soldoutSize: 0,
       dataCheckout: 1,
       countMinus: "",
-      items: [
-        {
-          text: "Dashboard",
-          disabled: false,
-          href: "breadcrumbs_dashboard"
-        },
-        {
-          text: "Link 1",
-          disabled: false,
-          href: "breadcrumbs_link_1"
-        },
-        {
-          text: "Link 2",
-          disabled: true,
-          href: "breadcrumbs_link_2"
-        }
-      ],
+      show: false,
       productInformation: [
         { properties: "$ 20.00", element: "Free delivery" },
         { properties: "SKU", element: "st-12526" },
         {
           properties: "category",
-          element: ["t-shirt", "new arival"]
+          element: ["t-shirt", "new arrivals"]
         },
         { properties: "size", element: ["xs", "s", "l", "xl"] },
         { properties: "color", element: ["bg-secondaryColor"] }
