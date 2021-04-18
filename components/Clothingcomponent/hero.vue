@@ -40,8 +40,8 @@
                         :class="{ 'black--text': hover }"
                         color="white"
                         :outlined="hover ? false : true"
-                        v-text="'shop now'"
-                      ></v-btn>
+                        >shop now</v-btn
+                      >
                     </v-hover>
                   </v-card-actions>
                 </v-card>

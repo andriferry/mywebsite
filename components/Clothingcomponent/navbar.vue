@@ -36,7 +36,6 @@
             </div>
           </v-col>
 
-          <!-- <button class="hello text-white" id="hello">Hello</button> -->
           <v-col class="d-flex justify-end">
             <!-- cart icon -->
 
