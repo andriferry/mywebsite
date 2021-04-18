@@ -16,20 +16,28 @@
           </h1>
 
           <span
-            class="flex justify-center font-bold capitalize text-white text-opacity-75 text-sm sm:text-lg lg:text-xl tracking-widest"
+            class="flex py-1 justify-center font-bold capitalize text-white text-opacity-75 text-sm sm:text-lg lg:text-xl tracking-widest"
             >t-shirt</span
           >
           <div class="w-full flex justify-center">
             <ol
-              class="list-reset flex justify-center py-4 pl-4 rounded bg-grey-light text-grey"
+              class="list-reset flex justify-center p-1 rounded bg-grey-light text-grey"
             >
-              <li class="px-2" v-for="data in 3" :key="data">
+              <li
+                class=""
+                v-for="(data, index) in breadCumbsItems"
+                :key="index"
+              >
                 <NuxtLink
-                  to="/"
-                  class="no-underline white--text font-weight-bold"
-                  >Home</NuxtLink
+                  :to="data.to"
+                  class="no-underline capitalize white--text font-weight-bold text-body-2"
+                  v-text="data.text"
+                ></NuxtLink>
+                <span
+                  v-if="index === breadCumbsItems.length - 1 ? false : true"
+                  class="text-white px-1"
+                  >/</span
                 >
-                <span>/</span>
               </li>
             </ol>
           </div>
