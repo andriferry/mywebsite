@@ -65,9 +65,7 @@
                       >
                         {{ category }}
                         <span
-                          v-if="
-                            index == data.element.length - 1 ? false : true
-                          "
+                          v-if="index == data.element.length - 1 ? false : true"
                           class="text-primaryColor"
                           >,</span
                         >
@@ -168,6 +166,18 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: "Detail Product",
+      meta: [
+        {
+          hid: "description hid",
+          name: "description name",
+          content: "Home page description"
+        }
+      ]
+    };
+  },
   layout(context) {
     return "clothinglayout";
   },
