@@ -1,11 +1,11 @@
 <template>
   <div>
-    <ClothingcomponentHero />
-    <ClothingcomponentCategories />
-    <ClothingcomponentSale />
-    <ClothingcomponentNewarrivals />
-    <ClothingcomponentBestseller />
-    <ClothingcomponentSignuppage />
+    <Hero />
+    <Categories />
+    <Sale />
+    <Newarrivals />
+    <Bestseller />
+    <Signuppage />
   </div>
 </template>
 

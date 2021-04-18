@@ -20,29 +20,17 @@
             >t-shirt</span
           >
           <div class="w-full flex justify-center">
-            <!-- <v-breadcrumbs :items="items">
-              <template v-slot:item="{ item }">
-                <v-breadcrumbs-item nuxt to="/" :disabled="item.disabled">
-                  {{ item.text.toUpperCase() }}
-                </v-breadcrumbs-item>
-              </template>
-            </v-breadcrumbs> -->
             <ol
-              class="list-reset flex justify-center py-4 pl-4 rounded flex bg-grey-light text-grey"
+              class="list-reset flex justify-center py-4 pl-4 rounded bg-grey-light text-grey"
             >
-              <li class="px-2">
+              <li class="px-2" v-for="data in 3" :key="data">
                 <NuxtLink
                   to="/"
                   class="no-underline white--text font-weight-bold"
                   >Home</NuxtLink
                 >
+                <span>/</span>
               </li>
-              <li>/</li>
-              <li class="px-2">
-                <a href="#" class="no-underline text-indigo">Library</a>
-              </li>
-              <li>/</li>
-              <li class="px-2">Data</li>
             </ol>
           </div>
         </div>
@@ -54,7 +42,13 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      breadCumbsItems: [
+        { text: "Home", to: "/" },
+        { text: "t-shirt", to: "/" },
+        { text: "green collection", to: "/" }
+      ]
+    };
   },
   computed: {
     heightBreakpoint() {
