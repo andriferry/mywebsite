@@ -211,7 +211,7 @@ export default {
     return {
       soldoutSize: 0,
       dataCheckout: 1,
-      addSize: "",
+      addSize: null,
       countMinus: "",
       isActiv: false,
       productInformation: [
@@ -261,12 +261,14 @@ export default {
   },
   methods: {
     sizeChoose(value) {
-      console.log(value);
-      this.isActiv = !this.isActiv;
-      this.addSize = value;
-
-      console.log(this.isActiv);
-      //console.log(this.sizeChose = !this.sizeChose);
+      if (this.addSize == null) {
+        this.addSize = value;
+      } else {
+        if ((this.addSize = value)) {
+          this.addSize = null;
+          this.addSize = value;
+        }
+      }
     }
   }
 };
