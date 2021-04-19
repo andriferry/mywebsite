@@ -35,6 +35,7 @@
               </v-hover>
             </div>
           </v-col>
+          <!-- menu -->
 
           <v-col class="d-flex justify-end">
             <!-- cart icon -->
@@ -51,12 +52,9 @@
             <v-btn class="hidden-md-and-up" icon @click.stop="openMenu">
               <v-icon color="white" v-text="'mdi-menu'"></v-icon>
             </v-btn>
-
             <!-- button triger menu -->
           </v-col>
         </v-row>
-
-        <!-- menu -->
       </v-container>
     </v-app-bar>
 

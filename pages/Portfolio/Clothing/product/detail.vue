@@ -89,14 +89,30 @@
 
                           <button
                             v-else
-                            @click="sizeChoose"
-                            class="bg-white border-black text-primaryColor rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                            @click="sizeChoose(index)"
+                            class="rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                            :class="
+                              index === addSize
+                                ? 'bg-secondaryColor border-white text-white'
+                                : 'bg-white border-black text-primaryColor'
+                            "
                             v-text="data"
                           ></button>
                         </li>
                       </ul>
                     </template>
 
+                    <!-- 
+                    class="bg-white border-black text-primaryColor rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1" 
+
+                    :class="
+                              isActiv
+                                ? 'bg-secondaryColor border-white text-white'
+                                : 'bg-white border-black text-primaryColor'
+                    "
+                    
+                    bg-secondaryColor border-white text-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1 
+                    -->
                     <template v-else-if="data.properties === 'color'">
                       <button
                         class="rounded-lg p-2"
@@ -195,7 +211,9 @@ export default {
     return {
       soldoutSize: 0,
       dataCheckout: 1,
+      addSize: "",
       countMinus: "",
+      isActiv: false,
       productInformation: [
         { properties: "$ 20.00", element: "Free delivery" },
         { properties: "SKU", element: "st-12526" },
@@ -242,8 +260,13 @@ export default {
     }
   },
   methods: {
-    sizeChoose() {
-      console.log("hello");
+    sizeChoose(value) {
+      console.log(value);
+      this.isActiv = !this.isActiv;
+      this.addSize = value;
+
+      console.log(this.isActiv);
+      //console.log(this.sizeChose = !this.sizeChose);
     }
   }
 };
