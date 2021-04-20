@@ -148,11 +148,15 @@
                 />
                 <div class="plus">
                   <v-btn
-                    color="secondaryColor"
+                    :color="
+                      dataCheckout == stock
+                        ? 'grey lighten-2'
+                        : 'secondaryColor'
+                    "
                     elevation="0"
                     fab
                     x-small
-                    @click="dataCheckout++"
+                    @[countPlus]="dataCheckout++"
                   >
                     <v-icon class="white--text text-h4">mdi-plus</v-icon>
                   </v-btn>
@@ -213,6 +217,8 @@ export default {
       dataCheckout: 1,
       addSize: null,
       countMinus: "",
+      stock: 10,
+      countPlus: "click",
       isActiv: false,
       productInformation: [
         { properties: "$ 20.00", element: "Free delivery" },
@@ -245,8 +251,8 @@ export default {
       let number = /^\d+$/;
 
       if (number.test(value)) {
-        console.log(number.test(value));
-        value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
+        this.activButtonMinus(value);
+        this.nonActiveButtonAdd(value);
       } else {
         console.log(number.test(value));
       }
@@ -276,6 +282,12 @@ export default {
           this.addSize = value;
         }
       }
+    },
+    activButtonMinus(value) {
+      value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
+    },
+    nonActiveButtonAdd(value) {
+      value == this.stock ? (this.countPlus = null) : false;
     }
   }
 };
