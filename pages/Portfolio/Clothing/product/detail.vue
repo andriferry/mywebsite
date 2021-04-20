@@ -102,6 +102,17 @@
                       </ul>
                     </template>
 
+                    <!-- 
+                    class="bg-white border-black text-primaryColor rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1" 
+
+                    :class="
+                              isActiv
+                                ? 'bg-secondaryColor border-white text-white'
+                                : 'bg-white border-black text-primaryColor'
+                    "
+                    
+                    bg-secondaryColor border-white text-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1 
+                    -->
                     <template v-else-if="data.properties === 'color'">
                       <button
                         class="rounded-lg p-2"
@@ -137,15 +148,11 @@
                 />
                 <div class="plus">
                   <v-btn
-                    :color="
-                      dataCheckout > productStock
-                        ? 'grey lighten-2'
-                        : 'secondaryColor'
-                    "
+                    color="secondaryColor"
                     elevation="0"
                     fab
                     x-small
-                    @[countAdd]="dataCheckout++"
+                    @click="dataCheckout++"
                   >
                     <v-icon class="white--text text-h4">mdi-plus</v-icon>
                   </v-btn>
@@ -206,8 +213,6 @@ export default {
       dataCheckout: 1,
       addSize: null,
       countMinus: "",
-      countAdd: "click",
-      productStock: 10,
       isActiv: false,
       productInformation: [
         { properties: "$ 20.00", element: "Free delivery" },
@@ -238,18 +243,13 @@ export default {
   watch: {
     dataCheckout(value) {
       let number = /^\d+$/;
-      let getString = /^A-Za-z+$/;
 
-      if (number.test(value) && value > 1) {
-        this.countMinus = "click";
-        if (value >= 10) {
-          this.countAdd = null;
-        }
+      if (number.test(value)) {
+        console.log(number.test(value));
+        value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
       } else {
-        this.countMinus = null;
+        console.log(number.test(value));
       }
-
-      console.log(this.dataCheckout);
     }
   },
   computed: {
