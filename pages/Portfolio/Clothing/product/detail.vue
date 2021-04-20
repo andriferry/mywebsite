@@ -144,7 +144,13 @@
 
                 <input
                   v-model="dataCheckout"
-                  class="w-16 text-center mx-1 border-gray-200 capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none focus:border-gray-500"
+                  ref="input"
+                  class="w-16 text-center mx-1  capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none"
+                  :class="
+                    error
+                      ? 'border-red-500'
+                      : 'focus:border-gray-500 border-gray-200'
+                  "
                 />
                 <div class="plus">
                   <v-btn
@@ -217,6 +223,7 @@ export default {
       dataCheckout: 1,
       addSize: null,
       countMinus: "",
+      error: false,
       stock: 10,
       countPlus: "click",
       isActiv: false,
@@ -253,8 +260,9 @@ export default {
       if (number.test(value)) {
         this.activButtonMinus(value);
         this.nonActiveButtonAdd(value);
+        this.error = true ? (this.error = false) : false;
       } else {
-        console.log(number.test(value));
+        this.error = true;
       }
     }
   },
