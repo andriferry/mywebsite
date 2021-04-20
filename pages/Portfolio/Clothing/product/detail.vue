@@ -197,6 +197,8 @@
         </v-row>
       </v-container>
     </div>
+
+    <ProductdetailSimilarProduct />
   </div>
 </template>
 
