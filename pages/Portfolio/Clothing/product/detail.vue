@@ -155,7 +155,7 @@
                 <div class="plus">
                   <v-btn
                     :color="
-                      dataCheckout == stock
+                      dataCheckout >= stock
                         ? 'grey lighten-2'
                         : 'secondaryColor'
                     "
@@ -297,7 +297,7 @@ export default {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
     nonActiveButtonAdd(value) {
-      value == this.stock ? (this.countPlus = null) : false;
+      value >= this.stock ? (this.countPlus = null) : false;
     }
   }
 };
