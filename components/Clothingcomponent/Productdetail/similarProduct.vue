@@ -26,13 +26,13 @@
               <template v-if="data.hasOwnProperty('discount') === true">
                 <span
                   v-if="data.discount !== 'out of stock'"
-                  class="py-2 px-3 text-xs xl:text-sm tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
+                  class="py-2 px-3 text-xs sm:text-sm md:text-md xl:text-sm tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
                   v-text="`- ${data.discount}%`"
                 ></span>
 
                 <span
                   v-if="data.discount === 'out of stock'"
-                  class="py-2 px-3 text-xs xl:text-sm tracking-widest  capitalize font-bold bg-primaryColor text-white rounded-lg"
+                  class="py-2 px-3 text-xs sm:text-sm md:text-md xl:text-sm tracking-widest  capitalize font-bold bg-primaryColor text-white rounded-lg"
                   v-text="`${data.discount}!`"
                 ></span>
               </template>
@@ -40,7 +40,7 @@
           </v-img>
           <div class="p-4">
             <div
-              class="font-bold text-xs sm:text-sm lg:text-lg md:text-lg xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
+              class="font-bold text-xs sm:text-lg md:text-lg  xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
               v-text="data.text"
             ></div>
 
@@ -51,18 +51,20 @@
               "
             >
               <del
-                class="text-gray-500 price text-sm"
+                class="text-gray-500 price text-sm sm:text-lg"
                 v-text="'$ ' + data.price"
               >
               </del>
-              <span class="text-secondaryColor text-sm font-bold price">
+              <span
+                class="text-secondaryColor text-sm sm:text-lg font-bold price"
+              >
                 {{ data.price | discount(data.discount) | toUsd }}
               </span>
             </template>
 
             <template v-else>
               <span
-                class="text-secondaryColor text-sm font-bold price"
+                class="text-secondaryColor text-sm sm:text-lg font-bold price"
                 v-text="'$ ' + data.price"
               ></span>
             </template>
