@@ -12,22 +12,27 @@
       <div class="grid grid-cols-12 gap-5">
         <NuxtLink
           to="/"
-          class="h-auto hover:shadow-2xl transition duration-200 ease-out col-span-12 sm:col-span-6 md:col-span-6 lg:col-span-3 justify-start flex flex-col"
+          class="h-auto hover:shadow-2xl transition duration-200 ease-out col-span-6 sm:col-span-6 md:col-span-6 lg:col-span-3 justify-start flex flex-col"
           v-for="(data, index) in dataImage"
           :key="index"
         >
-          <v-img :lazy-src="data.img" eager :src="data.img" height="300">
-            <div class="p-3">
+          <v-img
+            :lazy-src="data.img"
+            eager
+            :src="data.img"
+            :height="breakpointObject"
+          >
+            <div class="py-3 px-1 pa-sm-3">
               <template v-if="data.hasOwnProperty('discount') === true">
                 <span
                   v-if="data.discount !== 'out of stock'"
-                  class="py-2 px-3 tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
+                  class="py-2 px-3 text-xs xl:text-sm tracking-widest capitalize font-bold bg-red-500 text-white rounded-lg"
                   v-text="`- ${data.discount}%`"
                 ></span>
 
                 <span
                   v-if="data.discount === 'out of stock'"
-                  class="py-2 px-3 tracking-widest capitalize font-bold bg-primaryColor text-white rounded-lg"
+                  class="py-2 px-3 text-xs xl:text-sm tracking-widest  capitalize font-bold bg-primaryColor text-white rounded-lg"
                   v-text="`${data.discount}!`"
                 ></span>
               </template>
@@ -35,7 +40,7 @@
           </v-img>
           <div class="p-4">
             <div
-              class="font-bold text-xl md:text-lg lg:text-base xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
+              class="font-bold text-xs sm:text-sm lg:text-lg md:text-lg xl:text-xl capitalize text-primaryColor hover:text-secondaryColor product"
               v-text="data.text"
             ></div>
 
@@ -45,16 +50,19 @@
                   data.discount !== 'out of stock'
               "
             >
-              <del class="text-gray-500 price" v-text="'$ ' + data.price">
+              <del
+                class="text-gray-500 price text-sm"
+                v-text="'$ ' + data.price"
+              >
               </del>
-              <span class="text-secondaryColor font-bold price">
+              <span class="text-secondaryColor text-sm font-bold price">
                 {{ data.price | discount(data.discount) | toUsd }}
               </span>
             </template>
 
             <template v-else>
               <span
-                class="text-secondaryColor font-bold price"
+                class="text-secondaryColor text-sm font-bold price"
                 v-text="'$ ' + data.price"
               ></span>
             </template>
@@ -100,6 +108,22 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    breakpointObject() {
+      switch (this.$vuetify.breakpoint.name) {
+        case "xs":
+          return "160";
+        case "sm":
+          return "250";
+        case "md":
+          return "250";
+        case "lg":
+          return "300";
+        case "xl":
+          return "800px";
+      }
+    }
   }
 };
 </script>
