@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full p-5 h-auto">
+  <div class="w-full p-1 h-auto">
     <div class="container">
       <div class="flex items-center py-10">
         <v-divider></v-divider>
