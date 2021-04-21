@@ -10,7 +10,7 @@
               :key="index"
             >
               <h1
-                class="text-white capitalize font-bold text-lg pb-3"
+                class="text-white capitalize font-bold text-md sm:text-lg pb-3"
                 v-text="data.title"
               ></h1>
               <div class="w-16 h-0.5 bg-primaryColor"></div>
