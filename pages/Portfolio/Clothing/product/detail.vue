@@ -299,6 +299,12 @@ export default {
     nonActiveButtonAdd(value) {
       value >= this.stock ? (this.countPlus = null) : false;
     }
+  },
+  mounted() {
+    //this.$store.dispatch("dataProduct/trial", "hello");
+
+    let getData = this.$store.state.dataProduct.products;
+    console.log(getData);
   }
 };
 </script>
