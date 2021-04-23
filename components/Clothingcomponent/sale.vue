@@ -74,9 +74,6 @@ export default {
     saleProduct() {
       return this.$store.getters["dataProduct/product"].slice(0, 4);
     }
-  },
-  mounted() {
-    console.log(this.saleProduct);
   }
 };
 </script>

@@ -7,9 +7,9 @@
       <v-carousel hide-delimiters cycle>
         <v-carousel-item
           eager
-          v-for="(image, index) in items"
+          v-for="(image, index) in imageProduct"
           :key="index"
-          :src="image.src"
+          :src="image.img"
         >
           <v-sheet color="transparent" height="103%">
             <v-row class="fill-height" align="center" justify="center">
@@ -57,30 +57,13 @@
 <script>
 export default {
   data() {
-    return {
-      items: [
-        {
-          src:
-            "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-          text: "vinta travel bags",
-          category: "bags collection"
-        },
-        {
-          src:
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-          text: "nike red edition",
-          category: "sneaker collection"
-        },
-        {
-          src:
-            "https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-          text: "green collection",
-          category: "t-shirt collection"
-        }
-      ]
-    };
+    return {};
   },
-  computed: {}
+  computed: {
+    imageProduct() {
+      return this.$store.getters["dataProduct/product"].slice(0, 3);
+    }
+  }
 };
 </script>
 
