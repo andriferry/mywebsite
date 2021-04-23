@@ -9,7 +9,7 @@
           eager
           v-for="(image, index) in imageProduct"
           :key="index"
-          :src="image.img"
+          :src="image.img[0]"
         >
           <v-sheet color="transparent" height="103%">
             <v-row class="fill-height" align="center" justify="center">

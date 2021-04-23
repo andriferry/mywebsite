@@ -20,7 +20,12 @@
             v-for="(data, index) in dataProducts"
             :key="index"
           >
-            <v-img :lazy-src="data.img" eager :src="data.img" height="300">
+            <v-img
+              :lazy-src="data.img[0]"
+              eager
+              :src="data.img[0]"
+              height="300"
+            >
               <div class="p-3">
                 <template v-if="data.hasOwnProperty('discount') === true">
                   <span

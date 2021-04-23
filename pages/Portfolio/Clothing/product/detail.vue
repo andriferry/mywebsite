@@ -301,10 +301,7 @@ export default {
     }
   },
   mounted() {
-    //this.$store.dispatch("dataProduct/trial", "hello");
-
     let getData = this.$store.state.dataProduct.products;
-    console.log(getData);
   }
 };
 </script>

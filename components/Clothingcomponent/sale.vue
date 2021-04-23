@@ -19,7 +19,12 @@
             v-for="(data, index) in saleProduct"
             :key="index"
           >
-            <v-img :lazy-src="data.img" eager :src="data.img" height="300">
+            <v-img
+              :lazy-src="data.img[0]"
+              eager
+              :src="data.img[0]"
+              height="300"
+            >
               <div class="p-3">
                 <span
                   v-if="data.discount !== 'out of stock'"
