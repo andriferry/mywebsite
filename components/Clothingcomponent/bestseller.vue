@@ -49,7 +49,10 @@
                     data.discount !== 'out of stock'
                 "
               >
-                <del class="text-gray-500 text-lg price" v-text="'$ ' + data.price">
+                <del
+                  class="text-gray-500 text-lg price"
+                  v-text="'$ ' + data.price"
+                >
                 </del>
                 <span class="text-secondaryColor font-bold price text-lg">
                   {{ data.price | discount(data.discount) | toUsd }}
@@ -152,13 +155,13 @@ export default {
       let month = new Date();
 
       return monthNames[month.getMonth()];
-    }
+    },
+    dataProducts() {}
+  },
+  mounted() {
+    console.log(this.$store.getters["dataProduct/product"]);
   }
 };
 </script>
 
-<style>
-/* .bestSellerImage1 {
-  
-} */
-</style>
+<style></style>

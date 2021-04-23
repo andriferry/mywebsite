@@ -74,12 +74,12 @@ export default {
     }
   },
   getters: {
-    dataProduct: state => state.products
+    product: state => state.products
   }
 };
 
 //this.$store.state.cart.carts;
-
+// this.$store.getters.dataProduct.products
 // Jika menggunakan module (dataProduct) maka untuk mengakses data statenya adalah this.$store.state.dataProduct.products
 
 // ...mapActions({
