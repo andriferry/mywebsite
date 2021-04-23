@@ -8,9 +8,9 @@
             <v-carousel height="350" hide-delimiters>
               <v-carousel-item
                 eager
-                v-for="(item, i) in product"
+                v-for="(item, i) in chooseProduct.img"
                 :key="i"
-                :src="item.src"
+                :src="item"
                 reverse-transition="fade-transition"
                 transition="fade-transition"
               ></v-carousel-item>
@@ -280,6 +280,9 @@ export default {
         case "lg":
           return "280";
       }
+    },
+    chooseProduct() {
+      return this.$store.getters["dataProduct/product"][7];
     }
   },
   methods: {
@@ -301,7 +304,7 @@ export default {
     }
   },
   mounted() {
-    let getData = this.$store.state.dataProduct.products;
+    console.log(this.chooseProduct);
   }
 };
 </script>
