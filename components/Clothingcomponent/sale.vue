@@ -16,7 +16,7 @@
           <NuxtLink
             to="/"
             class="h-auto hover:shadow-2xl transition duration-200 ease-out col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 justify-start flex flex-col"
-            v-for="(data, index) in dataImage"
+            v-for="(data, index) in saleProduct"
             :key="index"
           >
             <v-img :lazy-src="data.img" eager :src="data.img" height="300">
@@ -41,7 +41,10 @@
               ></div>
 
               <template v-if="data.discount !== 'out of stock'">
-                <del class="text-gray-500 text-lg price" v-text="'$ ' + data.price">
+                <del
+                  class="text-gray-500 text-lg price"
+                  v-text="'$ ' + data.price"
+                >
                 </del>
                 <span class="text-secondaryColor text-lg font-bold price">
                   {{ data.price | discount(data.discount) | toUsd }}
@@ -65,38 +68,15 @@
 <script>
 export default {
   data() {
-    return {
-      dataImage: [
-        {
-          img:
-            "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-          text: "nike red edition",
-          price: "50.00",
-          discount: 10
-        },
-        {
-          img:
-            "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80",
-          text: "vinta travel bags",
-          price: "30.00",
-          discount: 50
-        },
-        {
-          img:
-            "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60",
-          text: "saturdays cap",
-          price: "20.00",
-          discount: "out of stock"
-        },
-        {
-          img:
-            "https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80",
-          text: "classic white",
-          price: "10.00",
-          discount: 20
-        }
-      ]
-    };
+    return {};
+  },
+  computed: {
+    saleProduct() {
+      return this.$store.getters["dataProduct/product"].slice(0, 4);
+    }
+  },
+  mounted() {
+    console.log(this.saleProduct);
   }
 };
 </script>

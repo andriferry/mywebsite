@@ -102,9 +102,6 @@ export default {
     dataProducts() {
       return this.$store.getters["dataProduct/product"];
     }
-  },
-  mounted() {
-    console.log(this.$store.getters["dataProduct/product"]);
   }
 };
 </script>
