@@ -12,7 +12,7 @@
               </h1>
 
               <p
-                class="text-3xl lg:text-4xl xl:text-5xl tracking-wide sm:tracking-widest md:tracking-wider lg:tracking-widest font-bold mb-0 capitalize"
+                class="text-3xl lg:text-4xl xl:text-5xl text-primaryColor tracking-wide sm:tracking-widest md:tracking-wider lg:tracking-widest font-bold mb-0 capitalize"
               >
                 green collection
               </p>

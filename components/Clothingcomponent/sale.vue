@@ -41,9 +41,9 @@
               ></div>
 
               <template v-if="data.discount !== 'out of stock'">
-                <del class="text-gray-500 price" v-text="'$ ' + data.price">
+                <del class="text-gray-500 text-lg price" v-text="'$ ' + data.price">
                 </del>
-                <span class="text-secondaryColor font-bold price">
+                <span class="text-secondaryColor text-lg font-bold price">
                   {{ data.price | discount(data.discount) | toUsd }}
                 </span>
               </template>
