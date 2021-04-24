@@ -3,10 +3,8 @@
     <v-img
       eager
       :height="heightBreakpoint"
-      v-for="(data, index) in chooseProduct.img"
-      :key="index"
-      :lazy-src="data"
-      :src="data"
+      src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+      lazy-src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
       aspect-ratio="2"
     >
       <div class="w-full h-full flex items-center">
@@ -61,9 +59,6 @@ export default {
     };
   },
   computed: {
-    chooseProduct() {
-      return this.$store.getters["dataProduct/product"][7];
-    },
     heightBreakpoint() {
       switch (this.$vuetify.breakpoint.name) {
         case "xs":
@@ -75,6 +70,9 @@ export default {
         case "lg":
           return "280";
       }
+    },
+    chooseProduct() {
+      return this.$store.getters["dataProduct/product"][7];
     }
   }
 };

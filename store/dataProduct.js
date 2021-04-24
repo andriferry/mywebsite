@@ -74,18 +74,24 @@ export default {
         discount: 15,
         category: "t-shirt collection"
       }
-    ]
+    ],
+    cart: []
   }),
   mutations: {
-    set: (state, payload) => {}
+    set: (state, payload) => {},
+    pushCart: (state, payload) => {}
   },
   actions: {
     trial({ commit }, value) {
       commit("trialVuex", value);
+    },
+    addCart({ commit }, value) {
+      commit("pushCart", value);
     }
   },
   getters: {
-    product: state => state.products
+    product: state => state.products,
+    carts: state => state.cart
   }
 };
 
