@@ -1,15 +1,15 @@
 export default {
   state: () => ({
-    cart: "hello233"
+    cart: []
   }),
   mutations: {
-    add(state, text) {
-      state.cart = text;
+    addCart(state, text) {
+      state.cart.push(text); // Cara menambahkan secara push array
     }
   },
   actions: {
-    addData({ commit }, value) {
-      commit("add", value);
+    pushCart({ commit }, value) {
+      commit("addCart", value);
     }
   },
   getters: {

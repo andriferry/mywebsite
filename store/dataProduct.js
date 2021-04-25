@@ -82,29 +82,11 @@ export default {
     pushCart: (state, payload) => {}
   },
   actions: {
-    trial({ commit }, value) {
-      commit("trialVuex", value);
-    },
     addCart({ commit }, value) {
       commit("pushCart", value);
     }
   },
   getters: {
-    product: state => state.products,
-    carts: state => state.cart
+    product: state => state.products
   }
 };
-
-//this.$store.state.cart.carts;
-// this.$store.getters.dataProduct.products
-// Jika menggunakan module (dataProduct) maka untuk mengakses data statenya adalah this.$store.state.dataProduct.products
-
-// ...mapActions({
-//       addCart  : 'cart/add',
-//   }),
-// Penggunaan mapActions / Atau cara melakukan push data ke state
-// Cara akses getter bisa menggunakan Property-Style Access -> https://vuex.vuejs.org/guide/getters.html#property-style-access
-//
-// this.$store.dispatch('cart/add', this.book)
-//
-//

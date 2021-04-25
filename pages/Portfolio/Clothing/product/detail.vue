@@ -159,6 +159,7 @@
               </div>
               <div class="flex justify-end">
                 <button
+                  @click="addCart('hello')"
                   class="text-white bg-secondaryColor rounded-lg font-bold px-4 py-2 text-sm capitalize"
                   v-text="'add to cart'"
                 ></button>
@@ -266,6 +267,9 @@ export default {
       value >= this.stock
         ? (this.countPlus = null)
         : (this.countPlus = "click");
+    },
+    addCart(value) {
+      this.$store.dispatch("cart/pushCart", value);
     }
   }
 };

@@ -10,11 +10,18 @@
     offset-y
   >
     <div class="container text-white bg-white">
-      <div class="grid auto-rows-auto divide-y divide-gray-300 gap-4">
+      <div
+        v-if="cartList.length > 0"
+        class="grid auto-rows-auto divide-y divide-gray-300 gap-4"
+      >
         <div class="text-primaryColor font-bold capitalize text-lg">
           shopping cart
         </div>
-        <div class="flex justify-between py-3 px-2" v-for="index in 3" :key="index">
+        <div
+          class="flex justify-between py-3 px-2"
+          v-for="index in 3"
+          :key="index"
+        >
           <div class="text-black for image">
             <v-img
               src="https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
@@ -58,13 +65,12 @@
         </div>
       </div>
 
-      <!-- 
-        <h1
-          class="text-xl capitalize text-black font-bold flex flex-col justify-center"
-        >
-          Your cart is empty
-        </h1>
-      </div> -->
+      <h1
+        v-else
+        class="text-xl capitalize items-center text-black font-bold flex flex-col justify-center"
+      >
+        Your cart is empty
+      </h1>
     </div>
   </v-menu>
 </template>
@@ -95,6 +101,9 @@ export default {
         case "lg":
           return 350;
       }
+    },
+    cartList() {
+      return this.$store.getters["cart/carts"];
     }
   }
 };

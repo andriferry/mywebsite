@@ -41,9 +41,15 @@
             <!-- cart icon -->
 
             <v-btn rounded icon id="cartList">
-              <v-badge color="grey darken-1" content="5" overlap>
+              <v-badge
+                v-if="cartList.length > 0"
+                color="grey darken-1"
+                :content="cartList.length"
+                overlap
+              >
                 <v-icon v-text="'mdi-cart-outline'" color="white"></v-icon>
               </v-badge>
+              <v-icon v-else v-text="'mdi-cart-outline'" color="white"></v-icon>
             </v-btn>
 
             <!-- cart icon -->
@@ -93,6 +99,9 @@ export default {
       set(value) {
         this.menu = value;
       }
+    },
+    cartList() {
+      return this.$store.getters["cart/carts"];
     }
   },
   methods: {
