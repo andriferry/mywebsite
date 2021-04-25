@@ -17,9 +17,9 @@
           :key="index"
         >
           <v-img
-            :lazy-src="data.img"
+            :lazy-src="data.img[0]"
             eager
-            :src="data.img"
+            :src="data.img[0]"
             :height="breakpointObject"
           >
             <div class="py-3 px-1 pa-sm-3">
