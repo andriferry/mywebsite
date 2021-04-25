@@ -21,7 +21,10 @@
         </div>
       </div>
     </div>
-    <Signupbox :dialog="openDialog" @closeSignupBox="closeSignup" />
+    <ClothingcomponentSignupbox
+      :dialog="openDialog"
+      @closeSignupBox="closeSignup"
+    />
   </div>
 </template>
 

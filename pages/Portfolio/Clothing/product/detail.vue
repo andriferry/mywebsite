@@ -1,6 +1,6 @@
 <template>
   <div class="w-full min-h-screen">
-    <ProductdetailHeroimage />
+    <ClothingcomponentProductdetailHeroimage />
     <div class="p-1 sm:p-2 lg:p-4">
       <v-container>
         <v-row>
@@ -198,7 +198,7 @@
       </v-container>
     </div>
 
-    <ProductdetailSimilarProduct />
+    <ClothingcomponentProductdetailSimilarProduct />
   </div>
 </template>
 
