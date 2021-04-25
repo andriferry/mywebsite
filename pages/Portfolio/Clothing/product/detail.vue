@@ -102,17 +102,6 @@
                       </ul>
                     </template>
 
-                    <!-- 
-                    class="bg-white border-black text-primaryColor rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1" 
-
-                    :class="
-                              isActiv
-                                ? 'bg-secondaryColor border-white text-white'
-                                : 'bg-white border-black text-primaryColor'
-                    "
-                    
-                    bg-secondaryColor border-white text-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1 
-                    -->
                     <template v-else-if="data.properties === 'color'">
                       <button
                         class="rounded-lg p-2"
@@ -255,18 +244,6 @@ export default {
     }
   },
   computed: {
-    heightBreakpoint() {
-      switch (this.$vuetify.breakpoint.name) {
-        case "xs":
-          return "150";
-        case "sm":
-          return "200";
-        case "md":
-          return "230";
-        case "lg":
-          return "280";
-      }
-    },
     chooseProduct() {
       return this.$store.getters["dataProduct/product"][7];
     }
@@ -286,11 +263,10 @@ export default {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
     nonActiveButtonAdd(value) {
-      value >= this.stock ? (this.countPlus = null) : false;
+      value >= this.stock
+        ? (this.countPlus = null)
+        : (this.countPlus = "click");
     }
-  },
-  mounted() {
-    console.log(this.chooseProduct);
   }
 };
 </script>
