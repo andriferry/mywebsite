@@ -50,11 +50,7 @@
 export default {
   data() {
     return {
-      breadCumbsItems: [
-        { text: "Home", to: "/" }
-        // { text: "t-shirt", to: "/" },
-        // { text: "green collection", to: "/" }
-      ]
+      breadCumbsItems: [{ text: "Home", to: "/" }]
     };
   },
   computed: {
@@ -74,6 +70,16 @@ export default {
       return this.$store.getters["dataProduct/product"][7];
     }
   },
+  created() {
+    let newobjetc = [
+      { text: this.chooseProduct.category, to: "/" },
+      { text: this.chooseProduct.text, to: "/" }
+    ];
+
+    newobjetc.forEach(element => {
+      this.breadCumbsItems.push(element);
+    });
+  }
 };
 </script>
 
