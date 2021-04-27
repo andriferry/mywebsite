@@ -90,6 +90,8 @@
                           <button
                             v-else
                             @click="sizeChoose(index)"
+                            ref="size"
+                            :data-size="data"
                             class="rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
                             :class="
                               index === addSize
