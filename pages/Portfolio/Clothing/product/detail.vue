@@ -26,7 +26,7 @@
               <template v-if="index === 0">
                 <span
                   class="text-primaryColor text-3xl font-bold"
-                  v-text="data.properties"
+                  v-text="'$ ' + data.properties"
                 ></span>
               </template>
 
@@ -258,7 +258,15 @@ export default {
         : (this.countPlus = "click");
     },
     addCart(value) {
-      this.$store.dispatch("cart/pushCart", value);
+      let cartProduct = {
+        img: this.chooseProduct.img[0],
+        text: this.chooseProduct.text,
+        discount: this.chooseProduct.discount,
+        price: this.chooseProduct.price,
+        category: this.chooseProduct.category,
+        paymount: this.paymentAmount
+      };
+      this.$store.dispatch("cart/pushCart", cartProduct);
     },
     getStock() {
       let productInfo = this.chooseProduct.productInformation;

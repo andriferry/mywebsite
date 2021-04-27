@@ -73,7 +73,7 @@ export default {
         discount: 15,
         category: "t-shirt collection",
         productInformation: [
-          { properties: "$ 20.00", element: "Free delivery" },
+          { properties: "20.00", element: "Free delivery" },
           { properties: "SKU", element: "st-12526" },
           {
             properties: "category",
