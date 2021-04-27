@@ -19,13 +19,13 @@
         </div>
         <div
           class="flex justify-between py-3 px-2"
-          v-for="index in 3"
+          v-for="(data, index) in cartList"
           :key="index"
         >
           <div class="text-black for image">
             <v-img
-              src="https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
-              lazy-src="https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
+              :src="data.img"
+              :lazy-src="data.img"
               width="44"
               height="44"
             ></v-img>
@@ -36,15 +36,17 @@
                 to="/"
                 class="font-bold text-sm capitalize"
                 :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
-                >Hoope blackfjfjfj totebag</NuxtLink
-              >
+                v-text="data.text"
+              ></NuxtLink>
             </v-hover>
 
-            <span class="text-black text-sm text-opacity-50">$ 20.00</span>
+            <span class="text-black text-sm text-opacity-50"
+              >$ {{ data.price }}</span
+            >
           </div>
           <div class="text-black capitalize">
             <span class="text-xs font-medium text-opacity-50 text-black"
-              >x 1</span
+              >x {{ data.paymount }}</span
             >
           </div>
         </div>
