@@ -120,10 +120,10 @@
                 <div class="minus">
                   <v-btn
                     :color="
-                      dataCheckout > 1 ? 'secondaryColor' : 'grey lighten-2'
+                      paymentAmount > 1 ? 'secondaryColor' : 'grey lighten-2'
                     "
                     elevation="0"
-                    @[countMinus]="dataCheckout--"
+                    @[countMinus]="paymentAmount--"
                     fab
                     x-small
                   >
@@ -132,7 +132,7 @@
                 </div>
 
                 <input
-                  v-model="dataCheckout"
+                  v-model="paymentAmount"
                   ref="input"
                   class="w-16 text-center mx-1  capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none"
                   :class="
@@ -144,14 +144,14 @@
                 <div class="plus">
                   <v-btn
                     :color="
-                      dataCheckout >= stock
+                      paymentAmount >= stock
                         ? 'grey lighten-2'
                         : 'secondaryColor'
                     "
                     elevation="0"
                     fab
                     x-small
-                    @[countPlus]="dataCheckout++"
+                    @[countPlus]="paymentAmount++"
                   >
                     <v-icon class="white--text text-h4">mdi-plus</v-icon>
                   </v-btn>
@@ -212,7 +212,7 @@ export default {
   data() {
     return {
       soldoutSize: 0,
-      dataCheckout: 1,
+      paymentAmount: 1,
       addSize: null,
       countMinus: "",
       error: false,
@@ -227,12 +227,13 @@ export default {
           element: ["t-shirt", "new arrivals"]
         },
         { properties: "size", element: ["xs", "s", "l", "xl"] },
-        { properties: "color", element: ["bg-secondaryColor"] }
+        { properties: "color", element: ["bg-secondaryColor"] },
+        { properties: "stock", element: 10 }
       ]
     };
   },
   watch: {
-    dataCheckout(value) {
+    paymentAmount(value) {
       let number = /^\d+$/;
 
       if (number.test(value)) {
@@ -264,12 +265,20 @@ export default {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
     nonActiveButtonAdd(value) {
-      value >= this.stock
+      value >= this.getStock()
         ? (this.countPlus = null)
         : (this.countPlus = "click");
     },
     addCart(value) {
       this.$store.dispatch("cart/pushCart", value);
+    },
+    getStock() {
+      let productInfo = this.productInformation;
+      let stock;
+      productInfo.forEach(element => {
+        element.properties === "stock" ? (stock = element.element) : false;
+      });
+      return stock;
     }
   }
 };
