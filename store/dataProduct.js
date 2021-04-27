@@ -68,11 +68,21 @@ export default {
           "https://images.unsplash.com/photo-1523380677598-64d85d015339?ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60",
           "https://images.unsplash.com/photo-1523380744952-b7e00e6e2ffa?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         ],
-
         text: "classic green",
         price: "20.00",
         discount: 15,
-        category: "t-shirt collection"
+        category: "t-shirt collection",
+        productInformation: [
+          { properties: "$ 20.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-12526" },
+          {
+            properties: "category",
+            element: ["t-shirt", "new arrivals"]
+          },
+          { properties: "size", element: ["xs", "s", "l", "xl"] },
+          { properties: "color", element: ["bg-secondaryColor"] },
+          { properties: "stock", element: 10 }
+        ]
       }
     ],
     cart: []

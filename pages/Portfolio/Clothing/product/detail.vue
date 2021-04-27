@@ -20,7 +20,7 @@
           <v-col md="6" cols="12" align-self="end">
             <div
               class="sku py-3 flex justify-between items-center"
-              v-for="(data, index) in productInformation"
+              v-for="(data, index) in chooseProduct.productInformation"
               :key="index"
             >
               <template v-if="index === 0">
@@ -217,19 +217,7 @@ export default {
       countMinus: "",
       error: false,
       stock: 10,
-      countPlus: "click",
-      isActiv: false,
-      productInformation: [
-        { properties: "$ 20.00", element: "Free delivery" },
-        { properties: "SKU", element: "st-12526" },
-        {
-          properties: "category",
-          element: ["t-shirt", "new arrivals"]
-        },
-        { properties: "size", element: ["xs", "s", "l", "xl"] },
-        { properties: "color", element: ["bg-secondaryColor"] },
-        { properties: "stock", element: 10 }
-      ]
+      countPlus: "click"
     };
   },
   watch: {
@@ -273,10 +261,14 @@ export default {
       this.$store.dispatch("cart/pushCart", value);
     },
     getStock() {
-      let productInfo = this.productInformation;
+      let productInfo = this.chooseProduct.productInformation;
       let stock;
       productInfo.forEach(element => {
-        element.properties === "stock" ? (stock = element.element) : false;
+        if (element.properties === "stock") {
+          stock = element.element;
+
+          this.stock = element.element;
+        }
       });
       return stock;
     }
