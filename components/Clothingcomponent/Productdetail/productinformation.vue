@@ -67,19 +67,25 @@
                     v-text="data"
                   ></button>
 
-                  <button
+                  <label
                     v-else
                     @click="sizeChoose(index)"
                     ref="size"
-                    :data-size="data"
-                    class="rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                    class="rounded-lg font-bold flex justify-center border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
                     :class="
                       index === addSize
                         ? 'bg-secondaryColor border-white text-white'
                         : 'bg-white border-black text-primaryColor'
                     "
-                    v-text="data"
-                  ></button>
+                  >
+                    {{ data }}
+                    <input
+                      type="radio"
+                      v-model="pickedSize"
+                      :value="data"
+                      class="w-0 absolute opacity-0"
+                    />
+                  </label>
                 </li>
               </ul>
             </template>
@@ -148,6 +154,7 @@
 export default {
   data() {
     return {
+      pickedSize: null,
       soldoutSize: 0,
       paymentAmount: 1,
       addSize: null,
@@ -196,6 +203,8 @@ export default {
     },
     addCart(value) {
       let cartProduct = {
+        idProduct: this.chooseProduct.id,
+        size: this.pickedSize,
         img: this.chooseProduct.img[0],
         text: this.chooseProduct.text,
         discount: this.chooseProduct.discount,
