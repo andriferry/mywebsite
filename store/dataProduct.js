@@ -70,6 +70,7 @@ export default {
         ],
         text: "classic green",
         price: "20.00",
+        slug: "classic-green",
         discount: 15,
         category: "t-shirt collection",
         productInformation: [
