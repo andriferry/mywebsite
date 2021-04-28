@@ -60,14 +60,14 @@
                   class="inline-block bg-white border-black text-primaryColor"
                   :class="index === 3 ? 'ml-1' : 'mx-1'"
                 >
-                  <button
+                  <!-- <button
                     v-if="index === soldoutSize"
                     @[null]="sizeChoose"
                     class="bg-gray-300 text-white border-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
                     v-text="data"
-                  ></button>
+                  ></button> -->
 
-                  <label
+                  <!-- <label
                     v-else
                     @click="sizeChoose(index)"
                     ref="size"
@@ -85,7 +85,41 @@
                       :value="data"
                       class="w-0 absolute opacity-0"
                     />
-                  </label>
+                  </label> -->
+                  <template v-if="index === soldoutSize">
+                    <input
+                      type="radio"
+                      :id="data"
+                      :value="data"
+                      v-model="pickedSize"
+                      class="w-0 absolute opacity-0"
+                    />
+                    <label
+                      :for="data"
+                      class="bg-gray-300 text-white border-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                      >{{ data }}</label
+                    >
+                  </template>
+
+                  <template v-else>
+                    <input
+                      type="radio"
+                      :id="data"
+                      :value="data"
+                      v-model="pickedSize"
+                      class="w-0 absolute opacity-0"
+                    />
+                    <label
+                      :for="data"
+                      class="rounded-lg cursor-pointer font-bold flex justify-center border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
+                      :class="
+                        index === addSize
+                          ? 'bg-secondaryColor border-white text-white'
+                          : 'bg-white border-black text-primaryColor'
+                      "
+                      >{{ data }}</label
+                    >
+                  </template>
                 </li>
               </ul>
             </template>
@@ -141,7 +175,7 @@
       </div>
       <div class="flex justify-end">
         <button
-          @click="addCart('hello')"
+          @click="addCart(chooseProduct.id)"
           class="text-white bg-secondaryColor rounded-lg font-bold px-4 py-2 text-sm capitalize"
           v-text="'add to cart'"
         ></button>
@@ -175,6 +209,13 @@ export default {
       } else {
         this.error = true;
       }
+    },
+    pickedSize(value) {
+      this.chooseProduct.productInformation.forEach(element => {
+        if (element.properties === "size") {
+          this.addSize = element.element.indexOf(value);
+        }
+      });
     }
   },
   computed: {
@@ -202,6 +243,7 @@ export default {
         : (this.countPlus = "click");
     },
     addCart(value) {
+      //Value ==
       let cartProduct = {
         idProduct: this.chooseProduct.id,
         size: this.pickedSize,
