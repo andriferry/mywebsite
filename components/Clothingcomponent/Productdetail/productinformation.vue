@@ -60,32 +60,6 @@
                   class="inline-block bg-white border-black text-primaryColor"
                   :class="index === 3 ? 'ml-1' : 'mx-1'"
                 >
-                  <!-- <button
-                    v-if="index === soldoutSize"
-                    @[null]="sizeChoose"
-                    class="bg-gray-300 text-white border-white rounded-lg font-bold border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
-                    v-text="data"
-                  ></button> -->
-
-                  <!-- <label
-                    v-else
-                    @click="sizeChoose(index)"
-                    ref="size"
-                    class="rounded-lg font-bold flex justify-center border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
-                    :class="
-                      index === addSize
-                        ? 'bg-secondaryColor border-white text-white'
-                        : 'bg-white border-black text-primaryColor'
-                    "
-                  >
-                    {{ data }}
-                    <input
-                      type="radio"
-                      v-model="pickedSize"
-                      :value="data"
-                      class="w-0 absolute opacity-0"
-                    />
-                  </label> -->
                   <template v-if="index === soldoutSize">
                     <input
                       type="radio"
@@ -113,7 +87,7 @@
                       :for="data"
                       class="rounded-lg cursor-pointer font-bold flex justify-center border-solid border-2 border-opacity-50 px-2 text-xs uppercase py-1"
                       :class="
-                        index === addSize
+                        index === indexSize
                           ? 'bg-secondaryColor border-white text-white'
                           : 'bg-white border-black text-primaryColor'
                       "
@@ -191,7 +165,7 @@ export default {
       pickedSize: null,
       soldoutSize: 0,
       paymentAmount: 1,
-      addSize: null,
+      indexSize: null,
       countMinus: "",
       error: false,
       stock: 10,
@@ -213,7 +187,8 @@ export default {
     pickedSize(value) {
       this.chooseProduct.productInformation.forEach(element => {
         if (element.properties === "size") {
-          this.addSize = element.element.indexOf(value);
+          //for get index size
+          this.indexSize = element.element.indexOf(value);
         }
       });
     }
@@ -224,16 +199,6 @@ export default {
     }
   },
   methods: {
-    sizeChoose(value) {
-      if (this.addSize == null) {
-        this.addSize = value;
-      } else {
-        if ((this.addSize = value)) {
-          this.addSize = null;
-          this.addSize = value;
-        }
-      }
-    },
     activButtonMinus(value) {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
@@ -243,9 +208,9 @@ export default {
         : (this.countPlus = "click");
     },
     addCart(value) {
-      //Value ==
       let cartProduct = {
         idProduct: this.chooseProduct.id,
+        quantity: this.paymentAmount,
         size: this.pickedSize,
         img: this.chooseProduct.img[0],
         text: this.chooseProduct.text,

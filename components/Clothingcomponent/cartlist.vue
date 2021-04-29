@@ -11,7 +11,7 @@
   >
     <div class="container text-white bg-white">
       <div
-        v-if="cartList.length > 0"
+        v-if="cartLength > 0"
         class="grid auto-rows-auto divide-y divide-gray-300 gap-4"
       >
         <div class="text-primaryColor font-bold capitalize text-lg">
@@ -106,6 +106,14 @@ export default {
     },
     cartList() {
       return this.$store.getters["cart/carts"];
+    },
+    cartLength() {
+      let length;
+      this.cartList.forEach(element => {
+        length = element.quantity;
+      });
+
+      return length;
     }
   }
 };

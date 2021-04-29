@@ -42,9 +42,9 @@
 
             <v-btn rounded icon id="cartList">
               <v-badge
-                v-if="cartList.length > 0"
+                v-if="cartLength > 0"
                 color="grey darken-1"
-                :content="cartList.length"
+                :content="cartLength"
                 overlap
               >
                 <v-icon v-text="'mdi-cart-outline'" color="white"></v-icon>
@@ -102,6 +102,14 @@ export default {
     },
     cartList() {
       return this.$store.getters["cart/carts"];
+    },
+    cartLength() {
+      let length;
+      this.cartList.forEach(element => {
+        length = element.quantity;
+      });
+
+      return length;
     }
   },
   methods: {
