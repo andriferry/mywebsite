@@ -46,7 +46,7 @@
           </div>
           <div class="text-black capitalize">
             <span class="text-xs font-medium text-opacity-50 text-black"
-              >x {{ data.paymount }}</span
+              >x {{ data.quantity }}</span
             >
           </div>
         </div>

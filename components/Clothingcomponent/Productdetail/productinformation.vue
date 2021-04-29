@@ -216,8 +216,7 @@ export default {
         text: this.chooseProduct.text,
         discount: this.chooseProduct.discount,
         price: this.chooseProduct.price,
-        category: this.chooseProduct.category,
-        paymount: this.paymentAmount
+        category: this.chooseProduct.category
       };
       this.$store.dispatch("cart/pushCart", cartProduct);
     },
