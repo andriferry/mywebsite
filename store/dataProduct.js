@@ -90,8 +90,11 @@ export default {
     cart: []
   }),
   mutations: {
-    set: (state, payload) => {},
-    pushCart: (state, payload) => {}
+    updateStock: (state, payload) => {
+      state.products.forEach(element => { // Find idProduct
+        console.log(element);
+      });
+    }
   },
   actions: {
     addCart({ commit }, value) {

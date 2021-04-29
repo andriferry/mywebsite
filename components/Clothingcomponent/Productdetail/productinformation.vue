@@ -136,7 +136,9 @@
         <div class="plus">
           <v-btn
             :color="
-              paymentAmount >= stock ? 'grey lighten-2' : 'secondaryColor'
+              paymentAmount >= productStock
+                ? 'grey lighten-2'
+                : 'secondaryColor'
             "
             elevation="0"
             fab
@@ -168,7 +170,6 @@ export default {
       indexSize: null,
       countMinus: "",
       error: false,
-      stock: 10,
       countPlus: "click"
     };
   },
@@ -196,6 +197,16 @@ export default {
   computed: {
     chooseProduct() {
       return this.$store.getters["dataProduct/product"][7];
+    },
+    productStock() {
+      let stock;
+      this.chooseProduct.productInformation.forEach(element => {
+        if (element.properties === "stock") {
+          stock = element.element;
+        }
+      });
+
+      return stock;
     }
   },
   methods: {
@@ -203,7 +214,7 @@ export default {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
     nonActiveButtonAdd(value) {
-      value >= this.getStock()
+      value >= this.productStock
         ? (this.countPlus = null)
         : (this.countPlus = "click");
     },
@@ -219,18 +230,6 @@ export default {
         category: this.chooseProduct.category
       };
       this.$store.dispatch("cart/pushCart", cartProduct);
-    },
-    getStock() {
-      let productInfo = this.chooseProduct.productInformation;
-      let stock;
-      productInfo.forEach(element => {
-        if (element.properties === "stock") {
-          stock = element.element;
-
-          this.stock = element.element;
-        }
-      });
-      return stock;
     }
   }
 };
