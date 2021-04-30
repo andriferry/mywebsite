@@ -9,7 +9,18 @@ export default {
         text: "nike red edition",
         price: "50.00",
         discount: 10,
-        category: "sneaker collection"
+        category: "sneaker collection",
+        slug: "nike-red-edition",
+        productInformation: [
+          { properties: "50.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-644783" },
+          {
+            properties: "category",
+            element: ["sneaker"]
+          },
+          { properties: "color", element: ["bg-red-200"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
@@ -18,7 +29,18 @@ export default {
         text: "vinta travel bags",
         price: "30.00",
         discount: 50,
-        category: "bags collection"
+        category: "bags collection",
+        slug: "vinta-travel-bags",
+        productInformation: [
+          { properties: "30.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-47893" },
+          {
+            properties: "category",
+            element: ["bags"]
+          },
+          { properties: "color", element: ["bg-green-500"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
@@ -27,7 +49,18 @@ export default {
         text: "saturdays cap",
         price: "20.00",
         discount: "out of stock",
-        category: "caps collection"
+        category: "caps collection",
+        slug: "saturdays-cap",
+        productInformation: [
+          { properties: "25.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-4744838" },
+          {
+            properties: "category",
+            element: ["caps"]
+          },
+          { properties: "color", element: ["bg-blue-500"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
@@ -36,7 +69,18 @@ export default {
         text: "classic white",
         price: "10.00",
         discount: 20,
-        category: "t-shirt collection"
+        category: "t-shirt collection",
+        slug: "classic-white",
+        productInformation: [
+          { properties: "10.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-74783" },
+          {
+            properties: "category",
+            element: ["t-shirt"]
+          },
+          { properties: "color", element: ["bg-white"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
@@ -44,7 +88,18 @@ export default {
         ],
         text: "UV protector sunglass",
         price: "25.00",
-        category: "eyewear"
+        category: "eyewear",
+        slug: "uv-protector-sunglass",
+        productInformation: [
+          { properties: "25.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-4744838" },
+          {
+            properties: "category",
+            element: ["eyewear"]
+          },
+          { properties: "color", element: ["bg-black"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
@@ -53,14 +108,37 @@ export default {
         text: "minimalist watch",
         price: "50.00",
         discount: "out of stock",
-        category: "watch"
+        category: "watch",
+        slug: "minimalist-watch",
+        productInformation: [
+          { properties: "50.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-2872864" },
+          {
+            properties: "category",
+            element: ["watch"]
+          },
+          { properties: "color", element: ["bg-green-500"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         img: [
           "https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
         ],
         text: "black hoope totebag",
-        price: "20.00"
+        price: "20.00",
+        slug: "black-hoope-totebag",
+        category: "bags collection",
+        productInformation: [
+          { properties: "20.00", element: "Free delivery" },
+          { properties: "SKU", element: "st-599326" },
+          {
+            properties: "category",
+            element: ["bags"]
+          },
+          { properties: "color", element: ["bg-black"] },
+          { properties: "stock", element: 10 }
+        ]
       },
       {
         id: 7,
@@ -91,14 +169,27 @@ export default {
   }),
   mutations: {
     updateStock: (state, payload) => {
-      state.products.forEach(element => { // Find idProduct
-        console.log(element);
+      state.products.forEach(element => {
+        if (element.productInformation) {
+          element.productInformation.forEach(element => {
+            if (element.properties == "stock") {
+              element.element = element.element - payload.quantity;
+              console.log(element);
+              console.log(payload.quantity, element.properties);
+            }
+          });
+        }
       });
     }
   },
   actions: {
     addCart({ commit }, value) {
       commit("pushCart", value);
+    },
+    reloadStock({ commit }, value) {
+      commit("updateStock", value);
+
+      // { idProduct: 7, quantity: 1 }
     }
   },
   getters: {

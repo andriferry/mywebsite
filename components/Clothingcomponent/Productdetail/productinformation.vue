@@ -229,7 +229,14 @@ export default {
         price: this.chooseProduct.price,
         category: this.chooseProduct.category
       };
+      this.updateStock(this.paymentAmount, this.chooseProduct.id);
       this.$store.dispatch("cart/pushCart", cartProduct);
+    },
+    updateStock(quantity, id) {
+      this.$store.dispatch("dataProduct/reloadStock", {
+        idProduct: id,
+        quantity: quantity
+      });
     }
   }
 };
