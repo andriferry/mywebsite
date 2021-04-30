@@ -164,21 +164,16 @@ export default {
           { properties: "stock", element: 10 }
         ]
       }
-    ],
-    cart: []
+    ]
   }),
   mutations: {
     updateStock: (state, payload) => {
       state.products.forEach(element => {
-        if (element.productInformation) {
-          element.productInformation.forEach(element => {
-            if (element.properties == "stock") {
-              element.element = element.element - payload.quantity;
-              console.log(element);
-              console.log(payload.quantity, element.properties);
-            }
-          });
-        }
+        element.productInformation.forEach(properties => {
+          properties.properties == "stock"
+            ? (properties.element = properties.element - payload.quantity)
+            : false;
+        });
       });
     }
   },
@@ -188,8 +183,6 @@ export default {
     },
     reloadStock({ commit }, value) {
       commit("updateStock", value);
-
-      // { idProduct: 7, quantity: 1 }
     }
   },
   getters: {
