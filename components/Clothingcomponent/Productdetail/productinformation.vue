@@ -152,9 +152,11 @@
       <div class="flex justify-end">
         <button
           @[addToCart]="addCart(chooseProduct.id)"
-          class="text-white bg-secondaryColor rounded-lg font-bold px-4 py-2 text-sm capitalize"
-          v-text="'add to cart'"
-        ></button>
+          class="text-white rounded-lg font-bold px-4 py-2 text-sm capitalize"
+          :class="addToCart == null ? 'bg-gray-300 cursor-default' : 'bg-secondaryColor'"
+        >
+          {{ addToCart == null ? "sold out" : "add to cart" }}
+        </button>
       </div>
     </div>
   </v-col>
