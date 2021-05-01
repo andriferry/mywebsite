@@ -6,10 +6,17 @@
       :key="index"
     >
       <template v-if="index === 0">
-        <span
+        <del
           class="text-primaryColor text-3xl font-bold"
           v-text="'$ ' + data.properties"
-        ></span>
+        >
+        </del>
+        <span
+          v-if="chooseProduct.hasOwnProperty('discount') === true"
+          class="text-secondaryColor mx-2 text-3xl font-bold"
+        >
+          {{ data.properties | discount(chooseProduct.discount) | toUsd }}
+        </span>
       </template>
 
       <template v-else>
@@ -153,7 +160,11 @@
         <button
           @[addToCart]="addCart(chooseProduct.id)"
           class="text-white rounded-lg font-bold px-4 py-2 text-sm capitalize"
-          :class="addToCart == null ? 'bg-gray-300 cursor-default' : 'bg-secondaryColor'"
+          :class="
+            addToCart == null
+              ? 'bg-gray-300 cursor-default'
+              : 'bg-secondaryColor'
+          "
         >
           {{ addToCart == null ? "sold out" : "add to cart" }}
         </button>

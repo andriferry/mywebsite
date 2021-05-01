@@ -53,9 +53,9 @@
 
         <div class="grid grid-cols-2 gap-4 p-3">
           <div class="col-span-1 flex flex-col justify-center">
-            <span class="text-black font-black text-lg text-opacity-75"
-              >$ 20.00</span
-            >
+            <span class="text-black font-black text-lg text-opacity-75">{{
+              totalPrice | toUsd
+            }}</span>
           </div>
           <div class="col-span-1 flex flex-col justify-center lg:px-6 sm:px-4">
             <button
@@ -114,6 +114,13 @@ export default {
       });
 
       return length;
+    },
+    totalPrice() {
+      let totalPrice;
+      this.cartList.forEach(element => {
+        totalPrice = element.price * element.quantity;
+      });
+      return totalPrice;
     }
   }
 };
