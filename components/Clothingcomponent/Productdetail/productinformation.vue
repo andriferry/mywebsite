@@ -151,7 +151,7 @@
       </div>
       <div class="flex justify-end">
         <button
-          @click="addCart(chooseProduct.id)"
+          @[addToCart]="addCart(chooseProduct.id)"
           class="text-white bg-secondaryColor rounded-lg font-bold px-4 py-2 text-sm capitalize"
           v-text="'add to cart'"
         ></button>
@@ -170,7 +170,8 @@ export default {
       indexSize: null,
       countMinus: "",
       error: false,
-      countPlus: "click"
+      countPlus: "click",
+      addToCart: "click"
     };
   },
   watch: {
@@ -203,6 +204,7 @@ export default {
       this.chooseProduct.productInformation.forEach(element => {
         if (element.properties === "stock") {
           stock = element.element;
+          this.updateClickCart(stock);
         }
       });
 
@@ -237,6 +239,9 @@ export default {
         idProduct: id,
         quantity: quantity
       });
+    },
+    updateClickCart(stock) {
+      stock == 0 ? (this.addToCart = null) : (this.addToCart = "click");
     }
   }
 };
