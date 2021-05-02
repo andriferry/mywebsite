@@ -47,7 +47,7 @@ export default {
           "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
         ],
         text: "saturdays cap",
-        price: "20.00",
+        price: "25.00",
         discount: "out of stock",
         category: "caps collection",
         slug: "saturdays-cap",

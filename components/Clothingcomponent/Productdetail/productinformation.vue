@@ -6,17 +6,34 @@
       :key="index"
     >
       <template v-if="index === 0">
-        <del
-          class="text-primaryColor text-3xl font-bold"
-          v-text="'$ ' + data.properties"
-        >
-        </del>
-        <span
-          v-if="chooseProduct.hasOwnProperty('discount') === true"
-          class="text-secondaryColor mx-2 text-3xl font-bold"
-        >
-          {{ data.properties | discount(chooseProduct.discount) | toUsd }}
-        </span>
+        <template v-if="chooseProduct.hasOwnProperty('discount') === true">
+          <template v-if="data.discount === 'out of stock'">
+            <del
+              class="text-primaryColor text-3xl font-bold"
+              v-text="'$ ' + data.properties"
+            >
+            </del>
+            <span class="text-secondaryColor mx-2 text-3xl font-bold">
+              {{ data.properties | discount(chooseProduct.discount) | toUsd }}
+            </span>
+          </template>
+
+          <template v-else>
+            <span
+              class="text-primaryColor text-3xl font-bold"
+              v-text="'$ ' + data.properties"
+            >
+            </span>
+          </template>
+        </template>
+
+        <template v-else>
+          <span
+            class="text-primaryColor text-3xl font-bold"
+            v-text="'$ ' + data.properties"
+          >
+          </span>
+        </template>
       </template>
 
       <template v-else>
