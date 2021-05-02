@@ -28,9 +28,9 @@
 <script>
 export default {
   computed: {
-    chooseProduct() {
-      return this.$store.getters["dataProduct/product"][7];
-    }
+    // chooseProduct() {
+    //   return this.$store.getters["dataProduct/product"][7];
+    // }
   }
 };
 </script>

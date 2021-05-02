@@ -34,6 +34,17 @@ if (!Vue.__my_mixin__) {
 
         return numberObject.toLocaleString("en-US", myObj);
       }
+    },
+    computed: {
+      chooseProduct() {
+        let product = this.$store.getters["dataProduct/product"];
+
+        let getProduct = element => element.slug == this.$route.params.slug;
+
+        return this.$store.getters["dataProduct/product"][
+          product.findIndex(getProduct)
+        ];
+      }
     }
   }); // Set up your mixin then
 }

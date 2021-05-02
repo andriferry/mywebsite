@@ -65,9 +65,6 @@ export default {
         case "lg":
           return "280";
       }
-    },
-    chooseProduct() {
-      return this.$store.getters["dataProduct/product"][7];
     }
   },
   created() {

@@ -18,7 +18,7 @@ export default {
             properties: "category",
             element: ["sneaker"]
           },
-          { properties: "color", element: ["bg-red-200"] },
+          { properties: "color", element: ["bg-red-500"] },
           { properties: "stock", element: 10 }
         ]
       },

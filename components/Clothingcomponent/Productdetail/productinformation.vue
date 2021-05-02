@@ -209,9 +209,6 @@ export default {
     }
   },
   computed: {
-    chooseProduct() {
-      return this.$store.getters["dataProduct/product"][7];
-    },
     productStock() {
       let stock;
       this.chooseProduct.productInformation.forEach(element => {
