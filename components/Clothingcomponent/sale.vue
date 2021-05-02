@@ -14,10 +14,13 @@
       <div class="grid grid-rows-1 gap-3">
         <div class="grid grid-cols-12 gap-5">
           <NuxtLink
-            to="/"
             class="h-auto hover:shadow-2xl transition duration-200 ease-out col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 justify-start flex flex-col"
             v-for="(data, index) in saleProduct"
             :key="index"
+            :to="{
+              name: 'Portfolio-Clothing-product-slug-detail',
+              params: { slug: data.slug }
+            }"
           >
             <v-img
               :lazy-src="data.img[0]"
