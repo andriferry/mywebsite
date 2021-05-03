@@ -21,18 +21,13 @@
       :key="i"
       :src="item"
       :lazy-src="item"
+      height="400"
     ></v-img>
   </v-col>
 </template>
 
 <script>
-export default {
-  computed: {
-    // chooseProduct() {
-    //   return this.$store.getters["dataProduct/product"][7];
-    // }
-  }
-};
+export default {};
 </script>
 
 <style></style>
