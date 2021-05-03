@@ -7,7 +7,19 @@
     >
       <template v-if="index === 0">
         <template v-if="chooseProduct.hasOwnProperty('discount') === true">
-          <template v-if="data.discount === 'out of stock'">
+          <template v-if="chooseProduct.discount == 'out of stock'">
+            <del
+              class="text-primaryColor text-3xl font-bold"
+              v-text="'$ ' + data.properties"
+            >
+            </del>
+
+            <span class="text-red-500 mx-2 text-3xl capitalize font-bold">
+              Out Of Stock
+            </span>
+          </template>
+
+          <template v-else>
             <del
               class="text-primaryColor text-3xl font-bold"
               v-text="'$ ' + data.properties"
@@ -15,14 +27,6 @@
             </del>
             <span class="text-secondaryColor mx-2 text-3xl font-bold">
               {{ data.properties | discount(chooseProduct.discount) | toUsd }}
-            </span>
-          </template>
-
-          <template v-else>
-            <span
-              class="text-primaryColor text-3xl font-bold"
-              v-text="'$ ' + data.properties"
-            >
             </span>
           </template>
         </template>
@@ -270,6 +274,11 @@ export default {
     updateClickCart(stock) {
       stock == 0 ? (this.addToCart = null) : (this.addToCart = "click");
     }
+  },
+  mounted() {
+    this.chooseProduct.discount == "out of stock"
+      ? this.updateClickCart(0)
+      : false;
   }
 };
 </script>
