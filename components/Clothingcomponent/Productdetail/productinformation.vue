@@ -279,6 +279,8 @@ export default {
     this.chooseProduct.discount == "out of stock"
       ? this.updateClickCart(0)
       : false;
+
+    console.log(this.chooseProduct);
   }
 };
 </script>

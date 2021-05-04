@@ -20,6 +20,8 @@ export default {
         state.cart.forEach(element => {
           if (text.idProduct == element.idProduct) {
             element.quantity = element.quantity + text.quantity;
+          } else {
+            state.cart.push(text);
           }
         });
       } else {

@@ -6,6 +6,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         ],
+        id: 28,
         text: "nike red edition",
         price: "50.00",
         discount: 10,
@@ -26,6 +27,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1547949003-9792a18a2601?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
         ],
+        id: 45,
         text: "vinta travel bags",
         price: "30.00",
         discount: 50,
@@ -46,6 +48,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1539963011628-c076c7870cad?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
         ],
+        id: 56,
         text: "saturdays cap",
         price: "25.00",
         discount: "out of stock",
@@ -66,6 +69,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1564859228273-274232fdb516?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80"
         ],
+        id: 70,
         text: "classic white",
         price: "10.00",
         discount: 20,
@@ -86,6 +90,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
         ],
+        id: 10,
         text: "UV protector sunglass",
         price: "25.00",
         category: "eyewear",
@@ -105,6 +110,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1532667449560-72a95c8d381b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80"
         ],
+        id: 8,
         text: "minimalist watch",
         price: "50.00",
         discount: "out of stock",
@@ -125,6 +131,7 @@ export default {
         img: [
           "https://images.unsplash.com/photo-1578237493287-8d4d2b03591a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8&auto=format&fit=crop&w=900&q=60"
         ],
+        id: 2,
         text: "black hoope totebag",
         price: "20.00",
         slug: "black-hoope-totebag",
