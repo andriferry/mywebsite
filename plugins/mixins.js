@@ -39,7 +39,7 @@ if (!Vue.__my_mixin__) {
       chooseProduct() {
         let product = this.$store.getters["dataProduct/product"];
 
-        let getProduct = element => element.slug == this.$route.params.slug;
+        let getProduct = element => element.slug == this.$route.params.slug; // Source : https://nuxtjs.org/docs/2.x/directory-structure/pages
 
         return this.$store.getters["dataProduct/product"][
           product.findIndex(getProduct)

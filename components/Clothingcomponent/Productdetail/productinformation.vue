@@ -179,7 +179,7 @@
       </div>
       <div class="flex justify-end">
         <button
-          @[addToCart]="addCart(chooseProduct.id)"
+          @[addToCart]="addCart(chooseProduct)"
           class="text-white rounded-lg font-bold px-4 py-2 text-sm capitalize"
           :class="
             addToCart == null
@@ -247,23 +247,31 @@ export default {
       value > 1 ? (this.countMinus = "click") : (this.countMinus = null);
     },
     nonActiveButtonAdd(value) {
-      value >= this.productStock
-        ? (this.countPlus = null)
-        : (this.countPlus = "click");
+      if (value >= this.productStock) {
+        this.countPlus = null;
+        this.addToCart = null;
+      } else {
+        this.countPlus = "click";
+        this.addToCart = "click";
+      }
     },
     addCart(value) {
-      let cartProduct = {
-        idProduct: this.chooseProduct.id,
-        quantity: this.paymentAmount,
-        size: this.pickedSize,
-        img: this.chooseProduct.img[0],
-        text: this.chooseProduct.text,
-        discount: this.chooseProduct.discount,
-        price: this.chooseProduct.price,
-        category: this.chooseProduct.category
-      };
-      this.updateStock(this.paymentAmount, this.chooseProduct.id);
-      this.$store.dispatch("cart/pushCart", cartProduct);
+      console.log(value);
+      // let cartProduct = {
+      //   idProduct: this.chooseProduct.id,
+      //   quantity: this.paymentAmount,
+      //   size: this.pickedSize,
+      //   img: this.chooseProduct.img[0],
+      //   text: this.chooseProduct.text,
+      //   discount: this.chooseProduct.discount,
+      //   price: this.chooseProduct.price,
+      //   category: this.chooseProduct.category
+      // };
+      // this.updateStock(this.paymentAmount, this.chooseProduct.id);
+      // this.$store.dispatch("cart/add", {
+      //   product: value,
+      //   quantity: this.paymentAmount
+      // });
     },
     updateStock(quantity, id) {
       this.$store.dispatch("dataProduct/reloadStock", {
@@ -279,8 +287,6 @@ export default {
     this.chooseProduct.discount == "out of stock"
       ? this.updateClickCart(0)
       : false;
-
-    console.log(this.chooseProduct);
   }
 };
 </script>
