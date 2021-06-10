@@ -18,10 +18,10 @@ export default {
     insert: (state, payload) => {
       state.cart.push({
         id: payload.id,
-        title: payload.text,
+        title: payload.title,
         img: payload.img,
         price: payload.price,
-        quantity: 1
+        quantity: payload.quantity
       });
     },
     update: (state, payload) => {
@@ -50,8 +50,6 @@ export default {
       if (!cartItem) {
         commit("insert", payload);
       } else {
-        // cartItem.quantity++;
-        console.log(cartItem);
         commit("update", cartItem);
       }
     },

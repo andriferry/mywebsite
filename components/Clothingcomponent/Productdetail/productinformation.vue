@@ -25,7 +25,10 @@
               v-text="'$ ' + data.properties"
             >
             </del>
-            <span class="text-secondaryColor mx-2 text-3xl font-bold">
+            <span
+              ref="discount"
+              class="text-secondaryColor mx-2 text-3xl font-bold"
+            >
               {{ data.properties | discount(chooseProduct.discount) | toUsd }}
             </span>
           </template>
@@ -240,6 +243,11 @@ export default {
       });
 
       return stock;
+    },
+    getDiscountPrice() {
+      let getElement = this.$refs.discount[0].innerText;
+
+      return getElement.slice(1);
     }
   },
   methods: {
@@ -256,6 +264,19 @@ export default {
       }
     },
     addCart(value) {
+      this.storeToCart(value);
+    },
+    storeToCart(product) {
+      let discount = product.hasOwnProperty("discount");
+      let value = {
+        id: product.id,
+        title: product.text,
+        img: product.img,
+        slug: product.slug,
+        price: discount ? this.getDiscountPrice : product.price,
+        quantity: this.paymentAmount
+      };
+
       this.$store.dispatch("cart/add", value);
     },
     updateStock(quantity, id) {
