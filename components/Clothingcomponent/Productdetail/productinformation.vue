@@ -256,22 +256,7 @@ export default {
       }
     },
     addCart(value) {
-      console.log(value);
-      // let cartProduct = {
-      //   idProduct: this.chooseProduct.id,
-      //   quantity: this.paymentAmount,
-      //   size: this.pickedSize,
-      //   img: this.chooseProduct.img[0],
-      //   text: this.chooseProduct.text,
-      //   discount: this.chooseProduct.discount,
-      //   price: this.chooseProduct.price,
-      //   category: this.chooseProduct.category
-      // };
-      // this.updateStock(this.paymentAmount, this.chooseProduct.id);
-      // this.$store.dispatch("cart/add", {
-      //   product: value,
-      //   quantity: this.paymentAmount
-      // });
+      this.$store.dispatch("cart/add", value);
     },
     updateStock(quantity, id) {
       this.$store.dispatch("dataProduct/reloadStock", {

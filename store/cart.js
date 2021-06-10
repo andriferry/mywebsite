@@ -15,26 +15,78 @@ export default {
     ]
   }),
   mutations: {
-    addCart(state, text) {
-      if (state.cart.length > 0) {
-        state.cart.forEach(element => {
-          if (text.idProduct == element.idProduct) {
-            element.quantity = element.quantity + text.quantity;
-          } else {
-            state.cart.push(text);
-          }
-        });
-      } else {
-        state.cart.push(text);
+    insert: (state, payload) => {
+      state.cart.push({
+        id: payload.id,
+        title: payload.text,
+        img: payload.img,
+        price: payload.price,
+        quantity: 1
+      });
+    },
+    update: (state, payload) => {
+      let idx = state.cart.indexOf(payload);
+
+      let product = payload;
+      product.quantity++;
+      state.cart.splice(idx, 1, {
+        id: product.id,
+        title: product.title,
+        img: product.img,
+        price: product.price,
+        quantity: product.quantity
+      });
+      if (payload.quantity <= 0) {
+        state.cart.splice(idx, 1);
       }
+    },
+    set: (state, payload) => {
+      state.cart = payload;
     }
   },
   actions: {
-    pushCart({ commit }, value) {
-      commit("addCart", value);
+    add: ({ state, commit }, payload) => {
+      let cartItem = state.cart.find(item => item.id === payload.id);
+      if (!cartItem) {
+        commit("insert", payload);
+      } else {
+        // cartItem.quantity++;
+        console.log(cartItem);
+        commit("update", cartItem);
+      }
+    },
+    remove: ({ state, commit }, payload) => {
+      let cartItem = state.cart.find(item => item.id === payload.id);
+
+      if (cartItem) {
+        cartItem.quantity--;
+        commit("update", cartItem);
+      }
+    },
+    set: ({ commit, payload }) => {
+      commit("set", payload);
     }
   },
   getters: {
-    carts: state => state.cart
+    carts: state => state.cart,
+    count: state => {
+      return state.cart.length;
+    },
+    // Count total price
+    totalPrice: state => {
+      let total = 0;
+      state.cart.forEach(cart => {
+        total += cart.price * cart.quantity;
+      });
+      return total;
+    },
+    // Count Total quantity
+    totalQuantity: state => {
+      let total = 0;
+      state.cart.forEach(cart => {
+        total += cart.quantity;
+      });
+      return total;
+    }
   }
 };

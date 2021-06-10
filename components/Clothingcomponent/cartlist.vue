@@ -24,8 +24,8 @@
         >
           <div class="text-black for image">
             <v-img
-              :src="data.img"
-              :lazy-src="data.img"
+              :src="data.img[0]"
+              :lazy-src="data.img[0]"
               width="44"
               height="44"
             ></v-img>
@@ -36,7 +36,7 @@
                 to="/"
                 class="font-bold text-sm capitalize"
                 :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
-                v-text="data.text"
+                v-text="data.title"
               ></NuxtLink>
             </v-hover>
 
@@ -108,19 +108,10 @@ export default {
       return this.$store.getters["cart/carts"];
     },
     cartLength() {
-      let length;
-      this.cartList.forEach(element => {
-        length = element.quantity;
-      });
-
-      return length;
+      return this.$store.getters["cart/count"];
     },
     totalPrice() {
-      let totalPrice;
-      this.cartList.forEach(element => {
-        totalPrice = element.price * element.quantity;
-      });
-      return totalPrice;
+      return this.$store.getters["cart/totalPrice"];
     }
   }
 };
