@@ -25,10 +25,13 @@ export default {
       });
     },
     update: (state, payload) => {
-      let idx = state.cart.indexOf(payload);
+      let idx = state.cart.indexOf(payload.cart);
 
-      let product = payload;
-      product.quantity++;
+      let getProduct = state.cart.find(item => item.id === payload.product.id);
+
+      let product = getProduct;
+      product.quantity = product.quantity + payload.product.quantity;
+
       state.cart.splice(idx, 1, {
         id: product.id,
         title: product.title,
@@ -36,9 +39,6 @@ export default {
         price: product.price,
         quantity: product.quantity
       });
-      if (payload.quantity <= 0) {
-        state.cart.splice(idx, 1);
-      }
     },
     set: (state, payload) => {
       state.cart = payload;
@@ -47,11 +47,10 @@ export default {
   actions: {
     add: ({ state, commit }, payload) => {
       let cartItem = state.cart.find(item => item.id === payload.id);
-      if (!cartItem) {
-        commit("insert", payload);
-      } else {
-        commit("update", cartItem);
-      }
+
+      !cartItem
+        ? commit("insert", payload)
+        : commit("update", { cart: cartItem, product: payload });
     },
     remove: ({ state, commit }, payload) => {
       let cartItem = state.cart.find(item => item.id === payload.id);
