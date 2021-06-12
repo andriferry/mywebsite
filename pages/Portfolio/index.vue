@@ -71,6 +71,12 @@ export default {
           title: "movie ticket",
           textColor: "text-primaryColor",
           link: "/portfolio/Moviebooking"
+        },
+        {
+          image: "clothing.png",
+          title: "clothing store",
+          textColor: "text-primaryColor",
+          link: "/portfolio/Clothing"
         }
       ]
     };
