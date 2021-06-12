@@ -57,29 +57,34 @@ export default {
       ]
     };
   },
-  data() {
-    return {
-      dataPortfolio: [
-        {
-          image: "formValidation.png",
-          title: "form validation",
-          textColor: "text-primaryColor",
-          link: "/portfolio/Formvalidation"
-        },
-        {
-          image: "movieTicket.png",
-          title: "movie ticket",
-          textColor: "text-primaryColor",
-          link: "/portfolio/Moviebooking"
-        },
-        {
-          image: "clothing.png",
-          title: "clothing store",
-          textColor: "text-primaryColor",
-          link: "/portfolio/Clothing"
-        }
-      ]
-    };
+  // data() {
+  //   return {
+  //     dataPortfolio: [
+  //       {
+  //         image: "formValidation.png",
+  //         title: "form validation",
+  //         textColor: "text-primaryColor",
+  //         link: "/portfolio/Formvalidation"
+  //       },
+  //       {
+  //         image: "movieTicket.png",
+  //         title: "movie ticket",
+  //         textColor: "text-primaryColor",
+  //         link: "/portfolio/Moviebooking"
+  //       },
+  //       {
+  //         image: "clothing.png",
+  //         title: "clothing store",
+  //         textColor: "text-primaryColor",
+  //         link: "/portfolio/Clothing"
+  //       }
+  //     ]
+  //   };
+  // },
+  computed: {
+    dataPortfolio() {
+      return this.$store.getters["dataProduct/portfolio"];
+    }
   }
 };
 </script>

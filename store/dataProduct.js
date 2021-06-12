@@ -171,6 +171,26 @@ export default {
           { properties: "stock", element: 10 }
         ]
       }
+    ],
+    dataPortfolio: [
+      {
+        image: "formValidation.png",
+        title: "form validation",
+        textColor: "text-primaryColor",
+        link: "/portfolio/Formvalidation"
+      },
+      {
+        image: "movieTicket.png",
+        title: "movie ticket",
+        textColor: "text-primaryColor",
+        link: "/portfolio/Moviebooking"
+      },
+      {
+        image: "clothing.png",
+        title: "clothing store",
+        textColor: "text-primaryColor",
+        link: "/portfolio/Clothing"
+      }
     ]
   }),
   mutations: {
@@ -193,6 +213,7 @@ export default {
     }
   },
   getters: {
-    product: state => state.products
+    product: state => state.products,
+    portfolio: state => state.dataPortfolio
   }
 };
