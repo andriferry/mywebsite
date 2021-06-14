@@ -4,6 +4,7 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   dev: process.env.NODE_ENV !== "production",
   target: "static",
+  ssr: false,
   head: {
     titleTemplate: "%s - Andri Ferry",
     title: "Home",
