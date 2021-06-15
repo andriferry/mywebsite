@@ -1,7 +1,7 @@
 <template>
   <div class="z-10">
     <v-app-bar height="70" fixed color="black" flat app>
-      <v-container class="flex">
+      <v-container>
         <v-row>
           <v-col align-self="center">
             <NuxtLink
