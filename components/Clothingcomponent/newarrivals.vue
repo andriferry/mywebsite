@@ -26,7 +26,10 @@
               </p>
 
               <NuxtLink
-                to="/portfolio/clothing"
+                :to="{
+                  name: 'Portfolio-Clothing-product-slug-detail',
+                  params: { slug: newArivals.slug }
+                }"
                 class="bg-black white--text font-bold uppercase p-2 my-4 px-4 rounded-lg"
                 >shop now</NuxtLink
               >
@@ -50,7 +53,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    newArivals() {
+      let product = this.$store.getters["dataProduct/product"];
+      let getProduct = product.find(item => item.text == "classic green");
+
+      return getProduct;
+    }
+  }
+};
 </script>
 
 <style>
