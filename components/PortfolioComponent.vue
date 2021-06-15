@@ -1,29 +1,33 @@
 <template>
   <div class="w-full p-4 lg:p-5" id="portfolio">
     <div class="flex flex-col justify-center sm:p-5">
-      <div class="container sm:flex-row flex flex-col">
-        <div class="w-full p-2 flex items-center">
-          <h1
-            class="capitalize my-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
-          >
-            latest my project <br />
-            and selected project
-          </h1>
-        </div>
-
-        <div
-          class="w-52 sm:w-96 lg:w-72 p-2 flex justify-start justify-sm-end sm:p-6 items-center"
-        >
-          <v-hover v-slot="{ hover }">
-            <NuxtLink
-              to="/portfolio"
-              class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out  border-primaryColor font-bold border-2 w-auto flex items-center"
-              :class="hover ? 'primaryColor white--text' : 'primaryColor--text'"
+      <div class="container">
+        <div class="flex sm:flex-row flex-col">
+          <div class="w-full p-2 flex items-center">
+            <h1
+              class="capitalize my-5 sm:mb-0 text-primaryColor font-bold text-2xl lg:text-3xl xl:text-4xl"
             >
-              All project
-              <span class="flex justify-center" v-html="arrowIcon"></span>
-            </NuxtLink>
-          </v-hover>
+              latest my project <br />
+              and selected project
+            </h1>
+          </div>
+
+          <div
+            class="w-52 sm:w-96 lg:w-72 p-2 flex justify-start justify-sm-end sm:p-6 items-center"
+          >
+            <v-hover v-slot="{ hover }">
+              <NuxtLink
+                to="/portfolio"
+                class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out  border-primaryColor font-bold border-2 w-auto flex items-center"
+                :class="
+                  hover ? 'primaryColor white--text' : 'primaryColor--text'
+                "
+              >
+                All project
+                <span class="flex justify-center" v-html="arrowIcon"></span>
+              </NuxtLink>
+            </v-hover>
+          </div>
         </div>
       </div>
 
