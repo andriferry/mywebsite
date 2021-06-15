@@ -12,8 +12,10 @@
               <v-hover v-slot="{ hover }">
                 <NuxtLink
                   to="/"
-                  class="secondaryColor--text hover:bg-primaryColor underline"
-                  :class="{ 'white--text': hover }"
+                  class="underline"
+                  :class="
+                    hover ? 'primaryColor white--text' : 'secondaryColor--text'
+                  "
                   >Let's Talk !</NuxtLink
                 >
               </v-hover>
