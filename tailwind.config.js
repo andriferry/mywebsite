@@ -35,10 +35,7 @@ module.exports = {
         mdWidth: "70%",
         cardSizeXl: "24rem",
         cardSizeMd: "20rem"
-      },
-      backgroundImage: theme => ({
-        aboutImage: "url('/assets/image/portraitFoto.jpg')"
-      })
+      }
     }
   },
   variants: {},

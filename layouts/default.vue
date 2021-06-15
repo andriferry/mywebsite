@@ -15,17 +15,22 @@
             <div
               class="flex justify-end capitalize font-medium text-lg items-center hidden-sm-and-down"
             >
-              <a
-                class="px-2 text-primaryColor font-bold transition duration-200 ease-out hover:text-secondaryColor"
+              <v-hover
+                v-slot="{ hover }"
                 v-for="(menu, index) of menuList"
                 :key="index"
-                @click="
-                  getIndexRoute
-                    ? clickScroll(menu.target)
-                    : pushRoute(menu.link)
-                "
-                v-text="menu.text"
-              ></a>
+              >
+                <a
+                  class="px-2 font-bold transition duration-200 ease-out"
+                  :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
+                  @click="
+                    getIndexRoute
+                      ? clickScroll(menu.target)
+                      : pushRoute(menu.link)
+                  "
+                  v-text="menu.text"
+                ></a>
+              </v-hover>
             </div>
             <v-btn
               class="hidden-md-and-up"
@@ -48,12 +53,7 @@
     </v-main>
 
     <!-- Navigation drawer -->
-    <v-navigation-drawer
-      v-model="openMenu"
-      :right="right"
-      temporary
-      fixed
-    >
+    <v-navigation-drawer v-model="openMenu" :right="right" temporary fixed>
       <v-list dense>
         <v-list-item-group color="primary" v-model="group">
           <v-list-item
@@ -116,7 +116,7 @@ export default {
 </script>
 
 <style>
-.v-application a {
+/* .v-application a {
   color: #444;
-}
+} */
 </style>

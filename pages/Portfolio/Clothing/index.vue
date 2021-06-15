@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style>
-.v-application a {
+/* .v-application a {
   color: #444;
-}
+} */
 </style>
