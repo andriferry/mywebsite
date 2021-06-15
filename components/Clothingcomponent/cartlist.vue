@@ -60,6 +60,7 @@
           <div class="col-span-1 flex flex-col justify-center lg:px-6 sm:px-4">
             <button
               class="uppercase font-bold w-auto rounded-lg bg-secondaryColor p-2"
+              @click="toCart"
             >
               view cart
             </button>
@@ -112,6 +113,11 @@ export default {
     },
     totalPrice() {
       return this.$store.getters["cart/totalPrice"];
+    }
+  },
+  methods: {
+    toCart() {
+      this.$router.push("/Portfolio/Clothing/cart");
     }
   }
 };
