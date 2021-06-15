@@ -35,7 +35,10 @@
                     <v-hover v-slot="{ hover }">
                       <v-btn
                         nuxt
-                        to="/"
+                        :to="{
+                          name: 'Portfolio-Clothing-product-slug-detail',
+                          params: { slug: image.slug }
+                        }"
                         class="pa-3 pa-sm-4 pa-md-5 pa-lg-6 text-lg-h6 font-weight-bold"
                         :class="{ 'black--text': hover }"
                         color="white"

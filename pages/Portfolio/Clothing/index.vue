@@ -29,8 +29,4 @@ export default {
 };
 </script>
 
-<style>
-/* .v-application a {
-  color: #444;
-} */
-</style>
+<style></style>
