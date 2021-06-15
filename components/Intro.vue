@@ -24,16 +24,16 @@
         </p>
 
         <div class="flex p-4 flex-col sm:flex-row justify-center">
-          <NuxtLink
-            to="/"
+          <a
             @click="clickScroll('#portfolio')"
             class="uppercase flex items-center rounded-full p-4 bg-primaryColor white--text font-bold"
-            >view our work</NuxtLink
+            >view our work</a
           >
-          <NuxtLink
-            to="/"
+
+          <a
+            @click="clickScroll('#action')"
             class="capitalize text-lg p-4 flex underline primaryColor--text justify-center"
-            >contact me</NuxtLink
+            >contact me</a
           >
         </div>
       </div>
