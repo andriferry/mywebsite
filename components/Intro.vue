@@ -32,7 +32,7 @@
           >
           <NuxtLink
             to="/"
-            class="capitalize text-lg p-4 flex underline text-primaryColor justify-center"
+            class="capitalize text-lg p-4 flex underline primaryColor--text justify-center"
             >contact me</NuxtLink
           >
         </div>

@@ -14,13 +14,16 @@
         <div
           class="w-52 sm:w-96 lg:w-72 p-2 flex justify-start justify-sm-end sm:p-6 items-center"
         >
-          <NuxtLink
-            to="/portfolio"
-            class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out hover:bg-primaryColor text-primaryColor hover:text-white border-primaryColor font-bold border-2 hover:white--text w-auto flex items-center"
-          >
-            All project
-            <span class="flex justify-center" v-html="arrowIcon"></span>
-          </NuxtLink>
+          <v-hover v-slot="{ hover }">
+            <NuxtLink
+              to="/portfolio"
+              class="uppercase rounded-full py-3 px-4 sm:p-4 transition duration-200 ease-out  border-primaryColor font-bold border-2 w-auto flex items-center"
+              :class="hover ? 'primaryColor white--text' : 'primaryColor--text'"
+            >
+              All project
+              <span class="flex justify-center" v-html="arrowIcon"></span>
+            </NuxtLink>
+          </v-hover>
         </div>
       </div>
 
@@ -54,30 +57,6 @@
 
 <script>
 export default {
-  // data() {
-  //   return {
-  //     dataPortfolio: [
-  //       {
-  //         image: "formValidation.png",
-  //         title: "form validation",
-  //         textColor: "text-primaryColor",
-  //         link: "/portfolio/Formvalidation"
-  //       },
-  //       {
-  //         image: "movieTicket.png",
-  //         title: "movie ticket",
-  //         textColor: "text-primaryColor",
-  //         link: "/portfolio/Moviebooking"
-  //       },
-  //       {
-  //         image: "clothing.png",
-  //         title: "clothing store",
-  //         textColor: "text-primaryColor",
-  //         link: "/portfolio/Clothing"
-  //       }
-  //     ]
-  //   };
-  // },
   computed: {
     dataPortfolio() {
       return this.$store.getters["dataProduct/portfolio"];
