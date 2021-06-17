@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-screen bg-red-500 flex justify-center">
-    <div class="container bg-white flex justify-center my-auto p-5">
-      <div class="container grid md:grid-cols-2 xl:grid-cols-2">
+    <div class="container bg-white flex flex-col justify-center my-auto p-5">
+      <div class="container grid md:grid-cols-3 xl:grid-cols-3">
         <div
-          class="p-14 grid auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
+          class="grid col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
         >
           <div
             v-for="index in 4"
@@ -34,7 +34,7 @@
               </span>
             </div>
 
-            <div class="col-span-2 flex">
+            <div class="col-span-2 justify-center flex">
               <div class="minus">
                 <v-btn color="secondaryColor" icon elevation="0" fab x-small>
                   <v-icon class="text-h6">mdi-minus</v-icon>
@@ -57,14 +57,21 @@
                 </v-btn>
               </div>
             </div>
-            <div class="col-span-1">
+            <div class="col-span-1 flex justify-end">
               <v-btn icon>
                 <v-icon>mdi-close</v-icon>
               </v-btn>
             </div>
           </div>
+
+          <div class="total p-5 flex justify-end">
+            <span class="text-lg mr-2 font-bold capitalize">total :</span>
+            <span class="text-lg font-bold">$ 100.00</span>
+          </div>
         </div>
-        <div>cart right</div>
+        <div class="col-span-1 p-5 flex justify-center">
+          <div class="container rounded-lg bg-black">Hello</div>
+        </div>
       </div>
     </div>
   </div>
