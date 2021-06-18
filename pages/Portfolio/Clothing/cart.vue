@@ -59,15 +59,53 @@
             </div>
           </div>
 
-          <div class="total p-5 flex justify-end">
+          <div class="total p-1 flex justify-end">
             <span class="text-base sm:text-lg font-bold capitalize px-2"
               >total :</span
             >
             <span class="text-base sm:text-lg font-bold">$ 100.00</span>
           </div>
         </div>
-        <div class="col-span-1 p-5 flex justify-center">
-          <div class="container rounded-lg bg-black">Hello</div>
+        <div class="col-span-2 p-5 flex justify-center">
+          <div class="container rounded-lg bg-black">
+            <div class="w-full h-auto bg-white container">
+              <p class="capitalize primaryColor--text font-bold text-lg">
+                cart detail
+              </p>
+              <div
+                class="grid px-2 divide-y divide-gray-300 divide-opacity-50 auto-rows-auto"
+              >
+                <div
+                  class="capitalize grid py-2 grid-cols-2 primaryColor--text font-bold text-base"
+                >
+                  <span class="m-0">cart subtotal</span>
+                  <span class="flex justify-end">$ 100.00</span>
+                </div>
+                <div
+                  class="capitalize grid py-2 grid-cols-2 text-primaryColor font-bold text-base"
+                >
+                  <span class="m-0">shipping</span>
+                  <span class="flex justify-end">free delivery</span>
+                </div>
+                <div
+                  class="capitalize grid py-2 grid-cols-2 text-primaryColor font-bold text-base"
+                >
+                  <span class="m-0">total</span>
+                  <span class="flex justify-end">$ 100.00</span>
+                </div>
+                <div
+                  class="capitalize grid py-2 grid-cols-3 text-primaryColor font-bold text-base"
+                >
+                  <NuxtLink
+                    to="/"
+                    class="font-normal col-span-2 primaryColor--text text-xs"
+                    >continue shopping</NuxtLink
+                  >
+                  <span class="flex justify-end col-span-1">$ 100.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
