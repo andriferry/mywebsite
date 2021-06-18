@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-screen bg-red-500 flex justify-center">
     <div class="container bg-white flex flex-col justify-center my-auto p-5">
-      <div class="container grid md:grid-cols-3 xl:grid-cols-3">
+      <div class="md:container grid md:grid-cols-3 xl:grid-cols-3">
         <div
-          class="grid col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
+          class="xl:p-14 p-2 sm:p-4 grid col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
         >
           <div
             v-for="index in 4"
@@ -12,7 +12,7 @@
           >
             <img
               src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-              class="rounded-full h-20 w-20"
+              class="rounded-full h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
               width="50"
               height="50"
               alt=""
@@ -22,7 +22,7 @@
               <v-hover v-slot="{ hover }">
                 <NuxtLink
                   to="/"
-                  class="font-bold"
+                  class="font-bold text-sm md:text-lg"
                   :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
                 >
                   classic green
@@ -45,11 +45,6 @@
                 v-model="paymentAmount"
                 ref="input"
                 class="w-10 text-center mx-1  capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none"
-                :class="
-                  error
-                    ? 'border-red-500'
-                    : 'focus:border-gray-500 border-gray-200'
-                "
               />
               <div class="plus">
                 <v-btn color="secondaryColor" icon elevation="0" fab x-small>
@@ -65,8 +60,10 @@
           </div>
 
           <div class="total p-5 flex justify-end">
-            <span class="text-lg mr-2 font-bold capitalize">total :</span>
-            <span class="text-lg font-bold">$ 100.00</span>
+            <span class="text-base sm:text-lg font-bold capitalize px-2"
+              >total :</span
+            >
+            <span class="text-base sm:text-lg font-bold">$ 100.00</span>
           </div>
         </div>
         <div class="col-span-1 p-5 flex justify-center">
