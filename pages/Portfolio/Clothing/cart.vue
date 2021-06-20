@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-screen bg-red-500 flex justify-center">
     <div class="container bg-white flex flex-col justify-center my-auto p-5">
-      <div class="md:container grid md:grid-cols-1 xl:grid-cols-3">
+      <div class="md:container grid md:grid-cols-1 lg:grid-cols-3">
         <div
-          class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
+          class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 lg:col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
         >
           <div
             v-for="index in 4"
@@ -66,8 +66,10 @@
             <span class="text-base sm:text-lg font-bold">$ 100.00</span>
           </div>
         </div>
-        <div class="col-span-2 xl:col-span-1 md:p-4 md:col-span-1 flex justify-center">
-          <div class="container rounded-lg bg-black">
+        <div
+          class="col-span-2 xl:col-span-1 md:p-4 lg:col-span-1 md:col-span-1 flex justify-center"
+        >
+          <div class="container rounded-lg">
             <div class="w-full h-auto bg-white container">
               <p class="capitalize primaryColor--text font-bold text-lg">
                 cart detail
@@ -96,7 +98,7 @@
                 <div
                   class="capitalize grid py-5 grid-cols-1  text-primaryColor font-bold text-base"
                 >
-                  <v-btn flat color="secondaryColor" class="white--text"
+                  <v-btn color="secondaryColor" class="white--text"
                     >checkout</v-btn
                   >
                 </div>
