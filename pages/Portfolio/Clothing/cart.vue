@@ -8,11 +8,11 @@
           <div
             v-for="index in 4"
             :key="index"
-            class="grid grid-cols-6 gap-1 align-center py-3"
+            class="grid grid-cols-6 gap-1 align-center py-3 pa-sm-5"
           >
             <img
               src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-              class="rounded-full h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              class="rounded-full h-14 w-14 sm:h-20 sm:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
               width="50"
               height="50"
               alt=""
@@ -22,14 +22,14 @@
               <v-hover v-slot="{ hover }">
                 <NuxtLink
                   to="/"
-                  class="font-bold text-sm md:text-lg"
+                  class="font-bold text-sm sm:text-base md:text-lg"
                   :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
                 >
                   classic green
                 </NuxtLink>
               </v-hover>
 
-              <span class="text-black text-sm text-opacity-50">
+              <span class="text-black text-sm sm:text-base text-opacity-50">
                 $ 10.00
               </span>
             </div>
@@ -66,7 +66,7 @@
             <span class="text-base sm:text-lg font-bold">$ 100.00</span>
           </div>
         </div>
-        <div class="col-span-2 p-5 flex justify-center">
+        <div class="col-span-2 xl:col-span-1 flex justify-center">
           <div class="container rounded-lg bg-black">
             <div class="w-full h-auto bg-white container">
               <p class="capitalize primaryColor--text font-bold text-lg">
@@ -94,14 +94,11 @@
                   <span class="flex justify-end">$ 100.00</span>
                 </div>
                 <div
-                  class="capitalize grid py-2 grid-cols-3 text-primaryColor font-bold text-base"
+                  class="capitalize grid py-5 grid-cols-1  text-primaryColor font-bold text-base"
                 >
-                  <NuxtLink
-                    to="/"
-                    class="font-normal col-span-2 primaryColor--text text-xs"
-                    >continue shopping</NuxtLink
+                  <v-btn flat color="secondaryColor" class="white--text"
+                    >checkout</v-btn
                   >
-                  <span class="flex justify-end col-span-1">$ 100.00</span>
                 </div>
               </div>
             </div>
