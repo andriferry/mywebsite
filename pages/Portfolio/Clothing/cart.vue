@@ -1,9 +1,9 @@
 <template>
   <div class="w-full h-screen bg-red-500 flex justify-center">
     <div class="container bg-white flex flex-col justify-center my-auto p-5">
-      <div class="md:container grid md:grid-cols-3 xl:grid-cols-3">
+      <div class="md:container grid md:grid-cols-1 xl:grid-cols-3">
         <div
-          class="xl:p-14 p-2 sm:p-4 grid col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
+          class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
         >
           <div
             v-for="index in 4"
@@ -12,7 +12,7 @@
           >
             <img
               src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-              class="rounded-full h-14 w-14 sm:h-20 sm:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
+              class="rounded-full h-12 w-12 sm:h-20 sm:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
               width="50"
               height="50"
               alt=""
@@ -59,14 +59,14 @@
             </div>
           </div>
 
-          <div class="total p-1 flex justify-end">
+          <div class="total p-1 sm:p-4 flex justify-end">
             <span class="text-base sm:text-lg font-bold capitalize px-2"
               >total :</span
             >
             <span class="text-base sm:text-lg font-bold">$ 100.00</span>
           </div>
         </div>
-        <div class="col-span-2 xl:col-span-1 flex justify-center">
+        <div class="col-span-2 xl:col-span-1 md:p-4 md:col-span-1 flex justify-center">
           <div class="container rounded-lg bg-black">
             <div class="w-full h-auto bg-white container">
               <p class="capitalize primaryColor--text font-bold text-lg">
