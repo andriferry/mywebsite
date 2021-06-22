@@ -9,7 +9,7 @@
         eager
         v-for="(item, i) in chooseProduct.img"
         :key="i"
-        :src="item"
+        :src="require(`~/assets/image/clothingImage/${item}`)"
         reverse-transition="fade-transition"
         transition="fade-transition"
       ></v-carousel-item>
@@ -19,8 +19,8 @@
       eager
       v-for="(item, i) in chooseProduct.img"
       :key="i"
-      :src="item"
-      :lazy-src="item"
+      :src="require(`~/assets/image/clothingImage/${item}`)"
+      :lazy-src="require(`~/assets/image/clothingImage/${item}`)"
       height="400"
     ></v-img>
   </v-col>

@@ -3,7 +3,7 @@ export default {
   state: () => ({
     products: [
       {
-        img: ["nikere.webp"],
+        img: ["nikered.webp"],
         id: 28,
         text: "nike red edition",
         price: "50.00",
@@ -79,7 +79,7 @@ export default {
         ]
       },
       {
-        img: ["huvsunglass.webp"],
+        img: ["uvsunglass.webp"],
         id: 10,
         text: "UV protector sunglass",
         price: "25.00",

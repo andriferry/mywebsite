@@ -3,8 +3,10 @@
     <v-img
       eager
       :height="heightBreakpoint"
-      :src="chooseProduct.img[0]"
-      :lazy-src="chooseProduct.img[0]"
+      :src="require(`~/assets/image/clothingImage/${chooseProduct.img[0]}`)"
+      :lazy-src="
+        require(`~/assets/image/clothingImage/${chooseProduct.img[0]}`)
+      "
       aspect-ratio="2"
     >
       <div class="w-full h-full flex items-center">

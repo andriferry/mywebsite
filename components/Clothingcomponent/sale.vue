@@ -23,9 +23,9 @@
             }"
           >
             <v-img
-              :lazy-src="data.img[0]"
               eager
-              :src="data.img[0]"
+              :lazy-src="require(`~/assets/image/clothingImage/${data.img[0]}`)"
+              :src="require(`~/assets/image/clothingImage/${data.img[0]}`)"
               height="300"
             >
               <div class="p-3">

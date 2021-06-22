@@ -24,8 +24,8 @@
         >
           <div class="text-black for image">
             <v-img
-              :src="data.img[0]"
-              :lazy-src="data.img[0]"
+              :src="require(`~/assets/image/clothingImage/${data.img[0]}`)"
+              :lazy-src="require(`~/assets/image/clothingImage/${data.img[0]}`)"
               width="44"
               height="44"
             ></v-img>
