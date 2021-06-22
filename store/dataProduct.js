@@ -156,19 +156,19 @@ export default {
     ],
     dataPortfolio: [
       {
-        image: "formValidation.png",
+        image: "formValidation.webp",
         title: "form validation",
         textColor: "text-primaryColor",
         link: "/portfolio/Formvalidation"
       },
       {
-        image: "movieTicket.png",
+        image: "movieTicket.webp",
         title: "movie ticket",
         textColor: "text-primaryColor",
         link: "/portfolio/Moviebooking"
       },
       {
-        image: "clothing.png",
+        image: "clothing.webp",
         title: "clothing store",
         textColor: "text-primaryColor",
         link: "/portfolio/Clothing"

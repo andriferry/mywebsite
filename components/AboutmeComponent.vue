@@ -31,7 +31,7 @@
           width="200"
           height="200"
           class="rounded-full mx-auto"
-          src="~/assets/image/portraitFoto.jpg"
+          src="~/assets/image/portraitFoto.webp"
           alt=""
         />
       </div>
