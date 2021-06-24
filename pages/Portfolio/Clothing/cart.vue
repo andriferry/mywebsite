@@ -12,15 +12,20 @@
       </div>
       <div v-else class="md:container grid  md:grid-cols-1 lg:grid-cols-3">
         <div
-          class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 lg:col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
+          class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 lg:col-span-2 auto-rows-auto gap-1"
+          :class="
+            cartList.length > 1
+              ? 'devide-y divide-gray-300 divide-opacity-50'
+              : false
+          "
         >
           <div
-            v-for="index in 4"
+            v-for="(data, index) in cartList"
             :key="index"
             class="grid grid-cols-6 gap-1 align-center py-3 pa-sm-5"
           >
             <img
-              :src="require('assets/image/clothingImage/blacktotebag.webp')"
+              :src="require(`~/assets/image/clothingImage/${data.img[0]}`)"
               class="rounded-full h-12 w-12 sm:h-20 sm:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
               width="50"
               height="50"
@@ -33,13 +38,13 @@
                   to="/"
                   class="font-bold text-sm sm:text-base md:text-lg"
                   :class="hover ? 'secondaryColor--text' : 'primaryColor--text'"
+                  v-text="data.title"
                 >
-                  classic green
                 </NuxtLink>
               </v-hover>
 
               <span class="text-black text-sm sm:text-base text-opacity-50">
-                $ 10.00
+                {{ data.price | toUsd }}
               </span>
             </div>
 
@@ -72,10 +77,12 @@
             <span class="text-base sm:text-lg font-bold capitalize px-2"
               >total :</span
             >
-            <span class="text-base sm:text-lg font-bold">$ 100.00</span>
+            <span class="text-base sm:text-lg font-bold">
+              {{ totalPrice | toUsd }}
+            </span>
           </div>
         </div>
-        <div
+        <!-- <div
           class="col-span-2 xl:col-span-1 md:p-4 lg:col-span-1 md:col-span-1 flex justify-center"
         >
           <div class="container rounded-lg">
@@ -114,7 +121,9 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
+
+        <ClothingcomponentCartpagesCartDetail />
       </div>
     </div>
   </div>
@@ -134,6 +143,9 @@ export default {
   computed: {
     cartList() {
       return this.$store.getters["cart/carts"];
+    },
+    totalPrice() {
+      return this.$store.getters["cart/totalPrice"];
     }
   }
 };
