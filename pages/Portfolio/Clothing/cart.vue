@@ -56,12 +56,19 @@
               </div>
 
               <input
-                v-model="paymentAmount"
+                v-model="data.quantity"
                 ref="input"
                 class="w-10 text-center mx-1  capitalize placeholder-gray-600 border-solid p-1 border-b-4 focus:outline-none"
               />
               <div class="plus">
-                <v-btn color="secondaryColor" icon elevation="0" fab x-small>
+                <v-btn
+                  color="secondaryColor"
+                  icon
+                  elevation="0"
+                  @click="data.quantity++"
+                  fab
+                  x-small
+                >
                   <v-icon class="text-h6">mdi-plus</v-icon>
                 </v-btn>
               </div>
@@ -82,47 +89,6 @@
             </span>
           </div>
         </div>
-        <!-- <div
-          class="col-span-2 xl:col-span-1 md:p-4 lg:col-span-1 md:col-span-1 flex justify-center"
-        >
-          <div class="container rounded-lg">
-            <div class="w-full h-auto bg-white container">
-              <p class="capitalize primaryColor--text font-bold text-lg">
-                cart detail
-              </p>
-              <div
-                class="grid px-2 divide-y divide-gray-300 divide-opacity-50 auto-rows-auto"
-              >
-                <div
-                  class="capitalize grid py-2 grid-cols-2 primaryColor--text font-bold text-base"
-                >
-                  <span class="m-0">cart subtotal</span>
-                  <span class="flex justify-end">$ 100.00</span>
-                </div>
-                <div
-                  class="capitalize grid py-2 grid-cols-2 text-primaryColor font-bold text-base"
-                >
-                  <span class="m-0">shipping</span>
-                  <span class="flex justify-end">free delivery</span>
-                </div>
-                <div
-                  class="capitalize grid py-2 grid-cols-2 text-primaryColor font-bold text-base"
-                >
-                  <span class="m-0">total</span>
-                  <span class="flex justify-end">$ 100.00</span>
-                </div>
-                <div
-                  class="capitalize grid py-5 grid-cols-1  text-primaryColor font-bold text-base"
-                >
-                  <v-btn color="secondaryColor" class="white--text"
-                    >checkout</v-btn
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-
         <ClothingcomponentCartpagesCartDetail />
       </div>
     </div>
@@ -140,12 +106,24 @@ export default {
       paymentAmount: 1
     };
   },
+  watch: {
+    paymentAmount(quantity) {
+      this.addQuantity(quantity);
+      //console.log(quantity);
+    }
+  },
   computed: {
     cartList() {
       return this.$store.getters["cart/carts"];
     },
     totalPrice() {
       return this.$store.getters["cart/totalPrice"];
+    }
+  },
+  methods: {
+    addQuantity(product) {
+      //this.$store.dispacth("cart/add");
+      console.log(product);
     }
   }
 };
