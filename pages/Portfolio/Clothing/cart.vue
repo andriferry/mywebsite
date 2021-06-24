@@ -13,7 +13,7 @@
             class="grid grid-cols-6 gap-1 align-center py-3 pa-sm-5"
           >
             <img
-              src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+              :src="require('assets/image/clothingImage/blacktotebag.webp')"
               class="rounded-full h-12 w-12 sm:h-20 sm:w-20 lg:h-20 lg:w-20 xl:h-20 xl:w-20"
               width="50"
               height="50"
