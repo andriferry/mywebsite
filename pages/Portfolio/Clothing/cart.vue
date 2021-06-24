@@ -2,8 +2,15 @@
   <div class="w-full bg-gray-50 h-screen flex justify-center">
     <div
       class="container bg-white shadow-xl flex flex-col justify-center my-auto p-5"
+      :class="cartList.length === 0 ? 'h-3/6' : false"
     >
-      <div class="md:container grid  md:grid-cols-1 lg:grid-cols-3">
+      <div v-if="cartList.length === 0" class="w-full">
+        <span
+          class="flex justify-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-widest"
+          >Your cart is empty</span
+        >
+      </div>
+      <div v-else class="md:container grid  md:grid-cols-1 lg:grid-cols-3">
         <div
           class="xl:p-14 p-2 sm:p-4 grid col-span-2 md:col-span-1 lg:col-span-2 auto-rows-auto gap-1 divide-y divide-gray-300 divide-opacity-50"
         >
@@ -123,6 +130,11 @@ export default {
     return {
       paymentAmount: 1
     };
+  },
+  computed: {
+    cartList() {
+      return this.$store.getters["cart/carts"];
+    }
   }
 };
 </script>
