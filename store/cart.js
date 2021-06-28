@@ -42,6 +42,20 @@ export default {
     },
     set: (state, payload) => {
       state.cart = payload;
+    },
+    updateCheckout: (state, checkout) => {
+      let idx = state.cart.indexOf(checkout.cart);
+
+      let product = state.cart.find(item => item.id === checkout.id);
+      product.quantity++;
+
+      state.cart.splice(idx, 1, {
+        id: product.id,
+        title: product.title,
+        img: product.img,
+        price: product.price,
+        quantity: product.quantity
+      });
     }
   },
   actions: {
@@ -51,6 +65,9 @@ export default {
       !cartItem
         ? commit("insert", payload)
         : commit("update", { cart: cartItem, product: payload });
+    },
+    updateCheckout: ({ state, commit }, payload) => {
+      commit("updateCheckout", payload);
     },
     remove: ({ state, commit }, payload) => {
       let cartItem = state.cart.find(item => item.id === payload.id);

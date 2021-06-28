@@ -65,7 +65,7 @@
                   color="secondaryColor"
                   icon
                   elevation="0"
-                  @click="data.quantity++"
+                  @click="addQuantity(data)"
                   fab
                   x-small
                 >
@@ -109,7 +109,6 @@ export default {
   watch: {
     paymentAmount(quantity) {
       this.addQuantity(quantity);
-      //console.log(quantity);
     }
   },
   computed: {
@@ -118,12 +117,19 @@ export default {
     },
     totalPrice() {
       return this.$store.getters["cart/totalPrice"];
+    },
+    totalQty() {
+      let cartTotal = [];
+      this.cartList.forEach(element => {
+        cartTotal.push(element.quantity);
+      });
+
+      return cartTotal;
     }
   },
   methods: {
     addQuantity(product) {
-      //this.$store.dispacth("cart/add");
-      console.log(product);
+      this.$store.dispatch("cart/updateCheckout", product);
     }
   }
 };
