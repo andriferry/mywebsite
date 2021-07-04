@@ -3,6 +3,7 @@
     <!-- navbar -->
     <TrackerCoronaComponentNavbar />
     <!-- navbar -->
+
     <v-main>
       <!-- Main area -->
       <nuxt />
@@ -13,8 +14,6 @@
   </v-app>
 </template>
 
-<script>
-export default {};
-</script>
+<script></script>
 
 <style></style>
