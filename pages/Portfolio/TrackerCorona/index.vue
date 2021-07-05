@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-red-500">
+  <div class="h-full ">
     jdjd
   </div>
 </template>

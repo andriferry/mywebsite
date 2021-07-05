@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    class="elevation-24"
+    class="elevation-12"
     v-model="drawer"
     color="grey lighten-5"
     mini-variant-width="80px"
@@ -8,25 +8,41 @@
     stateless
     app
   >
-    <v-card height="100px" tile flat>
+    <v-card
+      height="100px"
+      tile
+      flat
+      color="grey lighten-5"
+      nuxt
+      to="TrackerCorona"
+    >
       <v-card-text class="flex justify-center">
         <v-icon size="60" color="red">mdi-virus-outline</v-icon>
       </v-card-text>
     </v-card>
 
-    <v-divider></v-divider>
-
-    <v-list dense nav>
-      <v-list-item v-for="item in items" :key="item.title" link>
-        <v-list-item-icon>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-icon>
-
-        <v-list-item-content>
-          <v-list-item-title>{{ item.title }}</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+    <v-item-group mandatory @change="itemGroup">
+      <v-container>
+        <v-row class="pa-2">
+          <v-col cols="12" v-for="(data, index) in items" :key="index" class="">
+            <v-item v-slot="{ active, toggle }">
+              <v-card
+                :color="active ? 'red' : 'grey lighten-5'"
+                flat
+                @click="toggle"
+              >
+                <v-card-actions>
+                  <v-icon
+                    :color="active ? 'white' : 'primaryColor'"
+                    v-text="data.icon"
+                  ></v-icon>
+                </v-card-actions>
+              </v-card>
+            </v-item>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-item-group>
   </v-navigation-drawer>
 </template>
 
@@ -35,12 +51,21 @@ export default {
   data() {
     return {
       drawer: true,
+      listGroup: 0,
       items: [
-        { title: "Dashboard", icon: "mdi-view-dashboard" },
-        { title: "Photos", icon: "mdi-image" },
-        { title: "About", icon: "mdi-help-box" }
+        { icon: "mdi-view-dashboard" },
+        { icon: "mdi-map-search-outline" },
+        { icon: "mdi-chart-timeline-variant" },
+        { icon: "mdi-earth" },
+        { icon: "mdi-newspaper" },
+        { icon: "mdi-information-outline" }
       ]
     };
+  },
+  methods: {
+    itemGroup(value) {
+      console.log(value);
+    }
   }
 };
 </script>
