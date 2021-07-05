@@ -14,7 +14,7 @@
       flat
       color="grey lighten-5"
       nuxt
-      to="TrackerCorona"
+      to="/portfolio/TrackerCorona"
     >
       <v-card-text class="flex justify-center">
         <v-icon size="60" color="red">mdi-virus-outline</v-icon>
@@ -29,6 +29,8 @@
               <v-card
                 :color="active ? 'red' : 'grey lighten-5'"
                 flat
+                nuxt
+                :to="data.link"
                 @click="toggle"
               >
                 <v-card-actions>
@@ -53,12 +55,21 @@ export default {
       drawer: true,
       listGroup: 0,
       items: [
-        { icon: "mdi-view-dashboard" },
-        { icon: "mdi-map-search-outline" },
-        { icon: "mdi-chart-timeline-variant" },
-        { icon: "mdi-earth" },
-        { icon: "mdi-newspaper" },
-        { icon: "mdi-information-outline" }
+        { icon: "mdi-view-dashboard", link: "/Portfolio/TrackerCorona" },
+        {
+          icon: "mdi-map-search-outline",
+          link: "/Portfolio/TrackerCorona/search"
+        },
+        {
+          icon: "mdi-chart-timeline-variant",
+          link: "/Portfolio/TrackerCorona/search"
+        },
+        { icon: "mdi-earth", link: "/Portfolio/TrackerCorona/search" },
+        { icon: "mdi-newspaper", link: "/Portfolio/TrackerCorona/search" },
+        {
+          icon: "mdi-information-outline",
+          link: "/Portfolio/TrackerCorona/search"
+        }
       ]
     };
   },

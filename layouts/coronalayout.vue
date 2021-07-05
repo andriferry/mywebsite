@@ -16,6 +16,9 @@
 
 <script>
 export default {
+  head: {
+    title: "Tracker Corona"
+  },
   data() {
     return {
       drawer: true,

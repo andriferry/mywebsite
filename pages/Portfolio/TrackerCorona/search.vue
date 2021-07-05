@@ -1,9 +1,5 @@
 <template>
-  <div class="h-full ">
-    <v-container fluid>
-      Hello
-    </v-container>
-  </div>
+  <div>This is Search Vue</div>
 </template>
 
 <script>
