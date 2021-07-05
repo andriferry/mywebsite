@@ -10,10 +10,23 @@
       <!-- Main area -->
     </v-main>
 
-    <TrackerCoronaComponentFooter />
+    <!-- <TrackerCoronaComponentFooter />  -->
   </v-app>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      drawer: true,
+      items: [
+        { title: "Dashboard", icon: "mdi-view-dashboard" },
+        { title: "Photos", icon: "mdi-image" },
+        { title: "About", icon: "mdi-help-box" }
+      ]
+    };
+  }
+};
+</script>
 
 <style></style>
