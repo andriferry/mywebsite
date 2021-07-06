@@ -37,7 +37,7 @@
           </v-row>
 
           <v-card rounded="md" class="my-5">
-            <canvas id="myChart" width="400" height="400"></canvas>
+            <TrackerCoronaComponentChartBar />
           </v-card>
         </v-card>
       </v-col>
@@ -46,33 +46,6 @@
 </template>
 
 <script>
-import {
-  Chart,
-  ArcElement,
-  LineElement,
-  BarElement,
-  PointElement,
-  BarController,
-  BubbleController,
-  DoughnutController,
-  LineController,
-  PieController,
-  PolarAreaController,
-  RadarController,
-  ScatterController,
-  CategoryScale,
-  LinearScale,
-  LogarithmicScale,
-  RadialLinearScale,
-  TimeScale,
-  TimeSeriesScale,
-  Decimation,
-  Filler,
-  Legend,
-  Title,
-  Tooltip
-} from "chart.js";
-
 export default {
   layout: "coronalayout",
 
