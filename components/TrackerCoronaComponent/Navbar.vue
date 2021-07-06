@@ -1,6 +1,14 @@
 <template>
   <div>
-    <v-app-bar color="white" app flat fixed height="100px" class="flex justify-center">
+    <v-app-bar
+      color="white"
+      app
+      tile
+      elevation="2"
+      fixed
+      height="100px"
+      class="flex justify-center px-10"
+    >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
       <v-spacer></v-spacer>
       <v-toolbar-title

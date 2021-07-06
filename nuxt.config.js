@@ -38,11 +38,33 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
-    "@nuxtjs/pwa"
+    "@nuxtjs/pwa",
+
+    "@nuxtjs/proxy"
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    proxy: true,
+    credentials: false,
+    // headers: {
+    //   common: {
+    //     "Access-Control-Allow-Origin":
+    //       "http://localhost:3000/portfolio/trackerCorona"
+    //   }
+    // }
+    common: {
+      Accept: "application/json, text/plain, */*",
+      "Access-Control-Allow-Origin": "https://api.kawalcorona.com/"
+    }
+  },
+
+  // proxy: {
+  //   "/api": {
+  //     target: "http://api.kawalcorona.com",
+  //     pathRewrite: { "^/api/": "" }
+  //   }
+  // },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

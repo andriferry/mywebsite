@@ -6,7 +6,13 @@
 
     <v-main>
       <!-- Main area -->
-      <nuxt />
+
+      <div class="h-full bg-gray-50 pa-16">
+        <v-container fluid>
+          <nuxt />
+        </v-container>
+      </div>
+
       <!-- Main area -->
     </v-main>
 
