@@ -47,6 +47,7 @@ export default {
   axios: {
     proxy: true,
     credentials: false,
+    //baseURL: "https://data.covid19.go.id/public/api",
     // headers: {
     //   common: {
     //     "Access-Control-Allow-Origin":
@@ -55,16 +56,16 @@ export default {
     // }
     common: {
       Accept: "application/json, text/plain, */*",
-      "Access-Control-Allow-Origin": "https://api.kawalcorona.com/"
+      "Access-Control-Allow-Origin": "*"
     }
   },
 
-  // proxy: {
-  //   "/api": {
-  //     target: "http://api.kawalcorona.com",
-  //     pathRewrite: { "^/api/": "" }
-  //   }
-  // },
+  proxy: {
+    "/update": {
+      target: "https://data.covid19.go.id/public/api/update.json",
+      pathRewrite: { "^/update/": "" }
+    }
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

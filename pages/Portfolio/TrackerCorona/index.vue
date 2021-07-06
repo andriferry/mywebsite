@@ -29,8 +29,8 @@
 
                 <v-card-subtitle
                   class="flex font-weight-medium justify-center primaryColor--text"
+                  v-text="data.total"
                 >
-                  120,867,381
                 </v-card-subtitle>
               </v-card>
             </v-col>
@@ -75,31 +75,37 @@ import {
 
 export default {
   layout: "coronalayout",
-  // async asyncData({ $axios }) {
-  //   const ip = await $axios.$get("/api");
-  //   return { ip };
-  // },
+
   mounted() {
-    this.$axios.$get("https://api.kawalcorona.com/indonesia").then(res => {
-      console.log(res);
+    this.$axios.$get("/update/").then(result => {
+      let { total } = result.update;
+
+      this.dataStat[0].total = total.jumlah_positif;
+      this.dataStat[1].total = total.jumlah_sembuh;
+      this.dataStat[2].total = total.jumlah_meninggal;
     });
   },
 
   data() {
     return {
-      data: [],
+      jumlahPositif: "",
+      jumlahMeninggal: "",
+      jumlahSembuh: "",
       dataStat: [
         {
           title: "total positif",
-          emoticon: "mdi-emoticon-sad-outline"
+          emoticon: "mdi-emoticon-sad-outline",
+          total: ""
         },
         {
           title: "total sembuh",
-          emoticon: "mdi-emoticon-happy-outline"
+          emoticon: "mdi-emoticon-happy-outline",
+          total: ""
         },
         {
           title: "total meninggal",
-          emoticon: "mdi-emoticon-cry-outline"
+          emoticon: "mdi-emoticon-cry-outline",
+          total: ""
         }
       ]
     };
