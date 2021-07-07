@@ -6,7 +6,26 @@
 
 <script>
 export default {
-  props: ["province", "dataCases"],
+  data() {
+    return {
+      province: [],
+      dataCases: []
+    };
+  },
+
+  async fetch() {
+    await this.$axios
+      .$get("/location/")
+      .then(result => {
+        for (let i = 0; i < 5; i++) {
+          this.province.push(result.list_data[i].key);
+          this.dataCases.push(result.list_data[i].jumlah_kasus);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
 
   mounted() {
     let options = {

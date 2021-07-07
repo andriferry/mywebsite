@@ -28,25 +28,53 @@
 
 <script>
 export default {
-  mounted() {
-    let config = "81b0c3b7898142288a8aecdf843cbd48";
+  data() {
+    return {
+      artikel: []
+    };
+  },
 
-    this.$axios({
+  async asyncData({ $axios }) {
+    let date = new Date();
+
+    //Convert Number toString
+    let mm = (date.getMonth() + 1).toString();
+    let dd = date.getDate().toString();
+    let yyyy = date.getFullYear().toString();
+
+    mm.length < 2 ? (mm = "0" + mm) : false;
+    dd.length < 2 ? (dd = "0" + dd) : false;
+
+    let yyyymmdd = `${yyyy}-${dd}-${mm}`;
+
+    let articles = [];
+    await $axios({
       method: "get",
       url: "/news/",
       headers: {
-        Authorization: config
+        Authorization: "81b0c3b7898142288a8aecdf843cbd48"
       },
       params: {
-        q: "bitcoin"
+        qInTitle: "corona",
+        language: "id",
+        from: yyyymmdd
       }
     })
       .then(res => {
-        console.log(res.data);
+        let { articles } = res.data;
+
+        for (let i = 0; i < 5; i++) {
+          this.articles.push[articles[i]];
+        }
       })
       .catch(err => {
         console.log(err);
       });
+
+    return { articles };
+  },
+  mounted() {
+    console.log(this.articles);
   }
 };
 </script>

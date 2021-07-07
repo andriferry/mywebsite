@@ -36,10 +36,7 @@
               indonesia</v-card-title
             >
             <v-card-subtitle class="pa-10">
-              <TrackerCoronaComponentChartPolarArea
-                :province="province"
-                :dataCases="dataCases"
-              />
+              <TrackerCoronaComponentChartPolarArea />
             </v-card-subtitle>
           </v-card>
         </v-card>
@@ -68,24 +65,8 @@
 
 <script>
 export default {
-  async asyncData({ $axios }) {
-    let province = [];
-    let dataCases = [];
-    const location = await $axios.$get("/location/").then(result => {
-      for (let i = 0; i < 5; i++) {
-        province.push(result.list_data[i].key);
-        //dataCases.push(result.list_data[i].jumlah_kasus);
-        dataCases.push(result.list_data[i].jumlah_kasus);
-      }
-    });
-
-    return { province, dataCases };
-  },
-
-  layout: "coronalayout",
-
-  mounted() {
-    this.$axios.$get("/update/").then(result => {
+  async fetch() {
+    await this.$axios.$get("/update/").then(result => {
       let { total } = result.update;
 
       this.dataStat[0].total = total.jumlah_positif;
@@ -93,6 +74,8 @@ export default {
       this.dataStat[2].total = total.jumlah_meninggal;
     });
   },
+
+  layout: "coronalayout",
 
   data() {
     return {

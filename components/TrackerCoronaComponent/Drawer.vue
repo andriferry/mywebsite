@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     itemGroup(value) {
-      console.log(value);
+      // console.log(value);
     }
   }
 };
