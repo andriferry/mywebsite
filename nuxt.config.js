@@ -61,6 +61,10 @@ export default {
     "/location": {
       target: "https://data.covid19.go.id/public/api/prov.json",
       pathRewrite: { "^/location/": "" }
+    },
+    "/news": {
+      target: "https://newsapi.org/v2/everything",
+      pathRewrite: { "^/news/": "" }
     }
   },
 

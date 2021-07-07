@@ -55,9 +55,9 @@
               to="/"
               class="capitalize font-weight-bold blue--text pa-3"
             >
-              <v-button text>
+              <v-btn text>
                 All news
-              </v-button>
+              </v-btn>
             </NuxtLink>
           </v-card-actions>
         </v-card>

@@ -27,7 +27,28 @@
 </template>
 
 <script>
-export default {};
+export default {
+  mounted() {
+    let config = "81b0c3b7898142288a8aecdf843cbd48";
+
+    this.$axios({
+      method: "get",
+      url: "/news/",
+      headers: {
+        Authorization: config
+      },
+      params: {
+        q: "bitcoin"
+      }
+    })
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+};
 </script>
 
 <style></style>
