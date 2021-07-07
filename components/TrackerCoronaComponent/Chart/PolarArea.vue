@@ -46,8 +46,6 @@ export default {
       ]
     };
     this.$chart(document.getElementById("myChart"), "polarArea", data, options);
-
-    console.log(data.labels);
   }
 };
 </script>

@@ -13,7 +13,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-title
         class="capitalize primaryColor--text font-bold flex align-center"
-        >Corona Tracker Indonesia
+        >covid 19 Tracker Indonesia
         <v-icon size="60" color="red">mdi-virus-outline</v-icon>
       </v-toolbar-title>
 

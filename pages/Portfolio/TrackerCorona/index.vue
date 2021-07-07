@@ -46,9 +46,20 @@
       </v-col>
       <v-col>
         <v-card>
-          <v-card-title>
-            Berita Tentang Corona
-          </v-card-title>
+          <v-card-text>
+            <TrackerCoronaComponentNews />
+          </v-card-text>
+
+          <v-card-actions class="px-6">
+            <NuxtLink
+              to="/"
+              class="capitalize font-weight-bold blue--text pa-3"
+            >
+              <v-button text>
+                All news
+              </v-button>
+            </NuxtLink>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
