@@ -6,14 +6,7 @@
 
     <v-row>
       <v-col>
-        <v-card rounded="md">
-          <v-card-title class="primaryColor--text" primary-title>
-            Peta sebaran
-          </v-card-title>
-        </v-card>
-      </v-col>
-      <v-col>
-        <v-card class="pa-4">
+        <v-card class="pa-4 pt-0" color="transparent" elevation="0">
           <v-row>
             <v-col v-for="(data, index) in dataStat" :key="index">
               <v-card rounded="lg">
@@ -29,16 +22,33 @@
 
                 <v-card-subtitle
                   class="flex font-weight-medium justify-center primaryColor--text"
-                  v-text="data.total"
                 >
+                  {{ data.total.toLocaleString("id-ID") }}
                 </v-card-subtitle>
               </v-card>
             </v-col>
           </v-row>
 
-          <v-card rounded="md" class="my-5">
-            <TrackerCoronaComponentChartBar />
+          <v-card rounded="md" class="pa-2 my-5">
+            <v-card-title
+              class="capitalize font-weight-normal primayrColor--text text-h6"
+              >Data total covid 19 di beberapa provinsi di
+              indonesia</v-card-title
+            >
+            <v-card-subtitle class="pa-10">
+              <TrackerCoronaComponentChartPolarArea
+                :province="province"
+                :dataCases="dataCases"
+              />
+            </v-card-subtitle>
           </v-card>
+        </v-card>
+      </v-col>
+      <v-col>
+        <v-card>
+          <v-card-title>
+            Berita Tentang Corona
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -47,6 +57,20 @@
 
 <script>
 export default {
+  async asyncData({ $axios }) {
+    let province = [];
+    let dataCases = [];
+    const location = await $axios.$get("/location/").then(result => {
+      for (let i = 0; i < 5; i++) {
+        province.push(result.list_data[i].key);
+        //dataCases.push(result.list_data[i].jumlah_kasus);
+        dataCases.push(result.list_data[i].jumlah_kasus);
+      }
+    });
+
+    return { province, dataCases };
+  },
+
   layout: "coronalayout",
 
   mounted() {
@@ -61,6 +85,7 @@ export default {
 
   data() {
     return {
+      jumlah_kasus: [],
       jumlahPositif: "",
       jumlahMeninggal: "",
       jumlahSembuh: "",

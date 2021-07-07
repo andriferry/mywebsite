@@ -47,13 +47,6 @@ export default {
   axios: {
     proxy: true,
     credentials: false,
-    //baseURL: "https://data.covid19.go.id/public/api",
-    // headers: {
-    //   common: {
-    //     "Access-Control-Allow-Origin":
-    //       "http://localhost:3000/portfolio/trackerCorona"
-    //   }
-    // }
     common: {
       Accept: "application/json, text/plain, */*",
       "Access-Control-Allow-Origin": "*"
@@ -64,6 +57,10 @@ export default {
     "/update": {
       target: "https://data.covid19.go.id/public/api/update.json",
       pathRewrite: { "^/update/": "" }
+    },
+    "/location": {
+      target: "https://data.covid19.go.id/public/api/prov.json",
+      pathRewrite: { "^/location/": "" }
     }
   },
 
