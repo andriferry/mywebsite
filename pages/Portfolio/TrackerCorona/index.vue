@@ -4,7 +4,7 @@
       Dashboard
     </h2>
 
-    <v-row>
+    <v-row class="red">
       <v-col>
         <v-card class="pa-4 pt-0" color="transparent" elevation="0">
           <v-row>
@@ -29,27 +29,29 @@
             </v-col>
           </v-row>
 
-          <v-card rounded="md" class="pa-2 my-5">
+          <v-card rounded="lg" class="pa-2 my-5">
             <v-card-title
               class="capitalize font-weight-normal primayrColor--text text-h6"
               >Data total covid 19 di beberapa provinsi di
               indonesia</v-card-title
             >
             <v-card-subtitle class="pa-10">
-              <TrackerCoronaComponentChartPolarArea />
+              <TrackerCoronaComponentChartPolarArea
+                :resultDataLocation="locationResult"
+              />
             </v-card-subtitle>
           </v-card>
         </v-card>
       </v-col>
       <v-col>
-        <v-card>
+        <v-card min-height="95%" rounded="lg" max-height="95%">
           <v-card-text>
             <TrackerCoronaComponentNews :news="newsResult" />
           </v-card-text>
 
           <v-card-actions class="px-6">
             <NuxtLink
-              to="/"
+              to="/Portfolio/TrackerCorona/allNews"
               class="capitalize font-weight-bold blue--text pa-1"
             >
               <v-hover v-slot="{ hover }" open-delay="20" close-delay="50">
@@ -63,6 +65,22 @@
               </v-hover>
             </NuxtLink>
           </v-card-actions>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <v-row class="blue">
+      <v-col cols="4">
+        <v-card class="">
+          <TrackerCoronaComponentChartLineChart />
+        </v-card>
+      </v-col>
+      <v-col cols="4">
+        <v-card class="">Data Penambahan</v-card>
+      </v-col>
+      <v-col cols="4">
+        <v-card class="" rounded="lg">
+          <TrackerCoronaComponentDataVaccine />
         </v-card>
       </v-col>
     </v-row>
@@ -88,15 +106,26 @@ export default {
       });
     }
 
-    const [pasien, news] = await Promise.all([getTotalCorona(), getNews()]);
+    function polarAreaLocation() {
+      return $axios.$get("/location/");
+    }
 
-    return { totalPasien: pasien.update.total, newsResult: news.articles };
+    const [pasien, news, location] = await Promise.all([
+      getTotalCorona(),
+      getNews(),
+      polarAreaLocation()
+    ]);
+
+    return {
+      totalPasien: pasien.update.total,
+      newsResult: news.articles,
+      locationResult: location.list_data
+    };
   },
 
   layout: "coronalayout",
 
   mounted() {
-    console.log(this.totalPasien);
     this.dataStat[0].total = this.totalPasien.jumlah_positif;
     this.dataStat[1].total = this.totalPasien.jumlah_sembuh;
     this.dataStat[2].total = this.totalPasien.jumlah_meninggal;

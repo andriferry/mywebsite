@@ -67,33 +67,6 @@ export default {
       return articles;
     }
   },
-
-  // async fetch() {
-  //   let articles = [];
-
-  //   await this.$axios({
-  //     method: "get",
-  //     url: "/news/",
-  //     headers: {
-  //       Authorization: process.env.NEWS_TOKEN
-  //     },
-  //     params: {
-  //       q: "Corona",
-  //       language: "id"
-  //     }
-  //   })
-  //     .then(res => {
-  //       let { articles } = res.data;
-
-  //       for (let i = 0; i < 5; i++) {
-  //         this.articles.push(articles[i]);
-  //       }
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // },
-
   filters: {
     day(day) {
       let date = new Date(day);

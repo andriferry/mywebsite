@@ -6,25 +6,23 @@
 
 <script>
 export default {
-  data() {
-    return {
-      province: [],
-      dataCases: []
-    };
-  },
+  props: ["resultDataLocation"],
 
-  async fetch() {
-    await this.$axios
-      .$get("/location/")
-      .then(result => {
-        for (let i = 0; i < 5; i++) {
-          this.province.push(result.list_data[i].key);
-          this.dataCases.push(result.list_data[i].jumlah_kasus);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  computed: {
+    location() {
+      let keyLocation = [];
+      for (let i = 0; i < 5; i++) {
+        keyLocation.push(this.resultDataLocation[i].key);
+      }
+      return keyLocation;
+    },
+    dataCases() {
+      let resultCases = [];
+      for (let i = 0; i < 5; i++) {
+        resultCases.push(this.resultDataLocation[i].jumlah_kasus);
+      }
+      return resultCases;
+    }
   },
 
   mounted() {
@@ -53,7 +51,7 @@ export default {
     };
 
     let data = {
-      labels: this.province,
+      labels: this.location,
       datasets: [
         {
           label: "Laki Laki",
