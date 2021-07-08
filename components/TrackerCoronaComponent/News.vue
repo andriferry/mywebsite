@@ -2,21 +2,36 @@
   <v-item-group mandatory color="primary">
     <v-container>
       <v-row>
-        <v-col cols="12" class="pa-0" v-for="n in 5" :key="n">
+        <v-col
+          cols="12"
+          class="pa-0"
+          v-for="(data, index) in articles"
+          :key="index"
+        >
           <v-list-item three-line>
             <v-list-item-avatar size="100" rounded="xl">
-              <v-img src="https://cdn.vuetifyjs.com/images/lists/2.jpg"></v-img>
+              <v-img :src="data.urlToImage"></v-img>
             </v-list-item-avatar>
             <v-list-item-content>
-              <v-list-item-title>Three-line item</v-list-item-title>
+              <v-list-item-subtitle class="font-weight-bold text-body-1">
+                {{ data.title }}
+              </v-list-item-subtitle>
+              <!-- <v-list-item-subtitle>
+                {{ data.publishedAt | day(data.publishedAt) }}
+              </v-list-item-subtitle> -->
+
               <v-list-item-subtitle>
-                Secondary line text Lorem ipsum dolor sit amet,
+                <span class="capitalize"
+                  >{{ data.publishedAt | day(data.publishedAt) }},</span
+                >
+                <!-- <span>{{ data.publishdAt | toDate(data.pubslihedAt) }}</span> -->
+                <span>{{ data.publishedAt | toDate(data.publishedAt) }}</span>
+
+                <span>{{ data.publishedAt | month(data.publishedAt) }}</span>
+                <span>2021</span>
               </v-list-item-subtitle>
               <v-list-item-subtitle>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos vel
-                molestiae quidem minus cum asperiores amet odio officiis,
-                consectetur possimus unde eum nam natus ea maiores a laudantium
-                laborum porro!
+                {{ data.content }}
               </v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
@@ -30,51 +45,76 @@
 export default {
   data() {
     return {
-      artikel: []
+      articles: [],
+      date: new Date()
     };
   },
 
-  async asyncData({ $axios }) {
-    let date = new Date();
-
-    //Convert Number toString
-    let mm = (date.getMonth() + 1).toString();
-    let dd = date.getDate().toString();
-    let yyyy = date.getFullYear().toString();
-
-    mm.length < 2 ? (mm = "0" + mm) : false;
-    dd.length < 2 ? (dd = "0" + dd) : false;
-
-    let yyyymmdd = `${yyyy}-${dd}-${mm}`;
-
+  async fetch() {
     let articles = [];
-    await $axios({
+    await this.$axios({
       method: "get",
       url: "/news/",
       headers: {
         Authorization: "81b0c3b7898142288a8aecdf843cbd48"
       },
       params: {
-        qInTitle: "corona",
-        language: "id",
-        from: yyyymmdd
+        q: "Corona",
+        language: "id"
       }
     })
       .then(res => {
         let { articles } = res.data;
 
         for (let i = 0; i < 5; i++) {
-          this.articles.push[articles[i]];
+          this.articles.push(articles[i]);
         }
       })
       .catch(err => {
         console.log(err);
       });
-
-    return { articles };
   },
-  mounted() {
-    console.log(this.articles);
+
+  filters: {
+    day(day) {
+      let date = new Date(day);
+      let namesDay = [
+        "Minggu",
+        "senin",
+        "selasa",
+        "rabu",
+        "kamis",
+        "jum'at",
+        "sabtu",
+        "minggu"
+      ];
+
+      return namesDay[date.getDay()];
+    },
+    toDate(date) {
+      let getdate = new Date(date);
+      return getdate.getDate();
+    },
+    month(month) {
+      let date = new Date(month);
+
+      let monthNames = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "May",
+        "Juni",
+        "Juli",
+        "Augustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember"
+      ];
+
+      return monthNames[date.getMonth()];
+    }
   }
 };
 </script>
