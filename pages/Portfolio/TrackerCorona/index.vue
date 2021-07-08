@@ -44,7 +44,7 @@
       <v-col>
         <v-card>
           <v-card-text>
-            <TrackerCoronaComponentNews />
+            <TrackerCoronaComponentNews :news="newsResult" />
           </v-card-text>
 
           <v-card-actions class="px-6">
@@ -57,8 +57,8 @@
                   text
                   class="text-xl tracking-widest"
                   :class="hover ? 'red white--text' : false"
-                  v-text="'All news'"
                 >
+                  All news
                 </v-btn>
               </v-hover>
             </NuxtLink>
@@ -71,24 +71,39 @@
 
 <script>
 export default {
-  async fetch() {
-    await this.$axios.$get("/update/").then(result => {
-      let { total } = result.update;
+  async asyncData({ $axios }) {
+    function getTotalCorona() {
+      return $axios.$get("/update/");
+    }
 
-      this.dataStat[0].total = total.jumlah_positif;
-      this.dataStat[1].total = total.jumlah_sembuh;
-      this.dataStat[2].total = total.jumlah_meninggal;
-    });
+    function getNews() {
+      return $axios.$get("/news/", {
+        headers: {
+          Authorization: "81b0c3b7898142288a8aecdf843cbd48"
+        },
+        params: {
+          q: "Corona",
+          language: "id"
+        }
+      });
+    }
+
+    const [pasien, news] = await Promise.all([getTotalCorona(), getNews()]);
+
+    return { totalPasien: pasien.update.total, newsResult: news.articles };
   },
 
   layout: "coronalayout",
 
+  mounted() {
+    console.log(this.totalPasien);
+    this.dataStat[0].total = this.totalPasien.jumlah_positif;
+    this.dataStat[1].total = this.totalPasien.jumlah_sembuh;
+    this.dataStat[2].total = this.totalPasien.jumlah_meninggal;
+  },
+
   data() {
     return {
-      jumlah_kasus: [],
-      jumlahPositif: "",
-      jumlahMeninggal: "",
-      jumlahSembuh: "",
       dataStat: [
         {
           title: "total positif",

@@ -5,7 +5,7 @@
         <v-col
           cols="12"
           class="pa-0"
-          v-for="(data, index) in articles"
+          v-for="(data, index) in getNews"
           :key="index"
           tag="a"
           :href="data.url"
@@ -51,37 +51,48 @@
 
 <script>
 export default {
+  props: ["news"],
   data() {
     return {
       articles: [],
       date: new Date()
     };
   },
-
-  async fetch() {
-    let articles = [];
-    await this.$axios({
-      method: "get",
-      url: "/news/",
-      headers: {
-        Authorization: "81b0c3b7898142288a8aecdf843cbd48"
-      },
-      params: {
-        q: "Corona",
-        language: "id"
+  computed: {
+    getNews() {
+      let articles = [];
+      for (let i = 0; i < 5; i++) {
+        articles.push(this.news[i]);
       }
-    })
-      .then(res => {
-        let { articles } = res.data;
-
-        for (let i = 0; i < 5; i++) {
-          this.articles.push(articles[i]);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      return articles;
+    }
   },
+
+  // async fetch() {
+  //   let articles = [];
+
+  //   await this.$axios({
+  //     method: "get",
+  //     url: "/news/",
+  //     headers: {
+  //       Authorization: process.env.NEWS_TOKEN
+  //     },
+  //     params: {
+  //       q: "Corona",
+  //       language: "id"
+  //     }
+  //   })
+  //     .then(res => {
+  //       let { articles } = res.data;
+
+  //       for (let i = 0; i < 5; i++) {
+  //         this.articles.push(articles[i]);
+  //       }
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // },
 
   filters: {
     day(day) {
@@ -127,9 +138,6 @@ export default {
 
       return monthNames[date.getMonth()];
     }
-  },
-  mounted() {
-    console.log(this.articles);
   }
 };
 </script>
