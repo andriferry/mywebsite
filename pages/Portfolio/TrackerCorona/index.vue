@@ -50,11 +50,17 @@
           <v-card-actions class="px-6">
             <NuxtLink
               to="/"
-              class="capitalize font-weight-bold blue--text pa-3"
+              class="capitalize font-weight-bold blue--text pa-1"
             >
-              <v-btn text>
-                All news
-              </v-btn>
+              <v-hover v-slot="{ hover }" open-delay="20" close-delay="50">
+                <v-btn
+                  text
+                  class="text-xl tracking-widest"
+                  :class="hover ? 'red white--text' : false"
+                  v-text="'All news'"
+                >
+                </v-btn>
+              </v-hover>
             </NuxtLink>
           </v-card-actions>
         </v-card>

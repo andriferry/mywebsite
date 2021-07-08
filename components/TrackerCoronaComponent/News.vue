@@ -7,34 +7,42 @@
           class="pa-0"
           v-for="(data, index) in articles"
           :key="index"
+          tag="a"
+          :href="data.url"
         >
-          <v-list-item three-line>
-            <v-list-item-avatar size="100" rounded="xl">
-              <v-img :src="data.urlToImage"></v-img>
-            </v-list-item-avatar>
-            <v-list-item-content>
-              <v-list-item-subtitle class="font-weight-bold text-body-1">
-                {{ data.title }}
-              </v-list-item-subtitle>
-              <!-- <v-list-item-subtitle>
-                {{ data.publishedAt | day(data.publishedAt) }}
-              </v-list-item-subtitle> -->
-
-              <v-list-item-subtitle>
-                <span class="capitalize"
-                  >{{ data.publishedAt | day(data.publishedAt) }},</span
+          <v-hover v-slot="{ hover }">
+            <v-list-item three-line>
+              <v-list-item-avatar size="100" rounded="xl">
+                <v-img
+                  :lazy-src="data.urlToImage"
+                  eager
+                  :src="data.urlToImage"
+                ></v-img>
+              </v-list-item-avatar>
+              <v-list-item-content>
+                <v-list-item-subtitle
+                  class="font-weight-bold text-body-1"
+                  :class="hover ? 'red--text' : 'primaryColor--text'"
                 >
-                <!-- <span>{{ data.publishdAt | toDate(data.pubslihedAt) }}</span> -->
-                <span>{{ data.publishedAt | toDate(data.publishedAt) }}</span>
+                  {{ data.title }}
+                </v-list-item-subtitle>
 
-                <span>{{ data.publishedAt | month(data.publishedAt) }}</span>
-                <span>2021</span>
-              </v-list-item-subtitle>
-              <v-list-item-subtitle>
-                {{ data.content }}
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
+                <v-list-item-subtitle>
+                  <span class="capitalize"
+                    >{{ data.publishedAt | day(data.publishedAt) }},</span
+                  >
+
+                  <span>{{ data.publishedAt | toDate(data.publishedAt) }}</span>
+
+                  <span>{{ data.publishedAt | month(data.publishedAt) }}</span>
+                  <span>{{ data.publishedAt | year(data.publishedAt) }}</span>
+                </v-list-item-subtitle>
+                <v-list-item-subtitle>
+                  {{ data.content }}
+                </v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
@@ -95,6 +103,10 @@ export default {
       let getdate = new Date(date);
       return getdate.getDate();
     },
+    year(year) {
+      let getYear = new Date(year);
+      return getYear.getFullYear();
+    },
     month(month) {
       let date = new Date(month);
 
@@ -115,6 +127,9 @@ export default {
 
       return monthNames[date.getMonth()];
     }
+  },
+  mounted() {
+    console.log(this.articles);
   }
 };
 </script>
