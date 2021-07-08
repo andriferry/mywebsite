@@ -80,7 +80,7 @@
       </v-col>
       <v-col cols="4">
         <v-card class="" rounded="lg">
-          <TrackerCoronaComponentDataVaccine />
+          <TrackerCoronaComponentDataVaccine  :vaccine="targetVaccine"/>
         </v-card>
       </v-col>
     </v-row>
@@ -90,6 +90,9 @@
 <script>
 export default {
   async asyncData({ $axios }) {
+    function vaccineTarget() {
+      return $axios.$get("/vaksinasi/");
+    }
     function getTotalCorona() {
       return $axios.$get("/update/");
     }
@@ -110,22 +113,25 @@ export default {
       return $axios.$get("/location/");
     }
 
-    const [pasien, news, location] = await Promise.all([
+    const [pasien, news, location, vaccine] = await Promise.all([
       getTotalCorona(),
       getNews(),
-      polarAreaLocation()
+      polarAreaLocation(),
+      vaccineTarget()
     ]);
 
     return {
       totalPasien: pasien.update.total,
       newsResult: news.articles,
-      locationResult: location.list_data
+      locationResult: location.list_data,
+      targetVaccine: vaccine.monitoring
     };
   },
 
   layout: "coronalayout",
 
   mounted() {
+    console.log(this.targetVaccine);
     this.dataStat[0].total = this.totalPasien.jumlah_positif;
     this.dataStat[1].total = this.totalPasien.jumlah_sembuh;
     this.dataStat[2].total = this.totalPasien.jumlah_meninggal;

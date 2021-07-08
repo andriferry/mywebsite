@@ -28,7 +28,7 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/dotenv',
+    "@nuxtjs/dotenv",
     "@nuxtjs/vuetify",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/pwa"
@@ -66,6 +66,10 @@ export default {
     "/news": {
       target: "https://newsapi.org/v2/everything",
       pathRewrite: { "^/news/": "" }
+    },
+    "/vaksinasi": {
+      target: "https://cekdiri.id/vaksinasi/",
+      pathRewrite: { "^/vaksinasi/": "" }
     }
   },
 
