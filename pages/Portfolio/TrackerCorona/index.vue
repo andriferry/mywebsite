@@ -61,6 +61,9 @@
                   :class="hover ? 'red white--text' : false"
                 >
                   All news
+                  <v-icon :color="hover ? 'white' : 'orange darken-4'" right>
+                    mdi-open-in-new
+                  </v-icon>
                 </v-btn>
               </v-hover>
             </NuxtLink>
@@ -71,16 +74,19 @@
 
     <v-row class="blue">
       <v-col cols="4">
-        <v-card class="">
+        <v-card rounded="lg" class="">
           <TrackerCoronaComponentChartLineChart />
         </v-card>
       </v-col>
       <v-col cols="4">
-        <v-card class="">Data Penambahan</v-card>
+        <!-- <v-card class="">Data Penambahan: Ambil bagian update.penambahan</v-card> -->
+        <v-card rounded="lg">
+          <TrackerCoronaComponentAddedCases />
+        </v-card>
       </v-col>
       <v-col cols="4">
         <v-card class="" rounded="lg">
-          <TrackerCoronaComponentDataVaccine  :vaccine="targetVaccine"/>
+          <TrackerCoronaComponentDataVaccine :vaccine="targetVaccine" />
         </v-card>
       </v-col>
     </v-row>
@@ -131,7 +137,6 @@ export default {
   layout: "coronalayout",
 
   mounted() {
-    console.log(this.targetVaccine);
     this.dataStat[0].total = this.totalPasien.jumlah_positif;
     this.dataStat[1].total = this.totalPasien.jumlah_sembuh;
     this.dataStat[2].total = this.totalPasien.jumlah_meninggal;
@@ -154,6 +159,24 @@ export default {
           title: "total meninggal",
           emoticon: "mdi-emoticon-cry-outline",
           total: ""
+        }
+      ],
+      desserts: [
+        {
+          name: "Frozen Yogurt",
+          calories: 159
+        },
+        {
+          name: "Ice cream sandwich",
+          calories: 237
+        },
+        {
+          name: "Eclair",
+          calories: 262
+        },
+        {
+          name: "Cupcake",
+          calories: 305
         }
       ]
     };
