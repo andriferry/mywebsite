@@ -4,7 +4,7 @@
       Dashboard
     </h2>
 
-    <v-row class="red">
+    <v-row>
       <v-col>
         <v-card class="pa-4 pt-0" color="transparent" elevation="0">
           <v-row>
@@ -72,7 +72,7 @@
       </v-col>
     </v-row>
 
-    <v-row class="blue">
+    <v-row>
       <v-col cols="4">
         <v-card rounded="lg" class="">
           <TrackerCoronaComponentChartLineChart />
