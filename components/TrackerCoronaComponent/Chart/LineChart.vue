@@ -1,17 +1,62 @@
 <template>
-  <div class="pa-5">
-    <v-card-title class="text-subtitle-1 font-weight-bold primaryColor--text">
-      Statistik Covid 19 Selama 7 Hari
-    </v-card-title>
+  <div class="pa-3">
+    <v-list-item two-line>
+      <v-list-item-content>
+        <v-list-item-title
+          class="capitalize font-weight-bold primaryColor--text"
+          >Statistik positif Covid 19 Selama 7 Hari
+        </v-list-item-title>
+        <v-list-item-subtitle class="capitalize"
+          >Lihat statistik lainnya di sini
+          <NuxtLink to="/Portfolio/TrackerCorona/statistic">
+            <v-hover v-slot="{ hover }">
+              <v-icon
+                x-small
+                :color="hover ? 'primaryColor' : 'orange darken-4'"
+              >
+                mdi-open-in-new
+              </v-icon>
+            </v-hover>
+          </NuxtLink>
+        </v-list-item-subtitle>
+      </v-list-item-content>
+    </v-list-item>
 
-    <v-card-text>
-      <canvas id="lineChart" ref="lineChart" class="w-52 h-60 block"></canvas>
-    </v-card-text>
+    <v-list-item>
+      <v-list-item-content>
+        <canvas id="lineChart" ref="lineChart" class="w-52 h-62 block"></canvas>
+      </v-list-item-content>
+    </v-list-item>
   </div>
 </template>
 
 <script>
 export default {
+  props: ["dataPerDays"],
+
+  methods: {
+    getPerDays() {
+      let data = [];
+      let namesDay = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];
+
+      for (let i = 0; i < 7; i++) {
+        let getData = new Date(this.dataPerDays[i].key_as_string);
+        data.push(namesDay[getData.getDay()]);
+      }
+
+      return data;
+    }
+  },
+
+  computed: {
+    getDataTotal() {
+      let data = [];
+      for (let i = 0; i < 7; i++) {
+        data.push(this.dataPerDays[i].jumlah_positif.value);
+      }
+      return data;
+    }
+  },
   mounted() {
     let options = {
       layout: {
@@ -33,11 +78,11 @@ export default {
     };
 
     const data = {
-      labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      labels: this.getPerDays(),
       datasets: [
         {
           label: "",
-          data: [54, 63, 60, 65, 60, 68, 60],
+          data: this.getDataTotal,
           fill: false,
           borderColor: "rgb(255,0,23)",
           tension: 0.4,
@@ -50,7 +95,7 @@ export default {
           pointHoverBorderColor: "white"
         }
       ]
-    };
+    };  
 
     this.$chart(this.$refs.lineChart, "line", data, options);
   }

@@ -67,51 +67,6 @@ export default {
       return articles;
     }
   }
-  // filters: {
-  //   day(day) {
-  //     let date = new Date(day);
-  //     let namesDay = [
-  //       "Minggu",
-  //       "senin",
-  //       "selasa",
-  //       "rabu",
-  //       "kamis",
-  //       "jum'at",
-  //       "sabtu",
-  //       "minggu"
-  //     ];
-
-  //     return namesDay[date.getDay()];
-  //   },
-  //   toDate(date) {
-  //     let getdate = new Date(date);
-  //     return getdate.getDate();
-  //   },
-  //   year(year) {
-  //     let getYear = new Date(year);
-  //     return getYear.getFullYear();
-  //   },
-  //   month(month) {
-  //     let date = new Date(month);
-
-  //     let monthNames = [
-  //       "Januari",
-  //       "Februari",
-  //       "Maret",
-  //       "April",
-  //       "May",
-  //       "Juni",
-  //       "Juli",
-  //       "Augustus",
-  //       "September",
-  //       "Oktober",
-  //       "November",
-  //       "Desember"
-  //     ];
-
-  //     return monthNames[date.getMonth()];
-  //   }
-  // }
 };
 </script>
 

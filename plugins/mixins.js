@@ -24,13 +24,12 @@ if (!Vue.__my_mixin__) {
         let date = new Date(day);
         let namesDay = [
           "Minggu",
-          "senin",
-          "selasa",
-          "rabu",
-          "kamis",
-          "jum'at",
-          "sabtu",
-          "minggu"
+          "Senin",
+          "Selasa",
+          "Rabu",
+          "Kamis",
+          "Jum'at",
+          "Sabtu"
         ];
 
         return namesDay[date.getDay()];

@@ -72,23 +72,25 @@
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col cols="4">
-        <v-card rounded="lg" class="">
-          <TrackerCoronaComponentChartLineChart />
-        </v-card>
-      </v-col>
-      <v-col cols="4">
-        <v-card rounded="lg">
-          <TrackerCoronaComponentAddedCases :addedCases="addedEveryday" />
-        </v-card>
-      </v-col>
-      <v-col cols="4">
-        <v-card class="" rounded="lg">
-          <TrackerCoronaComponentDataVaccine :vaccine="targetVaccine" />
-        </v-card>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col cols="4">
+          <v-card rounded="lg" class="">
+            <TrackerCoronaComponentChartLineChart :dataPerDays="countDay" />
+          </v-card>
+        </v-col>
+        <v-col cols="4">
+          <v-card rounded="lg">
+            <TrackerCoronaComponentAddedCases :addedCases="addedEveryday" />
+          </v-card>
+        </v-col>
+        <v-col cols="4">
+          <v-card class="" rounded="lg">
+            <TrackerCoronaComponentDataVaccine :vaccine="targetVaccine" />
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -131,6 +133,7 @@ export default {
 
     return {
       totalPasien: pasien.update.total,
+      countDay: pasien.update.harian,
       newsResult: news.articles,
       locationResult: location.list_data,
       targetVaccine: vaccine.monitoring,
