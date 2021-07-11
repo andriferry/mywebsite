@@ -13,20 +13,46 @@
 <script>
 export default {
   mounted() {
+    let options = {
+      layout: {
+        padding: 10
+      },
+      responsive: true,
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+      scales: {
+        xAxis: {
+          grid: {
+            display: false
+          }
+        }
+      }
+    };
+
     const data = {
-      labels: "Firtsh",
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       datasets: [
         {
-          label: "My First Dataset",
-          data: [65, 59, 80, 81, 56, 55, 40],
+          label: "",
+          data: [54, 63, 60, 65, 60, 68, 60],
           fill: false,
-          borderColor: "rgb(75, 192, 192)",
-          tension: 0.4
+          borderColor: "rgb(255,0,23)",
+          tension: 0.4,
+          xAxisID: "xAxis",
+          pointRadius: 6,
+          pointBorderWidth: 2,
+          pointHoverRadius: 8,
+          pointBackgroundColor: "white",
+          pointHoverBackgroundColor: "red",
+          pointHoverBorderColor: "white"
         }
       ]
     };
 
-    this.$chart(this.$refs.lineChart, "line", data);
+    this.$chart(this.$refs.lineChart, "line", data, options);
   }
 };
 </script>
