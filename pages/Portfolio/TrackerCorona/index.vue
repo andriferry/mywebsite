@@ -79,9 +79,8 @@
         </v-card>
       </v-col>
       <v-col cols="4">
-        <!-- <v-card class="">Data Penambahan: Ambil bagian update.penambahan</v-card> -->
         <v-card rounded="lg">
-          <TrackerCoronaComponentAddedCases />
+          <TrackerCoronaComponentAddedCases :addedCases="addedEveryday" />
         </v-card>
       </v-col>
       <v-col cols="4">
@@ -95,6 +94,10 @@
 
 <script>
 export default {
+  loading: {
+    color: "red",
+    height: "5px"
+  },
   async asyncData({ $axios }) {
     function vaccineTarget() {
       return $axios.$get("/vaksinasi/");
@@ -130,7 +133,8 @@ export default {
       totalPasien: pasien.update.total,
       newsResult: news.articles,
       locationResult: location.list_data,
-      targetVaccine: vaccine.monitoring
+      targetVaccine: vaccine.monitoring,
+      addedEveryday: pasien.update.penambahan
     };
   },
 
@@ -159,24 +163,6 @@ export default {
           title: "total meninggal",
           emoticon: "mdi-emoticon-cry-outline",
           total: ""
-        }
-      ],
-      desserts: [
-        {
-          name: "Frozen Yogurt",
-          calories: 159
-        },
-        {
-          name: "Ice cream sandwich",
-          calories: 237
-        },
-        {
-          name: "Eclair",
-          calories: 262
-        },
-        {
-          name: "Cupcake",
-          calories: 305
         }
       ]
     };

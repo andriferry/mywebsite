@@ -1,6 +1,6 @@
 <template>
   <div class="pa-5">
-    <canvas id="myChart" height="270px" width="270"></canvas>
+    <canvas id="myChart" ref="polarArea" height="270px" width="270"></canvas>
   </div>
 </template>
 
@@ -62,7 +62,7 @@ export default {
         }
       ]
     };
-    this.$chart(document.getElementById("myChart"), "polarArea", data, options);
+    this.$chart(this.$refs.polarArea, "polarArea", data, options);
   }
 };
 </script>
